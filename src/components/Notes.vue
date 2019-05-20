@@ -3,7 +3,7 @@
     <div class="line">------------------------------------------------------</div>
     <LabelInputs
       labelTitle="Agent Name/Date of Contact: "
-      v-model="$store.state.agentName"
+      v-model="$store.state.inputValues.agentName"
       showDate="true"
     />
     <LabelInputs

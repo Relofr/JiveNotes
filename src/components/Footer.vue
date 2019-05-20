@@ -47,7 +47,7 @@ export default {
       this.displayNotificationSuccess();
     },
     clearNotes() {
-      this.$store.commit("clearNotes");
+      this.$store.dispatch("resetInputValues");
       this.showModal = false;
       this.displayNotificationWarning();
     },

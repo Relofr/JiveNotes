@@ -3,6 +3,7 @@
     <router-link to="/">Notes</router-link>
     <router-link to="/css">CSS</router-link>
     <router-link to="/callexample">Call Example</router-link>
+    <router-link to="/t2escalation">T2 Escalation</router-link>
   </div>
 </template>
 
