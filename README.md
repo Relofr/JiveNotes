@@ -1,2 +1,0 @@
-# JiveNotes
-Created with CodeSandbox
