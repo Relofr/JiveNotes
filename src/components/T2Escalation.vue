@@ -7,10 +7,12 @@
       v-model="$store.state.T2contactName"
     />
     <LabelInputs
+      autosize="true"
       labelTitle="Issue (Full Scope of Issue, Devices Affected):"
       v-model="$store.state.T2Issue"
     />
     <LabelInputs
+      autosize="true"
       labelTitle="Troubleshooting/Replication Steps:"
       v-model="$store.state.T2Troubleshooting"
     />

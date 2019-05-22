@@ -4,11 +4,13 @@ import router from "./router";
 import store from "./store";
 
 import Snotify, { SnotifyPosition } from "vue-snotify";
+import VTooltip from "v-tooltip";
 import "vue-snotify/styles/material.css";
 import VueTextareaAutosize from "vue-textarea-autosize";
 
 Vue.use(require("vue-shortkey"));
 Vue.use(require("vue-moment"));
+Vue.use(VTooltip);
 Vue.use(VueTextareaAutosize);
 
 Vue.config.productionTip = false;

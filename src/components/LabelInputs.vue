@@ -10,7 +10,11 @@
 
 <script>
 export default {
+  data() {
+    return {};
+  },
   props: ["labelTitle", "value", "placeholder", "showDate", "autosize"],
+  components: {},
   methods: {
     getDate() {
       var today = new Date();

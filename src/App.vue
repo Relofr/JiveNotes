@@ -6,6 +6,9 @@
         <router-view/>
       </transition>
       <Footer class="no-select"/>
+      <div v-if="showStopwatch" class="stopwatch-container">
+        <Stopwatch/>
+      </div>
       <vue-snotify class="no-select"></vue-snotify>
     </div>
   </div>
@@ -15,11 +18,14 @@
 import { store } from "./store";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Stopwatch from "./components/Stopwatch";
 
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      showStopwatch: false
+    };
   },
   components: {
     Navbar,

@@ -1,12 +1,16 @@
 <template>
   <div>
     <div class="line">------------------------------------------------------</div>
+    <Tooltip tooltip="true" moreInfo="This field will not clear"/>
     <LabelInputs
+      tooltip="true"
+      autosize="true"
       labelTitle="Agent Name/Date of Contact: "
       v-model="$store.state.inputValues.agentName"
       showDate="true"
     />
     <LabelInputs
+      autosize="true"
       labelTitle="Contact Name / (Admin/User/Partner):"
       v-model="$store.state.contactName"
     />
@@ -34,10 +38,12 @@
       v-model="$store.state.troubleshooting"
     />
     <LabelInputs
+      autosize="true"
       labelTitle="Resolution/Escalation(Was issue resolved or escalated?):"
       v-model="$store.state.resolution"
     />
     <div class="line">------------------------------------------------------</div>
+    <Tooltip tooltip="true" moreInfo="This field will not clear or copy"/>
     <LabelInputs
       v-shortkey.avoid
       autosize="true"
@@ -52,6 +58,7 @@
 import { store } from "../store.js";
 import LabelInputs from "./LabelInputs";
 import Button from "./Button";
+import Tooltip from "./Tooltip";
 
 export default {
   data() {
@@ -59,7 +66,8 @@ export default {
   },
   components: {
     LabelInputs,
-    Button
+    Button,
+    Tooltip
   },
   methods: {}
 };

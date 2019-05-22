@@ -1,12 +1,16 @@
 <template>
   <div class="footer-container" v-shortkey="['ctrl', 'c']" @shortkey="copyNotes()">
     <div class="left-container" v-shortkey="['ctrl', 'x']" @shortkey="showModal = true">
+      <!-- <QuickTime/> -->
       <Settings/>
-      <Stopwatch/>
+      <i id="stopwatch-icon" class="material-icons" @click="toggleStopWatch()">watch_later</i>
     </div>
     <div class="buttons">
       <Button class="button" buttonTitle="clear" @click="showModal = true"/>
       <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
+    </div>
+    <div v-if="showStopwatch" class="stopwatch-container">
+      <Stopwatch/>
     </div>
 
     <Modal v-if="showModal" @close="showModal = false">
@@ -24,17 +28,20 @@ import { store } from "../store.js";
 import Stopwatch from "./Stopwatch";
 import Button from "./Button";
 import Settings from "./Settings";
+import QuickTime from "./QuickTime";
 import Modal from "./Modal";
 export default {
   data() {
     return {
-      showModal: false
+      showModal: false,
+      showStopwatch: false
     };
   },
   components: {
     Stopwatch,
     Button,
     Settings,
+    QuickTime,
     Modal
   },
   methods: {
@@ -47,6 +54,7 @@ export default {
       this.displayNotificationSuccess();
     },
     clearNotes() {
+      this.$store.state.agentName = "";
       this.$store.dispatch("resetInputValues");
       this.showModal = false;
       this.displayNotificationWarning();
@@ -56,6 +64,9 @@ export default {
     },
     displayNotificationWarning() {
       this.$snotify.warning("Cleared!");
+    },
+    toggleStopWatch() {
+      this.showStopwatch = !this.showStopwatch;
     }
   }
 };
@@ -104,6 +115,12 @@ export default {
     background-color: #cce9fa;
     border-radius: 51%;
   }
+}
+
+#stopwatch-icon {
+  line-height: 32px;
+  margin-left: 11px;
+  cursor: pointer;
 }
 
 .snotifyToast__inner {

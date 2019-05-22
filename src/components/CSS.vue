@@ -1,7 +1,7 @@
 <template>
   <div>
-    <LabelInputs labelTitle="Case#:" v-model="$store.state.case"/>
-    <LabelInputs placeholder="N/A" labelTitle="Wiki:" v-model="$store.state.wiki"/>
+    <LabelInputs autosize="true" labelTitle="Case#:" v-model="$store.state.case"/>
+    <LabelInputs autosize="true" placeholder="N/A" labelTitle="Wiki:" v-model="$store.state.wiki"/>
     <LabelInputs
       autosize="true"
       labelTitle="Description of Issue:"
@@ -9,8 +9,8 @@
     />
     <LabelInputs autosize="true" labelTitle="Question:" v-model="$store.state.description"/>
     <LabelInputs
-      placeholder="N/A"
       autosize="true"
+      placeholder="N/A"
       labelTitle="Applicable Information:"
       v-model="$store.state.applicable"
     />
