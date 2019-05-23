@@ -16,24 +16,12 @@ export default {};
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  /* overflow-y: hidden; */
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  background-color: #353535;
-}
-
 .wrapper {
-  width: 80%;
+  background-color: #212121;
+  font-size: 1.8em;
+  padding-top: 50%;
+  height: 100%;
   text-align: center;
-  margin: auto;
-  margin-top: 40vh;
 }
 
 .dot {
@@ -54,7 +42,6 @@ body {
 .dots {
   height: 100px;
   width: 100%;
-  /* overflow: hidden; */
 }
 
 @keyframes wave {

@@ -25,6 +25,12 @@ export default {
   color: #f5f5f5;
   z-index: 99;
   cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .tooltip {
@@ -74,5 +80,14 @@ export default {
     opacity: 1;
     transition: opacity 0.15s;
   }
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>
