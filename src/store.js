@@ -1,44 +1,22 @@
 import Vue from "vue";
 import Vuex from "vuex";
+
 Vue.use(Vuex);
 
-const state = {
-  inputValues: {
-    agentName: "",
-    contactName: "",
-    summary: "",
-    devices: "",
-    network: "",
-    troubleshooting: "",
-    resolution: "",
-    notes: "",
-    case: "",
-    wiki: "",
-    description: "",
-    applicable: "",
-    pbx: "",
-    server: "",
-    to: "",
-    from: "",
-    dateTime: "",
-    callid: "",
-    logs: "",
-    T2approvedBy: "",
-    T2contactName: "",
-    T2Issue: "",
-    T2Troubleshooting: "",
-    T2Configuration: "",
-    T2Network: ""
+export default new Vuex.Store({
+  state: {
+    agentName: "Default",
+    links: ["hi", "hi2", "hi3"]
+  },
+  getters: {
+    getValue: state => {
+      return state.agentName.length;
+    }
   },
   mutations: {
-    resetInputValues(state) {
-      Object.keys(state.inputValues).forEach(function(key) {
-        state.inputValues[key] = "";
-      });
+    ADD_LINK: (state, link) => {
+      state.links.push(link);
     }
-  }
-};
-
-export default new Vuex.Store({
-  state
+  },
+  actions: {}
 });

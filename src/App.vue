@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <div class="app-container">
+    <div v-if="!isLoading">
+      <Loading/>
+    </div>
+    <div class="app-container" v-else>
       <Navbar class="no-select"/>
       <transition name="component-fade" mode="out-in">
         <router-view/>
@@ -15,23 +18,29 @@
 </template>
 
 <script>
-import { store } from "./store";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Stopwatch from "./components/Stopwatch";
+import Loading from "./components/Loading";
 
 export default {
   name: "App",
   data() {
     return {
-      showStopwatch: false
+      showStopwatch: false,
+      isLoading: false
     };
   },
   components: {
     Navbar,
+    Loading,
+    Stopwatch,
     Footer
   },
-  methods: {}
+  methods: {},
+  created() {},
+  watch: {},
+  computed: {}
 };
 </script>
 

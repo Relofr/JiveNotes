@@ -5,26 +5,23 @@
       <Settings/>
       <i id="stopwatch-icon" class="material-icons" @click="toggleStopWatch()">watch_later</i>
     </div>
-    <div class="buttons">
+    <!-- <div class="buttons">
       <Button class="button" buttonTitle="clear" @click="showModal = true"/>
       <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
-    </div>
-    <div v-if="showStopwatch" class="stopwatch-container">
-      <Stopwatch/>
     </div>
 
     <Modal v-if="showModal" @close="showModal = false">
       <span slot="header">Confirm Clear</span>
       <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
       <i slot="footer" id="copyIconModal" class="material-icons" @click="clearNotes()">check</i>
-      <!-- <Button slot="footer" class="button" buttonTitle="Cancel" @click="showModal = false"/>
-      <Button slot="footer" class="button" buttonTitle="clear" @click="clearNotes()"/>-->
-    </Modal>
+    </Modal>-->
+    <div v-if="showStopwatch" class="stopwatch-container">
+      <Stopwatch/>
+    </div>
   </div>
 </template>
 
 <script>
-import { store } from "../store.js";
 import Stopwatch from "./Stopwatch";
 import Button from "./Button";
 import Settings from "./Settings";
@@ -54,8 +51,8 @@ export default {
       this.displayNotificationSuccess();
     },
     clearNotes() {
-      this.$store.state.agentName = "";
-      this.$store.dispatch("resetInputValues");
+      this.agentName = "";
+
       this.showModal = false;
       this.displayNotificationWarning();
     },
