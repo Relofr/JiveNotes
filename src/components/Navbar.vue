@@ -17,6 +17,7 @@ export default {};
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 25px;
+  justify-content: center;
 }
 
 .topnav a {
@@ -34,5 +35,17 @@ export default {};
 
 .topnav a.active {
   color: white;
+}
+
+@media only screen and (max-width: 560px) {
+  .topnav a {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .topnav a {
+    font-size: 10px;
+  }
 }
 </style>
