@@ -19,7 +19,7 @@ export default {};
 .wrapper {
   background-color: #212121;
   font-size: 1.8em;
-  padding-top: 50%;
+  padding-top: 40%;
   height: 100%;
   text-align: center;
 }
