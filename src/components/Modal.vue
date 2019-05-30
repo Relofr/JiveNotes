@@ -75,6 +75,11 @@ export default {
   color: #42b983;
 }
 
+.modal-header span {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
 .modal-body {
   margin: 20px 0;
 }

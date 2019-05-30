@@ -19,8 +19,8 @@ const options = {
   toast: {
     position: SnotifyPosition.centerBottom,
     showProgressBar: false,
-    pauseOnHover: false,
-    timeout: 100000
+    pauseOnHover: false
+    // timeout: 100000
   }
 };
 Vue.use(Snotify, options);
