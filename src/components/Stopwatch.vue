@@ -114,7 +114,7 @@ export default {
   display: inline-block;
   vertical-align: super;
   font-family: montserrat;
-  font-size: 26px;
+  font-size: 28px;
   color: #4fc3f7;
   margin-left: 10px;
 }
@@ -139,7 +139,7 @@ td {
 #play_icon,
 #pause_icon,
 #clear_icon {
-  font-size: 30px;
+  font-size: 28px;
   cursor: pointer;
   color: #f5f5f5;
 }
@@ -151,7 +151,7 @@ td {
 }
 #session-icon {
   margin-left: 35px;
-  font-size: 27px;
+  font-size: 28px;
 }
 
 .timer-button {
@@ -160,7 +160,7 @@ td {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 520px) {
   .formatted-time {
     font-size: 22px;
   }

@@ -36,7 +36,7 @@ export default {
 <style lang='less'>
 .icon i {
   font-size: 28px;
-  line-height: 35px;
+  line-height: 38px;
   -webkit-transition: -webkit-transform 2s ease-in-out;
   -ms-transition: -ms-transform 2s ease-in-out;
   transition: transform 2s ease-in-out;
@@ -47,6 +47,12 @@ export default {
       -ms-transform: rotate(360deg);
       -webkit-transform: rotate(360deg);
     }
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .icon i {
+    line-height: 30px;
   }
 }
 
