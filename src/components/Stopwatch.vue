@@ -1,10 +1,10 @@
 <template>
   <div>
     <span v-if="showTable === false" @click="toggleStopWatch()">
-      <i id="session-icon" class="material-icons">timer</i>
+      <i id="session-icon" class="material-icons">timer_off</i>
     </span>
     <span v-else @click="toggleStopWatch()">
-      <i id="session-icon" class="material-icons">timer_off</i>
+      <i id="session-icon" class="material-icons">timer</i>
     </span>
     <i
       v-shortkey="['ctrl', 'space']"

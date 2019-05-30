@@ -55,7 +55,7 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #353535; */
+  background-color: #353535;
   border-radius: 8px;
   padding: 20px;
   width: 80%;
@@ -117,5 +117,11 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+input,
+textarea,
+label {
+  font-family: Montserrat;
 }
 </style>
