@@ -35,8 +35,8 @@ export default {
 
 <style lang='less'>
 .icon i {
-  font-size: 26px;
-  line-height: 32px;
+  font-size: 28px;
+  line-height: 35px;
   -webkit-transition: -webkit-transform 2s ease-in-out;
   -ms-transition: -ms-transform 2s ease-in-out;
   transition: transform 2s ease-in-out;

@@ -3,7 +3,7 @@
     <div class="left-container" v-shortkey="['ctrl', 'x']" @shortkey="showModal = true">
       <!-- <QuickTime/> -->
       <Settings/>
-      <i id="stopwatch-icon" class="material-icons" @click="toggleStopWatch()">watch_later</i>
+      <!-- <i id="stopwatch-icon" class="material-icons" @click="toggleStopWatch()">watch_later</i> -->
     </div>
     <!-- <div class="buttons">
       <Button class="button" buttonTitle="clear" @click="showModal = true"/>
@@ -15,7 +15,7 @@
       <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
       <i slot="footer" id="copyIconModal" class="material-icons" @click="clearNotes()">check</i>
     </Modal>-->
-    <div v-if="showStopwatch" class="stopwatch-container">
+    <div class="stopwatch-container">
       <Stopwatch/>
     </div>
   </div>
@@ -118,12 +118,6 @@ export default {
     background-color: #cce9fa;
     border-radius: 51%;
   }
-}
-
-#stopwatch-icon {
-  line-height: 32px;
-  margin-left: 11px;
-  cursor: pointer;
 }
 
 .snotifyToast__inner {

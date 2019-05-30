@@ -1,5 +1,11 @@
 <template>
   <div>
+    <span v-if="showTable === false" @click="toggleStopWatch()">
+      <i id="session-icon" class="material-icons">timer</i>
+    </span>
+    <span v-else @click="toggleStopWatch()">
+      <i id="session-icon" class="material-icons">timer_off</i>
+    </span>
     <i
       v-shortkey="['ctrl', 'space']"
       @shortkey="toggleTimer"
@@ -15,36 +21,23 @@
     </i>
     <div class="formatted-time">{{formattedTime}}</div>
     <br>
-    <label>Title</label>
-    <input placeholder="N/A" type="text" v-model="sessionName">
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>Time</th>
-      </tr>
-      <tr v-for="(session, index) in sessions" :key="index">
-        <td>{{session.name }}</td>
-        <td>{{session.time }}</td>
-      </tr>
-    </table>
-    <i id="clear_icon" class="material-icons" @click="clearSession()">delete</i>
+    <br>
+    <div v-if="showTable">
+      <label>Title</label>
+      <input placeholder="N/A" type="text" v-model="sessionName">
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Time</th>
+        </tr>
+        <tr v-for="(session, index) in sessions" :key="index">
+          <td>{{session.name }}</td>
+          <td>{{session.time }}</td>
+        </tr>
+      </table>
+      <i id="clear_icon" class="material-icons" @click="clearSession()">delete</i>
+    </div>
   </div>
-  <!-- <div>
-    <button
-      v-shortkey="['ctrl', 'space']"
-      @shortkey="toggleTimer"
-      @click="toggleTimer"
-      class="timer-button"
-    >
-      <span v-if="running">
-        <i id="pause_icon" class="material-icons">pause</i>
-      </span>
-      <span v-else>
-        <i id="play_icon" class="material-icons">play_arrow</i>
-      </span>
-    </button>
-    <div class="formatted-time">{{formattedTime}}</div>
-  </div>-->
 </template>
 
 <script>
@@ -57,7 +50,8 @@ export default {
       formattedTime: "-- : -- : --",
       interval: null,
       sessionName: "",
-      sessions: [{ name: "", time: "" }]
+      showTable: false,
+      sessions: [{ name: "Initial State", time: "00:00:00" }]
     };
   },
   components: {
@@ -107,6 +101,9 @@ export default {
         name: this.sessionName,
         time: this.formattedTime
       });
+    },
+    toggleStopWatch() {
+      this.showTable = !this.showTable;
     }
   }
 };
@@ -143,17 +140,24 @@ td {
 #pause_icon,
 #clear_icon {
   font-size: 30px;
-  /* line-height: 32px; */
   cursor: pointer;
   color: #f5f5f5;
 }
 #clear_icon {
   margin: 0;
 }
+#clock-icon {
+  margin-left: 35px;
+}
+#session-icon {
+  margin-left: 35px;
+  font-size: 27px;
+}
 
 .timer-button {
   background-color: transparent;
-  margin-left: 70px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 460px) {
