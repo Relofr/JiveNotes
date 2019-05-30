@@ -39,8 +39,8 @@ export default {
   font-family: "Montserrat", sans-serif;
 
   .tooltip-inner {
-    background: #000;
-    color: white;
+    background: #fff;
+    color: rgba(0, 0, 0, 0.87);
     border-radius: 16px;
     padding: 5px 18px 4px;
   }

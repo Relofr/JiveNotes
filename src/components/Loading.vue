@@ -15,12 +15,18 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .wrapper {
-  background-color: #212121;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.8em;
-  padding-top: 40%;
-  height: 100%;
+  background: #212121;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 

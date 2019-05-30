@@ -109,7 +109,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang='less' scoped>
 .formatted-time {
   display: inline-block;
   vertical-align: super;
@@ -135,7 +135,15 @@ th,
 td {
   padding: 15px;
 }
-
+td:nth-child(1) {
+  border-radius: 8px 0px 0px 8px;
+}
+td:nth-child(2) {
+  border-radius: 0px 8px 8px 0px;
+}
+tr:nth-child(even) {
+  background-color: #424242;
+}
 #play_icon,
 #pause_icon,
 #clear_icon {
@@ -144,7 +152,8 @@ td {
   color: #f5f5f5;
 }
 #clear_icon {
-  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 0px;
 }
 #clock-icon {
   margin-left: 35px;

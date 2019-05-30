@@ -1,19 +1,22 @@
 <template>
-  <div id="app">
-    <div id="no-select" v-if="isLoading">
-      <Loading/>
+  <div>
+    <div v-if="isLoading">
+      <span><Loading/></span>
     </div>
-    <div class="app-container" v-else>
-      <Navbar class="no-select"/>
-      <transition name="component-fade" mode="out-in">
-        <router-view/>
-      </transition>
-      <Footer class="no-select"/>
-      <div v-if="showStopwatch" class="stopwatch-container">
-        <Stopwatch/>
+    <div id="app" v-else>
+      <div class="app-container">
+        <Navbar class="no-select"/>
+        <transition name="component-fade" mode="out-in">
+          <router-view/>
+        </transition>
+        <Footer class="no-select"/>
+        <div v-if="showStopwatch" class="stopwatch-container">
+          <Stopwatch/>
+        </div>
+        <vue-snotify class="no-select"></vue-snotify>
       </div>
-      <vue-snotify class="no-select"></vue-snotify>
     </div>
+  </div>
   </div>
 </template>
 
