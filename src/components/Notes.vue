@@ -29,69 +29,20 @@
 
     <label>Resolution/Escalation(Was issue resolved or escalated?):</label>
     <textarea-autosize rows="1" v-model="resolution"></textarea-autosize>
-
-    <div class="line">--------------------------------------</div>
+    <!-- <Dropdown/> -->
+    <div class="line">------------------------------------------------------</div>
     <Tooltip tooltip="true" moreInfo="This field will not clear or copy"/>
 
     <label class="no-select">Notes:</label>
     <div class="no-select">
-      <textarea-autosize v-shortkey.avoid rows="1"></textarea-autosize>
+      <textarea-autosize v-shortkey.avoid rows="1" v-model="notes"></textarea-autosize>
     </div>
 
-    <!--
-    <LabelInputs
-      tooltip="true"
-      autosize="true"
-      labelTitle="Agent Name/Date of Contact: "
-      v-model="agentName"
-      showDate="true"
-    />
-    
-    <LabelInputs
-      autosize="true"
-      labelTitle="Contact Name / (Admin/User/Partner):"
-      v-model="contactName"
-    />
-    <LabelInputs autosize="true" labelTitle="Summary of Issue/Request:" v-model="summary"/>
-    <LabelInputs
-      autosize="true"
-      placeholder="N/A"
-      labelTitle="Device Ext/MAC (if applicable):"
-      v-model="devices"
-    />
-    <LabelInputs
-      autosize="true"
-      placeholder="N/A"
-      labelTitle="Network Topology(IP info, ISP, Router Model #, Router Password, etc. if applicable):"
-      v-model="network"
-    />
-    <LabelInputs
-      autosize="false"
-      placeholder="N/A"
-      labelTitle="Troubleshooting/Replication Steps (Dial Plan Changes, PBX Changes, Network Changes, Device Interface Changes, include call examples/sip logs if applicable):"
-      v-model="troubleshooting"
-    />
-    <LabelInputs
-      autosize="true"
-      labelTitle="Resolution/Escalation(Was issue resolved or escalated?):"
-      v-model="resolution"
-    />
-    <div class="line">------------------------------------------------------</div>
-    <Tooltip tooltip="true" moreInfo="This field will not clear or copy"/>
-    <LabelInputs
-      v-shortkey.avoid
-      autosize="true"
-      class="no-select"
-      labelTitle="Notes:"
-      v-model="notes"
-    />-->
     <div class="buttons">
       <Button class="button" buttonTitle="clear" @click="showModal = true"/>
       <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
     </div>
-    <!-- <div v-if="showStopwatch" class="stopwatch-container">
-      <Stopwatch/>
-    </div>-->
+
     <Modal v-if="showModal" @close="showModal = false">
       <span slot="header">Confirm Clear</span>
       <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
@@ -105,6 +56,7 @@ import LabelInputs from "./LabelInputs";
 import Button from "./Button";
 import Tooltip from "./Tooltip";
 import Modal from "./Modal";
+import Dropdown from "./Dropdown";
 
 export default {
   data: () => ({
@@ -115,6 +67,7 @@ export default {
     network: "",
     troubleshooting: "",
     resolution: "",
+    notes: "",
     showModal: false,
     showStopwatch: false
   }),
@@ -122,6 +75,7 @@ export default {
     LabelInputs,
     Button,
     Tooltip,
+    Dropdown,
     Modal
   },
   methods: {
@@ -151,6 +105,88 @@ export default {
     displayNotificationWarning() {
       this.$snotify.warning("Cleared!");
     }
+  },
+  watch: {
+    agentName: {
+      handler() {
+        console.log("Updated agentName to: " + this.agentName);
+        localStorage.setItem("agentName", JSON.stringify(this.agentName));
+      },
+      deep: true
+    },
+    contact: {
+      handler() {
+        console.log("Updated contact to: " + this.contact);
+        localStorage.setItem("contact", JSON.stringify(this.contact));
+      },
+      deep: true
+    },
+    summary: {
+      handler() {
+        console.log("Updated summary to: " + this.summary);
+        localStorage.setItem("summary", JSON.stringify(this.summary));
+      },
+      deep: true
+    },
+    devices: {
+      handler() {
+        console.log("Updated devices to: " + this.devices);
+        localStorage.setItem("devices", JSON.stringify(this.devices));
+      },
+      deep: true
+    },
+    network: {
+      handler() {
+        console.log("Updated network to: " + this.network);
+        localStorage.setItem("network", JSON.stringify(this.network));
+      },
+      deep: true
+    },
+    troubleshooting: {
+      handler() {
+        console.log("Updated troubleshooting to: " + this.troubleshooting);
+        localStorage.setItem(
+          "troubleshooting",
+          JSON.stringify(this.troubleshooting)
+        );
+      },
+      deep: true
+    },
+    resolution: {
+      handler() {
+        console.log("Updated resolution to: " + this.resolution);
+        localStorage.setItem("resolution", JSON.stringify(this.resolution));
+      },
+      deep: true
+    },
+    notes: {
+      handler() {
+        console.log("Updated notes to: " + this.notes);
+        localStorage.setItem("notes", JSON.stringify(this.notes));
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    console.log("App mounted");
+    if (localStorage.getItem("agentName"))
+      this.agentName = JSON.parse(localStorage.getItem("agentName"));
+    if (localStorage.getItem("contact"))
+      this.contact = JSON.parse(localStorage.getItem("contact"));
+    if (localStorage.getItem("summary"))
+      this.summary = JSON.parse(localStorage.getItem("summary"));
+    if (localStorage.getItem("devices"))
+      this.devices = JSON.parse(localStorage.getItem("devices"));
+    if (localStorage.getItem("network"))
+      this.network = JSON.parse(localStorage.getItem("network"));
+    if (localStorage.getItem("troubleshooting"))
+      this.troubleshooting = JSON.parse(
+        localStorage.getItem("troubleshooting")
+      );
+    if (localStorage.getItem("resolution"))
+      this.resolution = JSON.parse(localStorage.getItem("resolution"));
+    if (localStorage.getItem("notes"))
+      this.notes = JSON.parse(localStorage.getItem("notes"));
   }
 };
 </script>

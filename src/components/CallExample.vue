@@ -102,6 +102,74 @@ export default {
     displayNotificationWarning() {
       this.$snotify.warning("Cleared!");
     }
+  },
+  watch: {
+    pbx: {
+      handler() {
+        console.log("Updated pbx to: " + this.pbx);
+        localStorage.setItem("pbx", JSON.stringify(this.pbx));
+      },
+      deep: true
+    },
+    server: {
+      handler() {
+        console.log("Updated server to: " + this.server);
+        localStorage.setItem("server", JSON.stringify(this.server));
+      },
+      deep: true
+    },
+    to: {
+      handler() {
+        console.log("Updated 'to' to: " + this.to);
+        localStorage.setItem("to", JSON.stringify(this.to));
+      },
+      deep: true
+    },
+    from: {
+      handler() {
+        console.log("Updated from to: " + this.from);
+        localStorage.setItem("from", JSON.stringify(this.from));
+      },
+      deep: true
+    },
+    dateTime: {
+      handler() {
+        console.log("Updated dateTime to: " + this.dateTime);
+        localStorage.setItem("dateTime", JSON.stringify(this.dateTime));
+      },
+      deep: true
+    },
+    callID: {
+      handler() {
+        console.log("Updated callID to: " + this.callID);
+        localStorage.setItem("callID", JSON.stringify(this.callID));
+      },
+      deep: true
+    },
+    logs: {
+      handler() {
+        console.log("Updated logs to: " + this.logs);
+        localStorage.setItem("logs", JSON.stringify(this.logs));
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    console.log("App mounted");
+    if (localStorage.getItem("pbx"))
+      this.pbx = JSON.parse(localStorage.getItem("pbx"));
+    if (localStorage.getItem("server"))
+      this.server = JSON.parse(localStorage.getItem("server"));
+    if (localStorage.getItem("to"))
+      this.to = JSON.parse(localStorage.getItem("to"));
+    if (localStorage.getItem("from"))
+      this.from = JSON.parse(localStorage.getItem("from"));
+    if (localStorage.getItem("dateTime"))
+      this.dateTime = JSON.parse(localStorage.getItem("dateTime"));
+    if (localStorage.getItem("callID"))
+      this.callID = JSON.parse(localStorage.getItem("callID"));
+    if (localStorage.getItem("logs"))
+      this.logs = JSON.parse(localStorage.getItem("logs"));
   }
 };
 </script>

@@ -1,19 +1,5 @@
 <template>
   <div>
-    <!-- <LabelInputs autosize="true" labelTitle="Case#:" v-model="$store.state.case"/>
-    <LabelInputs autosize="true" placeholder="N/A" labelTitle="Wiki:" v-model="$store.state.wiki"/>
-    <LabelInputs
-      autosize="true"
-      labelTitle="Description of Issue:"
-      v-model="$store.state.description"
-    />
-    <LabelInputs autosize="true" labelTitle="Question:" v-model="$store.state.description"/>
-    <LabelInputs
-      autosize="true"
-      placeholder="N/A"
-      labelTitle="Applicable Information:"
-      v-model="$store.state.applicable"
-    />-->
     <label>Case#:</label>
     <textarea-autosize id="cases" autofocus rows="1" v-model="caseNumber"></textarea-autosize>
     <br>
@@ -38,9 +24,6 @@
       <Button class="button" buttonTitle="clear" @click="showModal = true"/>
       <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
     </div>
-    <!-- <div v-if="showStopwatch" class="stopwatch-container">
-      <Stopwatch/>
-    </div>-->
     <Modal v-if="showModal" @close="showModal = false">
       <span slot="header">Confirm Clear</span>
       <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
@@ -96,6 +79,56 @@ export default {
     displayNotificationWarning() {
       this.$snotify.warning("Cleared!");
     }
+  },
+  watch: {
+    caseNumber: {
+      handler() {
+        console.log("Updated caseNumber to: " + this.caseNumber);
+        localStorage.setItem("caseNumber", JSON.stringify(this.caseNumber));
+      },
+      deep: true
+    },
+    wiki: {
+      handler() {
+        console.log("Updated wiki to: " + this.wiki);
+        localStorage.setItem("wiki", JSON.stringify(this.wiki));
+      },
+      deep: true
+    },
+    description: {
+      handler() {
+        console.log("Updated description to: " + this.description);
+        localStorage.setItem("description", JSON.stringify(this.description));
+      },
+      deep: true
+    },
+    question: {
+      handler() {
+        console.log("Updated question to: " + this.question);
+        localStorage.setItem("question", JSON.stringify(this.question));
+      },
+      deep: true
+    },
+    applicable: {
+      handler() {
+        console.log("Updated applicable info to: " + this.applicable);
+        localStorage.setItem("applicable", JSON.stringify(this.applicable));
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    console.log("App mounted");
+    if (localStorage.getItem("caseNumber"))
+      this.caseNumber = JSON.parse(localStorage.getItem("caseNumber"));
+    if (localStorage.getItem("wiki"))
+      this.wiki = JSON.parse(localStorage.getItem("wiki"));
+    if (localStorage.getItem("description"))
+      this.description = JSON.parse(localStorage.getItem("description"));
+    if (localStorage.getItem("question"))
+      this.question = JSON.parse(localStorage.getItem("question"));
+    if (localStorage.getItem("applicable"))
+      this.applicable = JSON.parse(localStorage.getItem("applicable"));
   }
 };
 </script>

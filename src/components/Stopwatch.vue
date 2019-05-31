@@ -13,7 +13,7 @@
       class="timer-button"
     >
       <span v-if="running">
-        <i id="pause_icon" class="material-icons">clear</i>
+        <i id="pause_icon" class="material-icons">pause</i>
       </span>
       <span v-else>
         <i id="play_icon" class="material-icons">play_arrow</i>
@@ -90,7 +90,7 @@ export default {
 
     saveSession() {
       this.sessions.push({
-        name: this.sessionName,
+        name: this.sessionName || "No Data",
         time: this.formattedTime
       });
 
@@ -105,6 +105,20 @@ export default {
     toggleStopWatch() {
       this.showTable = !this.showTable;
     }
+  },
+  watch: {
+    showTable: {
+      handler() {
+        console.log("Updated showTable to: " + this.showTable);
+        localStorage.setItem("showTable", JSON.stringify(this.showTable));
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    console.log("App mounted");
+    if (localStorage.getItem("showTable"))
+      this.showTable = JSON.parse(localStorage.getItem("showTable"));
   }
 };
 </script>
@@ -144,23 +158,27 @@ td:nth-child(2) {
 tr:nth-child(even) {
   background-color: #424242;
 }
-#play_icon,
 #pause_icon,
 #clear_icon {
-  font-size: 28px;
+  font-size: 27px;
   cursor: pointer;
   color: #f5f5f5;
+}
+#play_icon,
+#pause_icon {
+  font-size: 27px;
+  margin-left: 5px;
 }
 #clear_icon {
   margin-top: 15px;
   margin-bottom: 0px;
 }
 #clock-icon {
-  margin-left: 35px;
+  margin-left: 45px;
 }
 #session-icon {
   margin-left: 35px;
-  font-size: 28px;
+  font-size: 27px;
 }
 
 .timer-button {

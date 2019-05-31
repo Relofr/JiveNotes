@@ -1,20 +1,9 @@
 <template>
-  <div class="footer-container" v-shortkey="['alt', 'c']" @shortkey="copyNotes()">
-    <div class="left-container" v-shortkey="['ctrl', 'x']" @shortkey="showModal = true">
+  <div class="footer-container" v-shortkey.once="['alt', 'c']" @shortkey="copyNotes()">
+    <div class="left-container">
       <!-- <QuickTime/> -->
       <Settings/>
-      <!-- <i id="stopwatch-icon" class="material-icons" @click="toggleStopWatch()">watch_later</i> -->
     </div>
-    <!-- <div class="buttons">
-      <Button class="button" buttonTitle="clear" @click="showModal = true"/>
-      <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
-    </div>
-
-    <Modal v-if="showModal" @close="showModal = false">
-      <span slot="header">Confirm Clear</span>
-      <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
-      <i slot="footer" id="copyIconModal" class="material-icons" @click="clearNotes()">check</i>
-    </Modal>-->
     <div class="stopwatch-container">
       <Stopwatch/>
     </div>

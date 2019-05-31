@@ -1,31 +1,5 @@
 <template>
   <div>
-    <!-- <LabelInputs autosize="true" labelTitle="Approved by:" v-model="$store.state.T2approvedBy"/>
-    <LabelInputs
-      autosize="true"
-      labelTitle="Contact Name and Number (If different than Case Requester):"
-      v-model="$store.state.T2contactName"
-    />
-    <LabelInputs
-      autosize="true"
-      labelTitle="Issue (Full Scope of Issue, Devices Affected):"
-      v-model="$store.state.T2Issue"
-    />
-    <LabelInputs
-      autosize="true"
-      labelTitle="Troubleshooting/Replication Steps:"
-      v-model="$store.state.T2Troubleshooting"
-    />
-    <LabelInputs
-      autosize="true"
-      labelTitle="Configuration Changes:"
-      v-model="$store.state.T2Configuration"
-    />
-    <LabelInputs
-      autosize="true"
-      labelTitle="Network Layout (IP info, ISP, Equipment, Logon Credentials, etc.):"
-      v-model="$store.state.T2Network"
-    />-->
     <label>Approved By:</label>
     <textarea-autosize id="approved" autofocus rows="1" v-model="approved"></textarea-autosize>
     <br>
@@ -54,9 +28,6 @@
       <Button class="button" buttonTitle="clear" @click="showModal = true"/>
       <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
     </div>
-    <!-- <div v-if="showStopwatch" class="stopwatch-container">
-      <Stopwatch/>
-    </div>-->
     <Modal v-if="showModal" @close="showModal = false">
       <span slot="header">Confirm Clear</span>
       <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
@@ -115,6 +86,71 @@ export default {
     displayNotificationWarning() {
       this.$snotify.warning("Cleared!");
     }
+  },
+  watch: {
+    approved: {
+      handler() {
+        console.log("Updated approved to: " + this.approved);
+        localStorage.setItem("approved", JSON.stringify(this.approved));
+      },
+      deep: true
+    },
+    contact: {
+      handler() {
+        console.log("Updated contact to: " + this.contact);
+        localStorage.setItem("contact", JSON.stringify(this.contact));
+      },
+      deep: true
+    },
+    issue: {
+      handler() {
+        console.log("Updated issue to: " + this.issue);
+        localStorage.setItem("issue", JSON.stringify(this.issue));
+      },
+      deep: true
+    },
+    replication: {
+      handler() {
+        console.log("Updated replication to: " + this.replication);
+        localStorage.setItem("replication", JSON.stringify(this.replication));
+      },
+      deep: true
+    },
+    configuration: {
+      handler() {
+        console.log("Updated configuration to: " + this.configuration);
+        localStorage.setItem(
+          "configuration",
+          JSON.stringify(this.configuration)
+        );
+      },
+      deep: true
+    },
+    networkLayout: {
+      handler() {
+        console.log("Updated networkLayout to: " + this.networkLayout);
+        localStorage.setItem(
+          "networkLayout",
+          JSON.stringify(this.networkLayout)
+        );
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    console.log("App mounted");
+    if (localStorage.getItem("approved"))
+      this.approved = JSON.parse(localStorage.getItem("approved"));
+    if (localStorage.getItem("contact"))
+      this.contact = JSON.parse(localStorage.getItem("contact"));
+    if (localStorage.getItem("issue"))
+      this.issue = JSON.parse(localStorage.getItem("issue"));
+    if (localStorage.getItem("replication"))
+      this.replication = JSON.parse(localStorage.getItem("replication"));
+    if (localStorage.getItem("configuration"))
+      this.configuration = JSON.parse(localStorage.getItem("configuration"));
+    if (localStorage.getItem("networkLayout"))
+      this.networkLayout = JSON.parse(localStorage.getItem("networkLayout"));
   }
 };
 </script>

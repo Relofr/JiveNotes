@@ -1,7 +1,9 @@
 <template>
   <div>
     <div v-if="isLoading">
-      <span><Loading/></span>
+      <span>
+        <Loading/>
+      </span>
     </div>
     <div id="app" v-else>
       <div class="app-container">
@@ -16,7 +18,6 @@
         <vue-snotify class="no-select"></vue-snotify>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -40,11 +41,13 @@ export default {
     Stopwatch,
     Footer
   },
-
+  created() {
+    this.isLoading = false;
+  },
   mounted() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3500);
+    // setTimeout(() => {
+    //   this.isLoading = false;
+    // }, 3000);
   }
 };
 </script>

@@ -8,8 +8,8 @@
       <span slot="version">v4.0</span>
       <span slot="body">
         <p>Hotkeys</p>
-        <p>Ctrl + C | Copy Notes</p>
-        <p>Ctrl + X | Clear Notes</p>
+        <p>Alt + C | Copy Notes</p>
+        <p>Alt + X | Clear Notes</p>
         <!-- <p>Ctrl + B | Toggle Theme</p> -->
       </span>
       <Button slot="footer" class="button" buttonTitle="Close" @click="showSettingsModal = false"/>
