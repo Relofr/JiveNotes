@@ -42,12 +42,12 @@ export default {
     Footer
   },
   created() {
-    this.isLoading = false;
+    // this.isLoading = false;
   },
   mounted() {
-    // setTimeout(() => {
-    //   this.isLoading = false;
-    // }, 3000);
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2900);
   }
 };
 </script>

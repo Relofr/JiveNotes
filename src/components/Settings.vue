@@ -10,6 +10,7 @@
         <p>Hotkeys</p>
         <p>Alt + C | Copy Notes</p>
         <p>Alt + X | Clear Notes</p>
+        <p>Ctrl + SPACE | Start/STop Timer</p>
         <!-- <p>Ctrl + B | Toggle Theme</p> -->
       </span>
       <Button slot="footer" class="button" buttonTitle="Close" @click="showSettingsModal = false"/>
