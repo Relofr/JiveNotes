@@ -38,7 +38,7 @@ export default {};
   font-size: 1em;
   width: 25%;
   height: 39px;
-  line-height: 40px;
+  line-height: 39px;
   text-align: center;
   border-radius: 8px;
   text-transform: uppercase;
@@ -68,7 +68,7 @@ export default {};
 
 .router-link-exact-active,
 .router-link-active #call-icon {
-  color: #000;
+  color: purple;
 }
 
 .router-link-exact-active,
@@ -79,8 +79,12 @@ export default {};
 .navbar2 i {
   line-height: 36px;
   font-size: 28px;
-  height: 40px;
+  height: 39px;
   vertical-align: middle;
+}
+
+:focus {
+  outline: none;
 }
 
 @media only screen and (max-width: 630px) {

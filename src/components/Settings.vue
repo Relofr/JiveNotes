@@ -5,7 +5,7 @@
     </span>
 
     <Modal v-if="showSettingsModal" @close="showSettingsModal = false">
-      <span slot="version">v4.0</span>
+      <span slot="version">v5.0</span>
       <span slot="body">
         <p>Hotkeys</p>
         <p>Alt + C | Copy Notes</p>

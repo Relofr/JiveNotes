@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section>
+    <section :class="compTheme">
       <div v-if="isLoading">
         <span>
           <Loading/>
@@ -16,7 +16,7 @@
             <router-view/>
           </transition>
           <Footer class="no-select"/>
-          <Theme/>
+          <!-- <button v-on:click="light = !light"></button> -->
           <div v-if="showStopwatch" class="stopwatch-container">
             <Stopwatch/>
           </div>
@@ -32,7 +32,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Stopwatch from "./components/Stopwatch";
 import Loading from "./components/Loading";
-import Theme from "./components/Theme";
 
 export default {
   name: "App",
@@ -48,7 +47,6 @@ export default {
     Navbar,
     Loading,
     Stopwatch,
-    Theme,
     Footer
   },
   methods: {
@@ -63,15 +61,14 @@ export default {
       }
     }
   },
-  watch: {
-    currentTheme: {
-      handler() {
-        console.log("Updated currentTheme to: " + this.currentTheme);
-        localStorage.setItem("currentTheme", JSON.stringify(this.currentTheme));
-      },
-      deep: true
+  computed: {
+    compTheme() {
+      return {
+        light: this.light
+      };
     }
   },
+  watch: {},
   beforeCreate() {
     console.log("beforeCreate");
   },
@@ -86,9 +83,7 @@ export default {
     console.log("mounted");
     setTimeout(() => {
       this.isLoading = false;
-    }, 2900);
-    if (localStorage.getItem("currentTheme"))
-      this.currentTheme = JSON.parse(localStorage.getItem("currentTheme"));
+    }, 2800);
   }
 };
 </script>

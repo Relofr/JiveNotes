@@ -1,12 +1,7 @@
 <template>
   <div v-cloak class="toggle">
     <label class="switch">
-      <input
-        v-shortkey="['ctrl', 'b']"
-        @shortkey="toggleDarkLight()"
-        @click="toggleDarkLight()"
-        type="checkbox"
-      >
+      <input v-shortkey="['alt', 'b']" @shortkey="toggleDarkLight()" :click="click" type="checkbox">
       <span class="slider round"></span>
     </label>
   </div>
@@ -14,26 +9,27 @@
 
 <script>
 export default {
+  props: ["click"],
   data() {
     return {
-      theme: "light"
+      // theme: "light"
     };
   },
   methods: {
-    toggleDarkLight() {
-      console.log(this.theme);
-      switch (this.theme) {
-        case "light":
-          this.theme = "dark";
-          document.querySelector("body").classList.add("dark");
-          break;
-        case "dark":
-          this.theme = "light";
-          document.querySelector("body").classList.remove("dark");
-          break;
-        default:
-      }
-    }
+    // toggleDarkLight() {
+    //   console.log(this.theme);
+    //   switch (this.theme) {
+    //     case "light":
+    //       this.theme = "dark";
+    //       document.querySelector("body").classList.add("dark");
+    //       break;
+    //     case "dark":
+    //       this.theme = "light";
+    //       document.querySelector("body").classList.remove("dark");
+    //       break;
+    //     default:
+    //   }
+    // }
   }
 };
 </script>

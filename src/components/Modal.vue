@@ -3,7 +3,7 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div>
+          <div class="modal-version">
             <slot name="version"></slot>
           </div>
           <div class="modal-header">
@@ -70,9 +70,13 @@ export default {
   color: rgba(0, 0, 0, 0.87);
 }
 
-.modal-header h3 {
+.modal-version {
+  color: #c4c4c4;
+}
+
+.modal-header {
   margin-top: 0;
-  color: #42b983;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .modal-header span {
@@ -82,6 +86,7 @@ export default {
 
 .modal-body {
   margin: 20px 0;
+  font-weight: 600;
 }
 
 .modal-footer {
