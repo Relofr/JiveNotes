@@ -16,6 +16,7 @@
             <router-view/>
           </transition>
           <Footer class="no-select"/>
+          <Theme/>
           <div v-if="showStopwatch" class="stopwatch-container">
             <Stopwatch/>
           </div>
@@ -31,12 +32,14 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Stopwatch from "./components/Stopwatch";
 import Loading from "./components/Loading";
+import Theme from "./components/Theme";
 
 export default {
   name: "App",
   data() {
     return {
       showStopwatch: false,
+      toggleTheme: "light",
       isLoading: true,
       toTopButton: true
     };
@@ -45,6 +48,7 @@ export default {
     Navbar,
     Loading,
     Stopwatch,
+    Theme,
     Footer
   },
   methods: {
@@ -57,6 +61,15 @@ export default {
       } else {
         document.getElementById("gotopbtn").style.visibility = "hidden";
       }
+    }
+  },
+  watch: {
+    currentTheme: {
+      handler() {
+        console.log("Updated currentTheme to: " + this.currentTheme);
+        localStorage.setItem("currentTheme", JSON.stringify(this.currentTheme));
+      },
+      deep: true
     }
   },
   beforeCreate() {
@@ -74,6 +87,8 @@ export default {
     setTimeout(() => {
       this.isLoading = false;
     }, 2900);
+    if (localStorage.getItem("currentTheme"))
+      this.currentTheme = JSON.parse(localStorage.getItem("currentTheme"));
   }
 };
 </script>

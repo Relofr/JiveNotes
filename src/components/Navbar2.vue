@@ -2,7 +2,7 @@
   <div id="mySidenav" class="sidenav">
     <router-link id="notes" to="/notes">
       Notes
-      <i class="material-icons">note</i>
+      <i class="material-icons">assignment</i>
     </router-link>
     <router-link id="css" to="/css">
       CSS

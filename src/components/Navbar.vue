@@ -2,7 +2,7 @@
   <div class="navbar2">
     <router-link to="/notes">
       Notes
-      <i id="notes-icon" class="material-icons">note</i>
+      <i id="notes-icon" class="material-icons">assignment</i>
     </router-link>
     <router-link to="/css">
       CSS
@@ -37,7 +37,7 @@ export default {};
   text-decoration: none;
   font-size: 1em;
   width: 25%;
-  height: 40px;
+  height: 39px;
   line-height: 40px;
   text-align: center;
   border-radius: 8px;
