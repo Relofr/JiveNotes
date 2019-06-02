@@ -155,7 +155,7 @@ export default {
     }
   },
   mounted() {
-    console.log("App mounted");
+    // console.log("App mounted");
     if (localStorage.getItem("pbx"))
       this.pbx = JSON.parse(localStorage.getItem("pbx"));
     if (localStorage.getItem("server"))

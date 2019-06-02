@@ -1,7 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
 
 import Snotify, { SnotifyPosition } from "vue-snotify";
 import VTooltip from "v-tooltip";
@@ -28,7 +27,6 @@ Vue.use(Snotify, options);
 new Vue({
   el: "#app",
   router,
-  store,
   components: { App },
   template: "<App/>"
 });

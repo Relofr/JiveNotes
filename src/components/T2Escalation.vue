@@ -141,7 +141,7 @@ export default {
     }
   },
   mounted() {
-    console.log("App mounted");
+    // console.log("App mounted");
     if (localStorage.getItem("T2approved"))
       this.T2approved = JSON.parse(localStorage.getItem("T2approved"));
     if (localStorage.getItem("T2contact"))

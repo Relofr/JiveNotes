@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section :class="compTheme">
+    <section>
       <div v-if="isLoading">
         <span>
           <Loading/>
@@ -38,7 +38,6 @@ export default {
   data() {
     return {
       showStopwatch: false,
-      toggleTheme: "light",
       isLoading: true,
       toTopButton: true
     };
@@ -61,26 +60,15 @@ export default {
       }
     }
   },
-  computed: {
-    compTheme() {
-      return {
-        light: this.light
-      };
-    }
-  },
   watch: {},
-  beforeCreate() {
-    console.log("beforeCreate");
-  },
   created() {
     window.addEventListener("scroll", this.toTop);
-    console.log("created");
   },
   destroyed() {
     window.removeEventListener("scroll", this.toTop);
   },
   mounted() {
-    console.log("mounted");
+    console.log("App mounted");
     setTimeout(() => {
       this.isLoading = false;
     }, 2800);

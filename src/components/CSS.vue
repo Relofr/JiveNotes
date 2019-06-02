@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import { store } from "../store.js";
 import LabelInputs from "./LabelInputs";
 import Button from "./Button";
 import Modal from "./Modal";
@@ -118,7 +117,7 @@ export default {
     }
   },
   mounted() {
-    console.log("App mounted");
+    // console.log("App mounted");
     if (localStorage.getItem("caseNumber"))
       this.caseNumber = JSON.parse(localStorage.getItem("caseNumber"));
     if (localStorage.getItem("wiki"))

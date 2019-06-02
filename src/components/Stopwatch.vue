@@ -116,7 +116,7 @@ export default {
     }
   },
   mounted() {
-    console.log("App mounted");
+    // console.log("App mounted");
     if (localStorage.getItem("showTable"))
       this.showTable = JSON.parse(localStorage.getItem("showTable"));
   }

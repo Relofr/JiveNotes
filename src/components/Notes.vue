@@ -30,7 +30,6 @@
 
     <label>Resolution/Escalation(Was issue resolved or escalated?):</label>
     <textarea-autosize rows="1" v-model="resolution"></textarea-autosize>
-    <!-- <Dropdown/> -->
     <div class="line">------------------------------------------------------</div>
     <Tooltip tooltip="true" moreInfo="This field will not clear or copy"/>
 
@@ -57,7 +56,6 @@ import LabelInputs from "./LabelInputs";
 import Button from "./Button";
 import Tooltip from "./Tooltip";
 import Modal from "./Modal";
-import Dropdown from "./Dropdown";
 
 export default {
   data: () => ({
@@ -76,7 +74,6 @@ export default {
     LabelInputs,
     Button,
     Tooltip,
-    Dropdown,
     Modal
   },
   methods: {
@@ -169,7 +166,6 @@ export default {
     }
   },
   mounted() {
-    console.log("App mounted");
     if (localStorage.getItem("agentName"))
       this.agentName = JSON.parse(localStorage.getItem("agentName"));
     if (localStorage.getItem("contact"))
