@@ -1,27 +1,27 @@
 <template>
   <div>
     <label>Approved By:</label>
-    <textarea-autosize id="approved" autofocus rows="1" v-model="approved"></textarea-autosize>
+    <textarea-autosize id="approved" autofocus rows="1" v-model="T2approved"></textarea-autosize>
     <br>
 
     <label>Contact Name and Number (If different than Case Requester):</label>
-    <textarea-autosize rows="1" v-model="contact"></textarea-autosize>
+    <textarea-autosize rows="1" v-model="T2contact"></textarea-autosize>
     <br>
 
     <label>Issue (Full Scope of Issue, Devices Affected):</label>
-    <textarea-autosize v-model="issue" rows="1"></textarea-autosize>
+    <textarea-autosize v-model="T2issue" rows="1"></textarea-autosize>
     <br>
 
     <label>Troubleshooting/Replication Steps:</label>
-    <textarea-autosize placeholder="N/A" v-model="replication" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder="N/A" v-model="T2replication" rows="1"></textarea-autosize>
     <br>
 
     <label>Configuration Changes:</label>
-    <textarea-autosize placeholder="N/A" v-model="configuration" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder="N/A" v-model="T2configuration" rows="1"></textarea-autosize>
     <br>
 
     <label>Network Layout (IP info, ISP, Equipment, Logon Credentials, etc.):</label>
-    <textarea-autosize placeholder="N/A" v-model="networkLayout" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder="N/A" v-model="T2networkLayout" rows="1"></textarea-autosize>
     <br>
 
     <div class="buttons">
@@ -44,12 +44,12 @@ import Modal from "./Modal";
 
 export default {
   data: () => ({
-    approved: "",
-    contact: "",
-    issue: "",
-    replication: "",
-    configuration: "",
-    networkLayout: "",
+    T2approved: "",
+    T2contact: "",
+    T2issue: "",
+    T2replication: "",
+    T2configuration: "",
+    T2networkLayout: "",
     showModal: false,
     showStopwatch: false
   }),
@@ -69,12 +69,12 @@ export default {
       this.displayNotificationSuccess();
     },
     clearNotes() {
-      this.approved = "";
-      this.contact = "";
-      this.issue = "";
-      this.replication = "";
-      this.configuration = "";
-      this.networkLayout = "";
+      this.T2approved = "";
+      this.T2contact = "";
+      this.T2issue = "";
+      this.T2replication = "";
+      this.T2configuration = "";
+      this.T2networkLayout = "";
       document.getElementById("approved").focus();
 
       this.showModal = false;
@@ -88,50 +88,53 @@ export default {
     }
   },
   watch: {
-    approved: {
+    T2approved: {
       handler() {
-        console.log("Updated approved to: " + this.approved);
-        localStorage.setItem("approved", JSON.stringify(this.approved));
+        console.log("Updated T2approved to: " + this.T2approved);
+        localStorage.setItem("T2approved", JSON.stringify(this.T2approved));
       },
       deep: true
     },
-    contact: {
+    T2contact: {
       handler() {
-        console.log("Updated contact to: " + this.contact);
-        localStorage.setItem("contact", JSON.stringify(this.contact));
+        console.log("Updated T2contact to: " + this.T2contact);
+        localStorage.setItem("T2contact", JSON.stringify(this.T2contact));
       },
       deep: true
     },
-    issue: {
+    T2issue: {
       handler() {
-        console.log("Updated issue to: " + this.issue);
-        localStorage.setItem("issue", JSON.stringify(this.issue));
+        console.log("Updated T2issue to: " + this.T2issue);
+        localStorage.setItem("T2issue", JSON.stringify(this.T2issue));
       },
       deep: true
     },
-    replication: {
+    T2replication: {
       handler() {
-        console.log("Updated replication to: " + this.replication);
-        localStorage.setItem("replication", JSON.stringify(this.replication));
-      },
-      deep: true
-    },
-    configuration: {
-      handler() {
-        console.log("Updated configuration to: " + this.configuration);
+        console.log("Updated T2replication to: " + this.T2replication);
         localStorage.setItem(
-          "configuration",
-          JSON.stringify(this.configuration)
+          "T2replication",
+          JSON.stringify(this.T2replication)
         );
       },
       deep: true
     },
-    networkLayout: {
+    T2configuration: {
       handler() {
-        console.log("Updated networkLayout to: " + this.networkLayout);
+        console.log("Updated T2configuration to: " + this.T2configuration);
         localStorage.setItem(
-          "networkLayout",
-          JSON.stringify(this.networkLayout)
+          "T2configuration",
+          JSON.stringify(this.T2configuration)
+        );
+      },
+      deep: true
+    },
+    T2networkLayout: {
+      handler() {
+        console.log("Updated T2networkLayout to: " + this.T2networkLayout);
+        localStorage.setItem(
+          "T2networkLayout",
+          JSON.stringify(this.T2networkLayout)
         );
       },
       deep: true
@@ -139,18 +142,22 @@ export default {
   },
   mounted() {
     console.log("App mounted");
-    if (localStorage.getItem("approved"))
-      this.approved = JSON.parse(localStorage.getItem("approved"));
-    if (localStorage.getItem("contact"))
-      this.contact = JSON.parse(localStorage.getItem("contact"));
-    if (localStorage.getItem("issue"))
-      this.issue = JSON.parse(localStorage.getItem("issue"));
-    if (localStorage.getItem("replication"))
-      this.replication = JSON.parse(localStorage.getItem("replication"));
-    if (localStorage.getItem("configuration"))
-      this.configuration = JSON.parse(localStorage.getItem("configuration"));
-    if (localStorage.getItem("networkLayout"))
-      this.networkLayout = JSON.parse(localStorage.getItem("networkLayout"));
+    if (localStorage.getItem("T2approved"))
+      this.T2approved = JSON.parse(localStorage.getItem("T2approved"));
+    if (localStorage.getItem("T2contact"))
+      this.T2contact = JSON.parse(localStorage.getItem("T2contact"));
+    if (localStorage.getItem("T2issue"))
+      this.T2issue = JSON.parse(localStorage.getItem("T2issue"));
+    if (localStorage.getItem("T2replication"))
+      this.T2replication = JSON.parse(localStorage.getItem("T2replication"));
+    if (localStorage.getItem("T2configuration"))
+      this.T2configuration = JSON.parse(
+        localStorage.getItem("T2configuration")
+      );
+    if (localStorage.getItem("T2networkLayout"))
+      this.T2networkLayout = JSON.parse(
+        localStorage.getItem("T2networkLayout")
+      );
   }
 };
 </script>

@@ -4,12 +4,12 @@
     <Tooltip tooltip="true" moreInfo="This field will not clear"/>
 
     <label>Agent Name/Date of Contact: {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
-    <textarea-autosize rows="1" v-model.lazy="agentName"></textarea-autosize>
+    <textarea-autosize rows="1" v-model="agentName"></textarea-autosize>
     <!-- <input v-debounce:400ms="agentName"/> -->
     <br>
 
     <label>Contact Name / (Admin/User/Partner):</label>
-    <textarea-autosize id="contact" rows="1" autofocus v-model.lazy="contact"></textarea-autosize>
+    <textarea-autosize id="contact" rows="1" autofocus v-model="contact"></textarea-autosize>
     <br>
 
     <label>Summary of Issue/Request:</label>

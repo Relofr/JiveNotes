@@ -1,23 +1,28 @@
 <template>
   <div>
-    <div v-if="isLoading">
-      <span>
-        <Loading/>
-      </span>
-    </div>
-    <div id="app" v-else>
-      <div class="app-container">
-        <Navbar class="no-select"/>
-        <transition name="component-fade" mode="out-in">
-          <router-view/>
-        </transition>
-        <Footer class="no-select"/>
-        <div v-if="showStopwatch" class="stopwatch-container">
-          <Stopwatch/>
-        </div>
-        <vue-snotify class="no-select"></vue-snotify>
+    <section>
+      <div v-if="isLoading">
+        <span>
+          <Loading/>
+        </span>
       </div>
-    </div>
+      <div id="app" v-else>
+        <a id="gotopbtn" v-on:scroll="toTopButton = !toTopButton;" class="gotopbtn" href="#">
+          <i class="material-icons">arrow_upward</i>
+        </a>
+        <div class="app-container">
+          <Navbar class="no-select"/>
+          <transition name="component-fade" mode="out-in">
+            <router-view/>
+          </transition>
+          <Footer class="no-select"/>
+          <div v-if="showStopwatch" class="stopwatch-container">
+            <Stopwatch/>
+          </div>
+          <vue-snotify class="no-select"></vue-snotify>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -32,7 +37,8 @@ export default {
   data() {
     return {
       showStopwatch: false,
-      isLoading: true
+      isLoading: true,
+      toTopButton: true
     };
   },
   components: {
@@ -41,10 +47,30 @@ export default {
     Stopwatch,
     Footer
   },
+  methods: {
+    toTop() {
+      if (
+        document.body.scrollTop > 500 ||
+        document.documentElement.scrollTop > 500
+      ) {
+        document.getElementById("gotopbtn").style.visibility = "visible";
+      } else {
+        document.getElementById("gotopbtn").style.visibility = "hidden";
+      }
+    }
+  },
+  beforeCreate() {
+    console.log("beforeCreate");
+  },
   created() {
-    // this.isLoading = false;
+    window.addEventListener("scroll", this.toTop);
+    console.log("created");
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.toTop);
   },
   mounted() {
+    console.log("mounted");
     setTimeout(() => {
       this.isLoading = false;
     }, 2900);
@@ -53,9 +79,23 @@ export default {
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: #212121;
+  margin: 0;
+  padding: 0;
   color: #f5f5f5;
+}
+section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 20px;
 }
 #app {
   font-family: "Montserrat", sans-serif;
@@ -107,12 +147,18 @@ body {
   margin: 5px 0px 10px;
 }
 
+.snotify-warning {
+  background: #e53935;
+}
+.snotify-success {
+  background-color: #0091ea;
+}
 .component-fade-enter-active,
 .component-fade-leave-active {
   transition: opacity 0.3s ease;
 }
-.component-fade-enter, .component-fade-leave-to
-/* .component-fade-leave-active below version 2.1.8 */ {
+.component-fade-enter,
+.component-fade-leave-to {
   opacity: 0;
 }
 
@@ -129,5 +175,18 @@ input,
 textarea,
 label {
   font-family: Montserrat;
+}
+
+.gotopbtn {
+  visibility: hidden;
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  bottom: 15px;
+  right: 20px;
+  text-align: center;
+  color: #fff;
+  padding: 0px;
+  border-radius: 50px;
 }
 </style>

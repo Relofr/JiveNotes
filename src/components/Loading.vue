@@ -3,11 +3,11 @@
     <h2>Jive Notes</h2>
     <br>
     <br>
-    <section class="dots">
+    <div class="dots">
       <div class="dot one"></div>
       <div class="dot two"></div>
       <div class="dot three"></div>
-    </section>
+    </div>
   </div>
 </template>
 
