@@ -28,7 +28,12 @@
           <td>{{ lap.formattedTime }}</td>
         </tr>
       </table>
-      <i id="clear-icon" class="material-icons" @click="$emit('clearLaps')">delete</i>
+      <i
+        v-show="this.laps.length > 0"
+        id="clear-icon"
+        class="material-icons"
+        @click="$emit('clearLaps')"
+      >delete</i>
     </div>
   </div>
 </template>
