@@ -52,28 +52,28 @@ export default {};
 
 .router-link-exact-active,
 .router-link-active a {
-  background-color: #ededed;
+  background-color: #fff;
   color: #000 !important;
 }
 
 .router-link-exact-active,
 .router-link-active #notes-icon {
-  color: #C4D600;
+  color: #76bf79;
 }
 
 .router-link-exact-active,
 .router-link-active #css-icon {
-  color: #0091ea;
+  color: #45bbf6;
 }
 
 .router-link-exact-active,
 .router-link-active #call-icon {
-  color: purple;
+  color: #ffa726;
 }
 
 .router-link-exact-active,
 .router-link-active #t2-icon {
-  color: #e53935;
+  color: #ec407a;
 }
 
 .navbar2 i {

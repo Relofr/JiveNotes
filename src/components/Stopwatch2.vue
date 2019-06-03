@@ -40,6 +40,19 @@ export default {
     return {
       showTable: false
     };
+  },
+  watch: {
+    showTable: {
+      handler() {
+        console.log("Updated showTable to: " + this.showTable);
+        localStorage.setItem("showTable", JSON.stringify(this.showTable));
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    if (localStorage.getItem("showTable"))
+      this.showTable = JSON.parse(localStorage.getItem("showTable"));
   }
 };
 </script>
@@ -52,12 +65,16 @@ export default {
 #stopwatch-icons {
   cursor: pointer;
   &:hover {
-    color: #4fc3f7;
+    color: #0091ea;
   }
 }
 
 #clear-icon {
   margin-top: 15px;
+  cursor: pointer;
+  &:hover {
+    color: #e53935;
+  }
 }
 
 table,
@@ -97,34 +114,6 @@ tr:nth-child(even) {
   font-size: 26px;
   margin-right: 10px;
 }
-// #pause_icon,
-// #clear-icon {
-//   font-size: 27px;
-//   cursor: pointer;
-//   color: #f5f5f5;
-// }
-// #play_icon,
-// #pause_icon {
-//   font-size: 27px;
-//   margin-left: 5px;
-// }
-// #clear-icon {
-//   margin-top: 15px;
-//   margin-bottom: 0px;
-// }
-// #clock-icon {
-//   margin-left: 45px;
-// }
-// #session-icon {
-//   margin-left: 35px;
-//   font-size: 27px;
-// }
-
-// .timer-button {
-//   background-color: transparent;
-//   font-size: 30px;
-//   cursor: pointer;
-// }
 
 @media only screen and (max-width: 640px) {
   #stopwatch-icons {

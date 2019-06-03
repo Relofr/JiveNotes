@@ -158,7 +158,7 @@ section {
 }
 
 .snotify-warning {
-  background: #e53935;
+  background: #b15dc1;
 }
 .snotify-success {
   background-color: #0091ea;
