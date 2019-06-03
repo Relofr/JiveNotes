@@ -11,7 +11,7 @@
         <!-- <button @click="$emit('pause')">Pause</button> -->
         <i id="stopwatch-icons" @click="$emit('pause')" class="material-icons">pause</i>
         <!-- <button @click="$emit('lap')">Lap</button> -->
-        <i id="stopwatch-icons" @click="$emit('lap')" class="material-icons">outlined_flag</i>
+        <i id="stopwatch-icons" @click="$emit('lap')" class="material-icons">flag</i>
         <!-- <button @click="$emit('stop')">Reset</button> -->
         <i id="stopwatch-icons" @click="$emit('stop')" class="material-icons">replay</i>
         <i id="stopwatch-icons" @click="showTable = !showTable" class="material-icons">timer</i>
