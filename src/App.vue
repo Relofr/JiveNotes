@@ -39,7 +39,7 @@ export default {
     return {
       showStopwatch: false,
       toggleTheme: "light",
-      isLoading: false,
+      isLoading: true,
       toTopButton: true
     };
   },

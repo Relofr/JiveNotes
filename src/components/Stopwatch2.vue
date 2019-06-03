@@ -28,7 +28,7 @@
           <td>{{ lap.formattedTime }}</td>
         </tr>
       </table>
-      <i id="clear_icon" class="material-icons" @click="$emit('clearLaps')">delete</i>
+      <i id="clear-icon" class="material-icons" @click="$emit('clearLaps')">delete</i>
     </div>
   </div>
 </template>
@@ -54,6 +54,10 @@ export default {
   &:hover {
     color: #4fc3f7;
   }
+}
+
+#clear-icon {
+  margin-top: 15px;
 }
 
 table,
@@ -94,7 +98,7 @@ tr:nth-child(even) {
   margin-right: 10px;
 }
 // #pause_icon,
-// #clear_icon {
+// #clear-icon {
 //   font-size: 27px;
 //   cursor: pointer;
 //   color: #f5f5f5;
@@ -104,7 +108,7 @@ tr:nth-child(even) {
 //   font-size: 27px;
 //   margin-left: 5px;
 // }
-// #clear_icon {
+// #clear-icon {
 //   margin-top: 15px;
 //   margin-bottom: 0px;
 // }
