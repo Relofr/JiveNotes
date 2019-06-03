@@ -66,6 +66,7 @@ export default {
 #timer {
   font-family: montserrat;
   color: #4fc3f7;
+  width: 115px;
 }
 #stopwatch-icons {
   cursor: pointer;
@@ -131,6 +132,7 @@ tr:nth-child(even) {
   #timer {
     font-size: 22px;
     line-height: 34px;
+    width: 90px;
   }
 }
 
