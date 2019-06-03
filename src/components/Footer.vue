@@ -2,16 +2,25 @@
   <div class="footer-container" v-shortkey.once="['alt', 'c']" @shortkey="copyNotes()">
     <div class="left-container">
       <!-- <QuickTime/> -->
-      <Settings/>
+      <!-- <Settings/> -->
     </div>
     <div class="stopwatch-container">
-      <Stopwatch/>
+      <Stopwatch2
+        :timer="formattedTime"
+        :state="timerState"
+        @start="start"
+        @pause="pause"
+        @stop="stop"
+        @lap="lap"
+        :laps="laps"
+        @clearLaps="clearLaps"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Stopwatch from "./Stopwatch";
+import Stopwatch2 from "./Stopwatch2";
 import Button from "./Button";
 import Settings from "./Settings";
 import QuickTime from "./QuickTime";
@@ -20,39 +29,61 @@ export default {
   data() {
     return {
       showModal: false,
-      showStopwatch: false
+      showStopwatch: false,
+      timerState: "stopped",
+      currentTimer: 0,
+      formattedTime: "00:00:00",
+      ticker: undefined,
+      laps: [],
+      latestLap: ""
     };
   },
   components: {
-    Stopwatch,
+    Stopwatch2,
     Button,
     Settings,
     QuickTime,
     Modal
   },
   methods: {
-    copyNotes() {
-      document.execCommand("unselect");
-      document.execCommand("selectAll");
-      document.execCommand("copy");
-      document.execCommand("unselect");
-      console.log("copy");
-      this.displayNotificationSuccess();
+    start() {
+      if (this.timerState !== "running") {
+        this.tick();
+        this.timerState = "running";
+      }
     },
-    clearNotes() {
-      this.agentName = "";
-
-      this.showModal = false;
-      this.displayNotificationWarning();
+    lap() {
+      this.laps.push({
+        seconds: this.currentTimer,
+        formattedTime: this.formatTime(this.currentTimer)
+      });
+      this.latestLap = this.formatTime(this.currentTimer);
+      // this.currentTimer = 0;
     },
-    displayNotificationSuccess() {
-      this.$snotify.success("Copied!");
+    clearLaps() {
+      this.laps.pop();
     },
-    displayNotificationWarning() {
-      this.$snotify.warning("Cleared!");
+    pause() {
+      window.clearInterval(this.ticker);
+      this.timerState = "paused";
     },
-    toggleStopWatch() {
-      this.showStopwatch = !this.showStopwatch;
+    stop() {
+      window.clearInterval(this.ticker);
+      this.currentTimer = 0;
+      this.formattedTime = "00:00:00";
+      this.timerState = "stopped";
+    },
+    tick() {
+      this.ticker = setInterval(() => {
+        this.currentTimer++;
+        this.formattedTime = this.formatTime(this.currentTimer);
+      }, 1000);
+    },
+    formatTime(seconds) {
+      let measuredTime = new Date(null);
+      measuredTime.setSeconds(seconds);
+      let MHSTime = measuredTime.toISOString().substr(11, 8);
+      return MHSTime;
     }
   }
 };
@@ -61,7 +92,7 @@ export default {
 <style lang='less'>
 .left-container {
   display: flex;
-  position: absolute;
+  // position: absolute;
 }
 
 .buttons,

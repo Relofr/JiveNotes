@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section>
+    <section :class="compTheme">
       <div v-if="isLoading">
         <span>
           <Loading/>
@@ -30,7 +30,7 @@
 <script>
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Stopwatch from "./components/Stopwatch";
+import Stopwatch2 from "./components/Stopwatch2";
 import Loading from "./components/Loading";
 
 export default {
@@ -38,14 +38,15 @@ export default {
   data() {
     return {
       showStopwatch: false,
-      isLoading: true,
+      toggleTheme: "light",
+      isLoading: false,
       toTopButton: true
     };
   },
   components: {
     Navbar,
     Loading,
-    Stopwatch,
+    Stopwatch2,
     Footer
   },
   methods: {
@@ -60,15 +61,26 @@ export default {
       }
     }
   },
+  computed: {
+    compTheme() {
+      return {
+        light: this.light
+      };
+    }
+  },
   watch: {},
+  beforeCreate() {
+    console.log("beforeCreate");
+  },
   created() {
     window.addEventListener("scroll", this.toTop);
+    console.log("created");
   },
   destroyed() {
     window.removeEventListener("scroll", this.toTop);
   },
   mounted() {
-    console.log("App mounted");
+    console.log("mounted");
     setTimeout(() => {
       this.isLoading = false;
     }, 2800);

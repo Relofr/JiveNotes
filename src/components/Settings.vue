@@ -1,7 +1,7 @@
 <template>
   <div>
     <span class="icon">
-      <i id="settings-icon" @click="showSettingsModal = true" class="material-icons">settings</i>
+      <i @click="showSettingsModal = true" class="material-icons">settings</i>
     </span>
 
     <Modal v-if="showSettingsModal" @close="showSettingsModal = false">
@@ -10,7 +10,7 @@
         <p>Hotkeys</p>
         <p>Alt + C | Copy Notes</p>
         <p>Alt + X | Clear Notes</p>
-        <p>Ctrl + SPACE | Start/STop Timer</p>
+        <!-- <p>Ctrl + SPACE | Start/STop Timer</p> -->
         <!-- <p>Ctrl + B | Toggle Theme</p> -->
       </span>
       <Button slot="footer" class="button" buttonTitle="Close" @click="showSettingsModal = false"/>
@@ -36,8 +36,6 @@ export default {
 
 <style lang='less'>
 .icon i {
-  font-size: 28px;
-  line-height: 38px;
   -webkit-transition: -webkit-transform 2s ease-in-out;
   -ms-transition: -ms-transform 2s ease-in-out;
   transition: transform 2s ease-in-out;
@@ -53,7 +51,7 @@ export default {
 
 @media only screen and (max-width: 520px) {
   .icon i {
-    line-height: 30px;
+    // line-height: 30px;
   }
 }
 
