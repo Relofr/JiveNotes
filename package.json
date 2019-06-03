@@ -1,5 +1,5 @@
 {
-  "name": "notes-5",
+  "name": "jive-notes",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -51,5 +51,5 @@
     "not ie <= 8"
   ],
   "keywords": [],
-  "description": ""
+  "description": "Jive Notes"
 }

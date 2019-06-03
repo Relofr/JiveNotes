@@ -8,7 +8,7 @@
       </div>
       <div id="app" v-else>
         <a id="gotopbtn" v-on:scroll="toTopButton = !toTopButton;" class="gotopbtn" href="#">
-          <i class="material-icons">arrow_upward</i>
+          <i class="material-icons no-select">arrow_upward</i>
         </a>
         <div class="app-container">
           <Navbar class="no-select"/>
