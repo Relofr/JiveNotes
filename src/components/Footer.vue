@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-container" v-shortkey.once="['alt', 'c']" @shortkey="copyNotes()">
+  <div class="footer-container">
     <div class="left-container">
       <!-- <QuickTime/> -->
       <!-- <Settings/> -->

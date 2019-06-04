@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section :class="compTheme">
+    <section>
       <div v-if="isLoading">
         <span>
           <Loading/>
@@ -16,7 +16,6 @@
             <router-view/>
           </transition>
           <Footer class="no-select"/>
-          <!-- <button v-on:click="light = !light"></button> -->
           <div v-if="showStopwatch" class="stopwatch-container">
             <Stopwatch/>
           </div>
@@ -30,7 +29,6 @@
 <script>
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Stopwatch2 from "./components/Stopwatch2";
 import Loading from "./components/Loading";
 
 export default {
@@ -38,7 +36,6 @@ export default {
   data() {
     return {
       showStopwatch: false,
-      toggleTheme: "light",
       isLoading: true,
       toTopButton: true
     };
@@ -46,7 +43,6 @@ export default {
   components: {
     Navbar,
     Loading,
-    Stopwatch2,
     Footer
   },
   methods: {
