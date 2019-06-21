@@ -30,15 +30,19 @@
     </div>
     <div v-if="showTable">
       <table>
-        <tr>
-          <th>Lap</th>
+        <tr v-if="this.laps.length > 0">
+          <th>Breakpoints</th>
           <th>Time</th>
         </tr>
+        <tr v-else>
+          <th>No Data</th>
+        </tr>
         <tr v-for="(lap, index) in laps" :key="index">
-          <td>Lap: {{ index + 1 }}</td>
+          <td>{{ index + 1 }}</td>
           <td>{{ lap.formattedTime }}</td>
-          <!-- <i id="clear-icon" class="material-icons" @click="$emit('clearLaps(index)')">delete</i> -->
-          <i id="clear-icon" class="material-icons" @click="clearLaps(index)">delete</i>
+          <td>
+            <i id="clear-icon" class="material-icons" @click="clearLaps(index)">delete</i>
+          </td>
         </tr>
       </table>
     </div>
@@ -89,7 +93,7 @@ export default {
 }
 
 #clear-icon {
-  margin-top: 15px;
+  // margin: 15px;
   cursor: pointer;
   &:hover {
     color: #e53935;
@@ -110,12 +114,12 @@ table {
 
 th,
 td {
-  padding: 15px;
+  padding: 10px 0px 10px 0px;
 }
 td:nth-child(1) {
   border-radius: 8px 0px 0px 8px;
 }
-td:nth-child(2) {
+td:nth-child(3) {
   border-radius: 0px 8px 8px 0px;
 }
 tr:nth-child(even) {
