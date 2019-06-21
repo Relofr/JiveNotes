@@ -108,10 +108,10 @@ section {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #353535;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 20px;
-  width: 80%;
-  max-width: 700px;
+  width: 90%;
+  max-width: 900px;
   height: 100%;
   margin: 0 auto;
   overflow-y: auto;
@@ -120,7 +120,7 @@ section {
 
 .app-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 ::-webkit-scrollbar {

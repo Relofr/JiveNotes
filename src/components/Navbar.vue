@@ -10,11 +10,15 @@
     </router-link>
     <router-link to="/callexample">
       Call
-      <i id="call-icon" class="material-icons">call</i>
+      <i id="call-icon" class="material-icons">poll</i>
     </router-link>
     <router-link to="/t2escalation">
       T2
       <i id="t2-icon" class="material-icons">priority_high</i>
+    </router-link>
+    <router-link to="/sip">
+      SIP
+      <i id="sip-icon" class="material-icons">dialer_sip</i>
     </router-link>
   </div>
 </template>
@@ -36,11 +40,11 @@ export default {};
   color: white;
   text-decoration: none;
   font-size: 1em;
-  width: 25%;
+  width: 20%;
   height: 39px;
   line-height: 39px;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 4px;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -76,6 +80,11 @@ export default {};
   color: #ec407a;
 }
 
+.router-link-exact-active,
+.router-link-active #sip-icon {
+  color: #0091ea;
+}
+
 .navbar2 i {
   line-height: 36px;
   font-size: 28px;
@@ -90,6 +99,13 @@ export default {};
 @media only screen and (max-width: 630px) {
   .navbar2 a {
     font-size: 0.8em;
+  }
+  #notes-icon,
+  #css-icon,
+  #call-icon,
+  #t2-icon,
+  #sip-icon {
+    font-size: 20px;
   }
 }
 </style>

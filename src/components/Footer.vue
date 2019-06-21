@@ -51,6 +51,13 @@ export default {
         this.tick();
         this.timerState = "running";
       }
+      if (this.timerState === "running") {
+        console.log(typeof this.timerState);
+
+        // setInterval(() => {
+        //   this.$snotify.error("5 Minutes!");
+        // }, 30000);
+      }
     },
     lap() {
       this.laps.push({
@@ -60,23 +67,29 @@ export default {
       this.latestLap = this.formatTime(this.currentTimer);
       // this.currentTimer = 0;
     },
-    clearLaps() {
-      this.laps.pop();
+    clearLaps(index) {
+      this.laps.splice(index, 1);
+      // this.laps.pop();
     },
     pause() {
       window.clearInterval(this.ticker);
       this.timerState = "paused";
+      console.log(this.timerState);
     },
     stop() {
       window.clearInterval(this.ticker);
       this.currentTimer = 0;
       this.formattedTime = "00:00:00";
       this.timerState = "stopped";
+      console.log(this.timerState);
     },
     tick() {
       this.ticker = setInterval(() => {
         this.currentTimer++;
         this.formattedTime = this.formatTime(this.currentTimer);
+        // setInterval(() => {
+        //   this.$snotify.error("5 Minutes!");
+        // }, 300000);
       }, 1000);
     },
     formatTime(seconds) {
@@ -84,6 +97,17 @@ export default {
       measuredTime.setSeconds(seconds);
       let MHSTime = measuredTime.toISOString().substr(11, 8);
       return MHSTime;
+    }
+  },
+  watch: {
+    fiveMinuteWatcher() {
+      if (this.timerState === "running") {
+        this.timerState = setInterval(() => {
+          console.log("5 Minutes");
+        }, 3000);
+      } else {
+        clearInterval(this.timerState);
+      }
     }
   }
 };

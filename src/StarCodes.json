@@ -1,0 +1,84 @@
+{
+  "StarCodes": [
+    {
+      "starCode": "*11",
+      "starDesc": "Searches the default dial by name directory"
+    },
+    {
+      "starCode": "*12",
+      "starDesc": "No action. Reserved for emergency services in some countries."
+    },
+    {
+      "starCode": "*13 + ext",
+      "starDesc": "Logs in and out of a call queue."
+    },
+    {
+      "starCode": "*14",
+      "starDesc": "Records a sound clip to be used in a dial plan or call queue (requires prompt recording permissions)"
+    },
+    {
+      "starCode": "*15 + ext/tel",
+      "starDesc": "Records a single call (feature must be set up by a system admin). This cannot be used mid-call"
+    },
+    {
+      "starCode": "*17 + ext",
+      "starDesc": "Initiates call monitoring (requires monitoring permissions)"
+    },
+    {
+      "starCode": "*19",
+      "starDesc": "Changes personal dialable password (default 0000). This password is used with the dialable username to access permission-based tasks such as recording prompts, making international calls, and call monitoring. It is different from the voicemail password"
+    },
+    {
+      "starCode": "*21",
+      "starDesc": "Records personal directory name to be used in a dial by name directory"
+    },
+    {
+      "starCode": "*22",
+      "starDesc": "Records others’ directory names to be used in a dial by name directory (requires prompt recording permissions)"
+    },
+    {
+      "starCode": "*37",
+      "starDesc": "Places a call on hold in a virtual parking spot on the system. There are an unlimited number of parking spots available. To park in a user-assigned spot, blind transfer to *37 + parking spot number (any number of digits, but it cannot start with 0). To park in a system-assigned spot, warm transfer to *37 (the system will notify you where the call is parked). To answer a parked call, dial *37 + parking spot number."
+    },
+    {
+      "starCode": "*43 + ext",
+      "starDesc": "Initiates hot desking allowing you to load your extension settings to a shared phone and use it as your own. Dial the same star code to log out of a shared phone. This feature is supported on Cisco MPP, Polycom, and Yealink only and must be enabled by a system admin on your user profile and each shared device"
+    },
+    {
+      "starCode": "*67 + tel",
+      "starDesc": "Blocks your number from a caller ID for a single call"
+    },
+    {
+      "starCode": "*72 + ext/tel",
+      "starDesc": "Activates server-side call forwarding—all incoming calls are forwarded to an internal extension or external number"
+    },
+    {
+      "starCode": "*73",
+      "starDesc": "De-activates server-side call forwarding"
+    },
+    {
+      "starCode": "*82 + tel",
+      "starDesc": "Overrides the Block Caller ID setting for a single call"
+    },
+    {
+      "starCode": "*97 + ext",
+      "starDesc": "Picks up a call ringing on another user’s phone (directed call pickup)"
+    },
+    {
+      "starCode": "*98 + ext",
+      "starDesc": "Checks other extension, ring group, or shared voicemail boxes"
+    },
+    {
+      "starCode": "*99",
+      "starDesc": "Checks voicemail for the line(s) assigned to the phone"
+    },
+    {
+      "starCode": "*911",
+      "starDesc": "Tests emergency services call notifications"
+    },
+    {
+      "starCode": "* + extension",
+      "starDesc": "Pages an individual phone, or even an entire ring group, by automatically activating their speakerphone (feature must be enabled on the recipient’s line)"
+    }
+  ]
+}

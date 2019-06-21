@@ -215,4 +215,13 @@ textarea {
     border-bottom: 2px solid #4fc3f7;
   }
 }
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 </style>

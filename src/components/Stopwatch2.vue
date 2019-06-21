@@ -9,31 +9,38 @@
       <div class="stopwatch-icons-container">
         <i id="stopwatch-icons" @click="$emit('start')" class="material-icons">play_arrow</i>
         <!-- <button @click="$emit('pause')">Pause</button> -->
-        <i id="stopwatch-icons" @click="$emit('pause')" class="material-icons">pause</i>
+        <i id="stopwatch-icons" @click="$emit('pause')" class="material-icons">stop</i>
         <!-- <button @click="$emit('lap')">Lap</button> -->
         <i id="stopwatch-icons" @click="$emit('lap')" class="material-icons">flag</i>
         <!-- <button @click="$emit('stop')">Reset</button> -->
         <i id="stopwatch-icons" @click="$emit('stop')" class="material-icons">replay</i>
-        <i id="stopwatch-icons" @click="showTable = !showTable" class="material-icons">timer</i>
+        <i
+          v-if="!showTable"
+          id="stopwatch-icons"
+          @click="showTable = !showTable"
+          class="material-icons"
+        >timer</i>
+        <i
+          v-else
+          id="stopwatch-icons"
+          @click="showTable = !showTable"
+          class="material-icons"
+        >timer_off</i>
       </div>
     </div>
     <div v-if="showTable">
       <table>
         <tr>
-          <th>Title</th>
+          <th>Lap</th>
           <th>Time</th>
         </tr>
         <tr v-for="(lap, index) in laps" :key="index">
           <td>Lap: {{ index + 1 }}</td>
           <td>{{ lap.formattedTime }}</td>
+          <!-- <i id="clear-icon" class="material-icons" @click="$emit('clearLaps(index)')">delete</i> -->
+          <i id="clear-icon" class="material-icons" @click="clearLaps(index)">delete</i>
         </tr>
       </table>
-      <i
-        v-show="this.laps.length > 0"
-        id="clear-icon"
-        class="material-icons"
-        @click="$emit('clearLaps')"
-      >delete</i>
     </div>
   </div>
 </template>
@@ -45,6 +52,12 @@ export default {
     return {
       showTable: false
     };
+  },
+  methods: {
+    clearLaps(index) {
+      this.laps.splice(index, 1);
+      // this.laps.pop();
+    }
   },
   watch: {
     showTable: {
@@ -114,6 +127,7 @@ tr:nth-child(even) {
   line-height: 32px;
   font-size: 25px;
   padding-right: 8px;
+  padding-left: 5px;
 }
 #timer {
   float: left;
