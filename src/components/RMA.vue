@@ -194,6 +194,18 @@ export default {
       this.cityStateZip = JSON.parse(localStorage.getItem("cityStateZip"));
     if (localStorage.getItem("country"))
       this.country = JSON.parse(localStorage.getItem("country"));
+    if (localStorage.getItem("contactFirstNameLastName"))
+      this.contactFirstNameLastName = JSON.parse(
+        localStorage.getItem("contactFirstNameLastName")
+      );
+    if (localStorage.getItem("contactPhoneNumber"))
+      this.contactPhoneNumber = JSON.parse(
+        localStorage.getItem("contactPhoneNumber")
+      );
+    if (localStorage.getItem("contactEmailAddress"))
+      this.contactEmailAddress = JSON.parse(
+        localStorage.getItem("contactEmailAddress")
+      );
   }
 };
 </script>

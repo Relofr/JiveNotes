@@ -211,6 +211,7 @@ label {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-transform: uppercase;
 }
 
 .main-title {
