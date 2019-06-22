@@ -21,7 +21,7 @@
     <textarea-autosize v-model="country" rows="1"></textarea-autosize>
     <br>
 
-    <label>Contact First Name, Contact Last Name:</label>
+    <label>Contact First/Last Name:</label>
     <textarea-autosize v-model="contactFirstNameLastName" rows="1"></textarea-autosize>
     <br>
 

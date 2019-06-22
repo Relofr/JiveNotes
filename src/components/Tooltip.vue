@@ -51,7 +51,7 @@ export default {
     border-style: solid;
     position: absolute;
     margin: 5px;
-    border-color: #000;
+    border-color: #fff;
     z-index: 1;
   }
 

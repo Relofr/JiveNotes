@@ -14,15 +14,15 @@
     <br>
 
     <label>Troubleshooting/Replication Steps:</label>
-    <textarea-autosize placeholder="N/A" v-model="T2replication" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder v-model="T2replication" rows="1"></textarea-autosize>
     <br>
 
     <label>Configuration Changes:</label>
-    <textarea-autosize placeholder="N/A" v-model="T2configuration" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder v-model="T2configuration" rows="1"></textarea-autosize>
     <br>
 
     <label>Network Layout (IP info, ISP, Equipment, Logon Credentials, etc.):</label>
-    <textarea-autosize placeholder="N/A" v-model="T2networkLayout" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder v-model="T2networkLayout" rows="1"></textarea-autosize>
     <br>
 
     <div class="buttons">

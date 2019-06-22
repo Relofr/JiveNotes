@@ -4,31 +4,31 @@
     <div id="dropdown-options" class="dropdown-content">
       <router-link to="/notes">
         Notes
-        <i id="icon" class="material-icons">assignment</i>
+        <i id="notes-icon" class="material-icons">assignment</i>
       </router-link>
       <router-link to="/css">
         CSS
-        <i id="icon" class="material-icons">question_answer</i>
+        <i id="css-icon" class="material-icons">question_answer</i>
       </router-link>
       <router-link to="/callexample">
         Call
-        <i id="icon" class="material-icons">poll</i>
+        <i id="callexample-icon" class="material-icons">poll</i>
       </router-link>
       <router-link to="/t2escalation">
         T2
-        <i id="icon" class="material-icons">priority_high</i>
+        <i id="escalation-icon" class="material-icons">priority_high</i>
       </router-link>
       <router-link disabled to="/rma">
         RMA
-        <i id="icon" class="material-icons">local_shipping</i>
+        <i id="rma-icon" class="material-icons">local_shipping</i>
       </router-link>
       <router-link to="/sip">
         SIP Codes
-        <i id="icon" class="material-icons">dialer_sip</i>
+        <i id="sip-icon" class="material-icons">dialer_sip</i>
       </router-link>
       <router-link to="/star">
         Star Codes
-        <i id="icon" class="material-icons">star</i>
+        <i id="star-icon" class="material-icons">star</i>
       </router-link>
     </div>
   </div>
@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang='less'>
 .dropdown-button {
   color: white;
   border: none;
@@ -79,18 +79,21 @@ export default {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  // background-color: #f1f1f1;
+  background-color: #424242;
   min-width: 160px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   font-size: 14px;
   z-index: 99;
   border-radius: 4px;
+  /* bottom: 32px; */
+  /* left: 4px; */
 }
 
 .dropdown-content a {
-  border-bottom: 1px solid #5b5b5b;
-  color: black;
+  /* border-bottom: 1px solid #5b5b5b; */
+  color: #fff;
   padding: 10px 5px;
   text-decoration: none;
   display: block;
@@ -98,23 +101,54 @@ export default {
 }
 
 .dropdown a:hover {
-  background-color: #5b5b5b;
-  color: #fff;
+  background-color: #686868;
 }
 
 .show {
   display: block;
 }
 
-#icon {
+#notes-icon,
+#css-icon,
+#callexample-icon,
+#escalation-icon,
+#rma-icon,
+#sip-icon,
+#star-icon {
   float: right;
   line-height: 18px;
   font-size: 28px;
   margin-right: 18px;
 }
+#notes-icon {
+  color: #76bf79;
+}
+#css-icon {
+  color: #0091ea;
+}
+#callexample-icon {
+  color: #fff;
+}
+#escalation-icon {
+  color: #ec407a;
+}
+#rma-icon {
+  color: #ff8d1a;
+}
+#sip-icon {
+  color: #d24dff;
+}
+#star-icon {
+  color: #ffd700;
+}
 
 #app-switcher {
   z-index: -1;
   font-size: 28px;
+}
+.router-link-exact-active,
+.router-link-active {
+  background-color: #686868;
+  color: #000;
 }
 </style>

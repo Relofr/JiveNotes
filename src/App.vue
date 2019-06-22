@@ -11,9 +11,9 @@
           <i class="material-icons no-select">arrow_upward</i>
         </a>
         <div class="app-container">
-          <div class="main-title">Jive App</div>
-          <!-- <Navbar class="no-select"/> -->
+          <div class="main-title">JiveNotes</div>
           <Dropdown class="no-select"/>
+          <!-- <Navbar class="no-select"/> -->
           <transition name="component-fade" mode="out-in">
             <router-view/>
           </transition>
@@ -202,7 +202,7 @@ label {
 
 .title {
   text-align: center;
-  font-size: 22px;
+  font-size: 24px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -213,7 +213,7 @@ label {
 
 .main-title {
   float: right;
-  font-size: 18px;
+  font-size: 12px;
   color: #c4c4c4;
   -webkit-touch-callout: none;
   -webkit-user-select: none;

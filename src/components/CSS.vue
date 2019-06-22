@@ -14,11 +14,11 @@
     <br>
 
     <label>Question:</label>
-    <textarea-autosize placeholder="N/A" v-model="question" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder v-model="question" rows="1"></textarea-autosize>
     <br>
 
     <label>Applicable Information:</label>
-    <textarea-autosize placeholder="N/A" v-model="applicable" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder v-model="applicable" rows="1"></textarea-autosize>
     <br>
 
     <div class="buttons">

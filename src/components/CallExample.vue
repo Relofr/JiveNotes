@@ -14,19 +14,19 @@
     <br>
 
     <label>From:</label>
-    <textarea-autosize placeholder="N/A" v-model="from" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder v-model="from" rows="1"></textarea-autosize>
     <br>
 
     <label>Date/Time:</label>
-    <textarea-autosize placeholder="N/A" v-model="dateTime" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder v-model="dateTime" rows="1"></textarea-autosize>
     <br>
 
     <label>Call ID:</label>
-    <textarea-autosize placeholder="N/A" v-model="callID" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder v-model="callID" rows="1"></textarea-autosize>
     <br>
 
     <label>Logs:</label>
-    <textarea-autosize placeholder="N/A" v-model="logs" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder v-model="logs" rows="1"></textarea-autosize>
     <br>
 
     <div class="buttons">
