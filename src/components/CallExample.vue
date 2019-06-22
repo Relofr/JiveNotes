@@ -1,12 +1,6 @@
 <template>
   <div>
-    <!-- <LabelInputs autosize="true" labelTitle="PBX Domain:" v-model="$store.state.pbx"/>
-    <LabelInputs autosize="true" labelTitle="Server:" v-model="$store.state.server"/>
-    <LabelInputs autosize="true" labelTitle="To:" v-model="$store.state.to"/>
-    <LabelInputs autosize="true" labelTitle="From:" v-model="$store.state.from"/>
-    <LabelInputs autosize="true" labelTitle="Date/Time:" v-model="$store.state.dateTime"/>
-    <LabelInputs autosize="true" labelTitle="Call ID:" v-model="$store.state.callid"/>
-    <LabelInputs autosize="true" labelTitle="Logs:" v-model="$store.state.logs"/>-->
+    <div class="title">Call Example</div>
     <label>PBX Domain:</label>
     <textarea-autosize id="pbx" autofocus rows="1" v-model="pbx"></textarea-autosize>
     <br>

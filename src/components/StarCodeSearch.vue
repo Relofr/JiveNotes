@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Dropdown/>
     <div class="title">Star Codes</div>
     <div class="search">
       <input

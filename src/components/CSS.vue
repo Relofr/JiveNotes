@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="title">CSS</div>
     <label>Case#:</label>
     <textarea-autosize id="cases" autofocus rows="1" v-model="caseNumber"></textarea-autosize>
     <br>

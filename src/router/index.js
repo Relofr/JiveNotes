@@ -6,6 +6,7 @@ import CallExample from "@/components/CallExample";
 import T2Escalation from "@/components/T2Escalation";
 import sipSearch from "@/components/sipSearch";
 import StarCodeSearch from "@/components/StarCodeSearch";
+import RMA from "@/components/RMA";
 
 Vue.use(Router);
 
@@ -45,6 +46,11 @@ const router = new Router({
       path: "/star",
       name: "StarCodeSearch",
       component: StarCodeSearch
+    },
+    {
+      path: "/rma",
+      name: "RMA",
+      component: RMA
     }
   ]
 });

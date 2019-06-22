@@ -2,6 +2,22 @@
   <div class="dropdown">
     <i @click="myFunction()" id="app-switcher" class="material-icons dropdown-button">apps</i>
     <div id="dropdown-options" class="dropdown-content">
+      <router-link to="/notes">
+        Notes
+        <i id="icon" class="material-icons">assignment</i>
+      </router-link>
+      <router-link to="/css">
+        CSS
+        <i id="icon" class="material-icons">question_answer</i>
+      </router-link>
+      <router-link to="/callexample">
+        Call
+        <i id="icon" class="material-icons">poll</i>
+      </router-link>
+      <router-link to="/t2escalation">
+        T2
+        <i id="icon" class="material-icons">priority_high</i>
+      </router-link>
       <router-link to="/sip">
         SIP Codes
         <i id="icon" class="material-icons">dialer_sip</i>
@@ -10,7 +26,7 @@
         Star Codes
         <i id="icon" class="material-icons">star</i>
       </router-link>
-      <router-link to="/rma">
+      <router-link disabled to="/rma">
         RMA
         <i id="icon" class="material-icons">local_shipping</i>
       </router-link>

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="title">Notes</div>
     <div class="line">------------------------------------------------------</div>
     <Tooltip tooltip="true" moreInfo="This field will not clear"/>
 

@@ -11,7 +11,8 @@
           <i class="material-icons no-select">arrow_upward</i>
         </a>
         <div class="app-container">
-          <Navbar class="no-select"/>
+          <!-- <Navbar class="no-select"/> -->
+          <Dropdown class="no-select"/>
           <transition name="component-fade" mode="out-in">
             <router-view/>
           </transition>
@@ -30,6 +31,7 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
+import Dropdown from "./components/Dropdown";
 
 export default {
   name: "App",
@@ -43,7 +45,8 @@ export default {
   components: {
     Navbar,
     Loading,
-    Footer
+    Footer,
+    Dropdown
   },
   methods: {
     toTop() {
