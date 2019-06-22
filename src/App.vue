@@ -11,6 +11,7 @@
           <i class="material-icons no-select">arrow_upward</i>
         </a>
         <div class="app-container">
+          <div class="title">Jive Notes</div>
           <!-- <Navbar class="no-select"/> -->
           <Dropdown class="no-select"/>
           <transition name="component-fade" mode="out-in">
@@ -197,5 +198,16 @@ label {
   color: #fff;
   padding: 0px;
   border-radius: 50px;
+}
+
+.title {
+  text-align: center;
+  font-size: 22px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>

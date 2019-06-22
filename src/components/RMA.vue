@@ -198,7 +198,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang='less'>
 label {
   color: #c4c4c4;
 }

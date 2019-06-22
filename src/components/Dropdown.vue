@@ -18,6 +18,10 @@
         T2
         <i id="icon" class="material-icons">priority_high</i>
       </router-link>
+      <router-link disabled to="/rma">
+        RMA
+        <i id="icon" class="material-icons">local_shipping</i>
+      </router-link>
       <router-link to="/sip">
         SIP Codes
         <i id="icon" class="material-icons">dialer_sip</i>
@@ -25,10 +29,6 @@
       <router-link to="/star">
         Star Codes
         <i id="icon" class="material-icons">star</i>
-      </router-link>
-      <router-link disabled to="/rma">
-        RMA
-        <i id="icon" class="material-icons">local_shipping</i>
       </router-link>
     </div>
   </div>
@@ -85,6 +85,7 @@ export default {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   font-size: 14px;
   z-index: 99;
+  border-radius: 4px;
 }
 
 .dropdown-content a {
