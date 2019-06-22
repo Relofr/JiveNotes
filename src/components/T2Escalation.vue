@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">Escalation</div>
+    <div class="title t2">Escalation</div>
     <label>Approved By:</label>
     <textarea-autosize id="approved" autofocus rows="1" v-model="T2approved"></textarea-autosize>
     <br>
@@ -163,7 +163,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 .line {
   color: transparent;
 }
@@ -189,5 +189,9 @@ textarea {
   &:focus {
     border-bottom: 2px solid #4fc3f7;
   }
+}
+
+.t2 {
+  color: #ec407a;
 }
 </style>

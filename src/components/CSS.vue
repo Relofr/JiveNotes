@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">CSS</div>
+    <div class="title css">CSS</div>
     <label>Case#:</label>
     <textarea-autosize id="cases" autofocus rows="1" v-model="caseNumber"></textarea-autosize>
     <br>
@@ -133,7 +133,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang='less' scoped>
 label {
   color: #c4c4c4;
 }
@@ -155,5 +155,9 @@ textarea {
   &:focus {
     border-bottom: 2px solid #4fc3f7;
   }
+}
+
+.css {
+  color: #0091ea;
 }
 </style>

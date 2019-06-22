@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">Star Codes</div>
+    <div class="title star">Star Codes</div>
     <div class="search">
       <input
         autocomplete="off"
@@ -22,7 +22,7 @@
       </tr>
 
       <tr v-for="starCode in filterredStarCodes" :key="starCode[0]">
-        <td>{{ starCode.starCode }}</td>
+        <td id="starCode">{{ starCode.starCode }}</td>
         <td>{{ starCode.starDesc }}</td>
       </tr>
     </table>
@@ -62,7 +62,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 .search {
   text-align: center;
   margin: 20px 0px 60px 0px;
@@ -166,5 +166,13 @@ td:nth-child(1) {
 }
 td:nth-child(4) {
   border-radius: 0px 4px 4px 0px;
+}
+
+#starCode {
+  min-width: 100px;
+}
+
+.star {
+  color: #ffd700;
 }
 </style>

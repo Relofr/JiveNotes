@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">RMA</div>
+    <div class="title rma">RMA</div>
     <label>Ship To Name (Customer/Business/Partner):</label>
     <textarea-autosize id="cases" autofocus rows="1" v-model="shipToName"></textarea-autosize>
     <br>
@@ -198,7 +198,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 label {
   color: #c4c4c4;
 }
@@ -220,5 +220,9 @@ textarea {
   &:focus {
     border-bottom: 2px solid #4fc3f7;
   }
+}
+
+.rma {
+  color: #ff8d1a;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">Important Notes</div>
+    <div class="title notes">Important Notes</div>
     <div class="line">------------------------------------------------------</div>
     <Tooltip tooltip="true" moreInfo="This field will not clear"/>
 
@@ -189,7 +189,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 .line {
   color: transparent;
 }
@@ -224,5 +224,9 @@ textarea {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.notes {
+  color: #76bf79;
 }
 </style>

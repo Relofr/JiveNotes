@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">SIP Response Codes</div>
+    <div class="title sip">SIP Response Codes</div>
     <div class="search">
       <input
         autocomplete="off"
@@ -69,7 +69,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 .search {
   text-align: center;
   margin: 20px 0px 60px 0px;
@@ -173,5 +173,9 @@ td:nth-child(1) {
 }
 td:nth-child(4) {
   border-radius: 0px 4px 4px 0px;
+}
+
+.sip {
+  color: #d24dff;
 }
 </style>
