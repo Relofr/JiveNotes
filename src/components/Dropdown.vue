@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown">
     <i @click="myFunction()" id="app-switcher" class="material-icons dropdown-button">apps</i>
-    <div id="dropdown-options" class="dropdown-content">
+    <div id="dropdown-options" class="dropdown-content z-depth-2">
       <router-link to="/notes">
         Notes
         <i id="notes-icon" class="material-icons">assignment</i>
@@ -82,14 +82,14 @@ export default {
   background-color: #424242;
   min-width: 160px;
   overflow: auto;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+  //   0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   font-size: 14px;
   z-index: 99;
   border-radius: 4px;
   opacity: 1 !important;
-  top: 32px;
-  left: 4px;
+  // top: 32px;
+  // left: 4px;
 }
 
 .dropdown-content a {

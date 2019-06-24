@@ -6,7 +6,7 @@
           <Loading/>
         </span>
       </div>
-      <div id="app" v-else>
+      <div id="app" class="z-depth-2" v-else>
         <a id="gotopbtn" v-on:scroll="toTopButton = !toTopButton;" class="gotopbtn" href="#">
           <i class="material-icons no-select">arrow_upward</i>
         </a>
@@ -120,8 +120,8 @@ section {
   margin: 0 auto;
   overflow-y: auto;
   overflow-x: hidden;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2); */
 }
 
 .app-container {
