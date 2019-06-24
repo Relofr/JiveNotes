@@ -128,10 +128,10 @@ tr:nth-child(even) {
 
 #stopwatch-icons {
   border-radius: 50px;
-  line-height: 32px;
-  font-size: 25px;
+  line-height: 40px;
+  font-size: 24px;
   padding-right: 8px;
-  padding-left: 5px;
+  padding-left: 4px;
 }
 #timer {
   float: left;

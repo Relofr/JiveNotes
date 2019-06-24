@@ -79,7 +79,6 @@ export default {
 .dropdown-content {
   display: none;
   position: absolute;
-  // background-color: #f1f1f1;
   background-color: #424242;
   min-width: 160px;
   overflow: auto;
@@ -88,8 +87,9 @@ export default {
   font-size: 14px;
   z-index: 99;
   border-radius: 4px;
-  /* bottom: 32px; */
-  /* left: 4px; */
+  opacity: 1 !important;
+  top: 32px;
+  left: 4px;
 }
 
 .dropdown-content a {

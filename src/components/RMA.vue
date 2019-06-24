@@ -210,7 +210,7 @@ export default {
 };
 </script>
 
-<style lang='less' scoped>
+<style lang='less'>
 label {
   color: #c4c4c4;
 }
