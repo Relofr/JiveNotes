@@ -18,7 +18,7 @@
     <br>
 
     <label>Applicable Information:</label>
-    <textarea-autosize placeholder v-model="applicable" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder="N/A" v-model="applicable" rows="1"></textarea-autosize>
     <br>
 
     <div class="buttons">

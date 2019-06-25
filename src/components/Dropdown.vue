@@ -10,6 +10,10 @@
         CSS
         <i id="css-icon" class="material-icons">question_answer</i>
       </router-link>
+      <router-link to="/email">
+        Email
+        <i id="email-icon" class="material-icons">email</i>
+      </router-link>
       <router-link to="/callexample">
         Call
         <i id="callexample-icon" class="material-icons">poll</i>
@@ -93,12 +97,12 @@ export default {
 }
 
 .dropdown-content a {
-  /* border-bottom: 1px solid #5b5b5b; */
+  // border-bottom: 1px solid #5b5b5b;
   color: #fff;
-  padding: 10px 5px;
+  padding: 10px;
   text-decoration: none;
   display: block;
-  text-align: center;
+  text-align: left;
 }
 
 .dropdown a:hover {
@@ -110,6 +114,7 @@ export default {
 }
 
 #notes-icon,
+#email-icon,
 #css-icon,
 #callexample-icon,
 #escalation-icon,
@@ -119,10 +124,13 @@ export default {
   float: right;
   line-height: 18px;
   font-size: 28px;
-  margin-right: 18px;
+  // margin-right: 18px;
 }
 #notes-icon {
   color: #76bf79;
+}
+#email-icon {
+  color: #ad3232;
 }
 #css-icon {
   color: #0091ea;

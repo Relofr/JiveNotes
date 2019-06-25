@@ -1,0 +1,153 @@
+<template>
+  <div>
+    <div class="title email">Email</div>
+    <label>Agent Name/Date of Contact: {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
+    <textarea-autosize id="cases" autofocus rows="1" v-model="emailAgentName"></textarea-autosize>
+    <br>
+
+    <label>Contact Name / (Admin/User/Partner):</label>
+    <textarea-autosize rows="1" v-model="emailContact"></textarea-autosize>
+    <br>
+
+    <label>Email Received:</label>
+    <textarea-autosize v-model="emailReceived" rows="1"></textarea-autosize>
+    <br>
+
+    <label>Reply:</label>
+    <textarea-autosize placeholder v-model="emailReply" rows="1"></textarea-autosize>
+
+    <div class="buttons">
+      <Button class="button" buttonTitle="clear" @click="showModal = true"/>
+      <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
+    </div>
+    <Modal v-if="showModal" @close="showModal = false">
+      <span slot="header">Confirm Clear</span>
+      <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
+      <i slot="footer" id="copyIconModal" class="material-icons" @click="clearNotes()">check</i>
+    </Modal>
+  </div>
+</template>
+
+<script>
+import LabelInputs from "./LabelInputs";
+import Button from "./Button";
+import Modal from "./Modal";
+
+export default {
+  data: () => ({
+    emailAgentName: "",
+    emailContact: "",
+    emailReceived: "",
+    emailReply: "",
+    showModal: false,
+    showStopwatch: false
+  }),
+  components: {
+    LabelInputs,
+    Button,
+    Modal
+  },
+  methods: {
+    copyNotes() {
+      document.execCommand("unselect");
+      document.execCommand("selectAll");
+      document.execCommand("copy");
+      document.execCommand("unselect");
+      console.log("copy");
+      this.displayNotificationSuccess();
+    },
+    clearNotes() {
+      this.emailAgentName = "";
+      this.emailContact = "";
+      this.emailReceived = "";
+      this.emailReply = "";
+      document.getElementById("cases").focus();
+
+      this.showModal = false;
+      this.displayNotificationWarning();
+    },
+    displayNotificationSuccess() {
+      this.$snotify.success("Copied!");
+    },
+    displayNotificationWarning() {
+      this.$snotify.warning("Cleared!");
+    }
+  },
+  watch: {
+    emailAgentName: {
+      handler() {
+        console.log("Updated emailAgentName to: " + this.emailAgentName);
+        localStorage.setItem(
+          "emailAgentName",
+          JSON.stringify(this.emailAgentName)
+        );
+      },
+      deep: true
+    },
+    emailContact: {
+      handler() {
+        console.log("Updated emailContact to: " + this.emailContact);
+        localStorage.setItem("emailContact", JSON.stringify(this.emailContact));
+      },
+      deep: true
+    },
+    emailReceived: {
+      handler() {
+        console.log("Updated emailReceived to: " + this.emailReceived);
+        localStorage.setItem(
+          "emailReceived",
+          JSON.stringify(this.emailReceived)
+        );
+      },
+      deep: true
+    },
+    emailReply: {
+      handler() {
+        console.log("Updated emailReply to: " + this.emailReply);
+        localStorage.setItem("emailReply", JSON.stringify(this.emailReply));
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    // console.log("App mounted");
+    if (localStorage.getItem("emailAgentName"))
+      this.emailAgentName = JSON.parse(localStorage.getItem("emailAgentName"));
+    if (localStorage.getItem("emailContact"))
+      this.emailContact = JSON.parse(localStorage.getItem("emailContact"));
+    if (localStorage.getItem("emailReceived"))
+      this.emailReceived = JSON.parse(localStorage.getItem("emailReceived"));
+    if (localStorage.getItem("emailReply"))
+      this.emailReply = JSON.parse(localStorage.getItem("emailReply"));
+  }
+};
+</script>
+
+<style lang='less' scoped>
+label {
+  color: #c4c4c4;
+}
+
+label,
+span {
+  font-size: 12px;
+}
+input,
+textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #666;
+  margin-bottom: 25px;
+  font-size: 14px;
+  background-color: transparent;
+  color: #f5f5f5;
+  &:focus {
+    border-bottom: 2px solid #4fc3f7;
+  }
+}
+
+.email {
+  color: #ad3232;
+}
+</style>

@@ -26,7 +26,7 @@
     <br>
 
     <label>Troubleshooting/Replication Steps (Dial Plan Changes, PBX Changes, Network Changes, Device Interface Changes, include call examples/sip logs if applicable):</label>
-    <textarea-autosize id="troubleshooting" placeholder="N/A" v-model="troubleshooting" rows="1"></textarea-autosize>
+    <textarea-autosize id="troubleshooting" placeholder v-model="troubleshooting" rows="1"></textarea-autosize>
     <br>
 
     <label>Resolution/Escalation(Was issue resolved or escalated?):</label>

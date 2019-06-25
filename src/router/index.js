@@ -7,6 +7,8 @@ import T2Escalation from "@/components/T2Escalation";
 import sipSearch from "@/components/sipSearch";
 import StarCodeSearch from "@/components/StarCodeSearch";
 import RMA from "@/components/RMA";
+import Email from "@/components/Email";
+import Test from "@/components/Test";
 
 Vue.use(Router);
 
@@ -51,6 +53,16 @@ const router = new Router({
       path: "/rma",
       name: "RMA",
       component: RMA
+    },
+    {
+      path: "/email",
+      name: "Email",
+      component: Email
+    },
+    {
+      path: "/test",
+      name: "test",
+      component: Test
     }
   ]
 });

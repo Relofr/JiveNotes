@@ -10,6 +10,7 @@
         :state="timerState"
         @start="start"
         @pause="pause"
+        @notifyMe="notifyMe"
         @stop="stop"
         @lap="lap"
         :laps="laps"
@@ -46,18 +47,31 @@ export default {
     Modal
   },
   methods: {
+    notifyMe() {
+      console.log("Notifcation test");
+      if (Notification.permission !== "granted")
+        Notification.requestPermission();
+      else {
+        var img =
+          "https://is2-ssl.mzstatic.com/image/thumb/Purple113/v4/b6/b8/28/b6b82810-9c47-ec19-1ee7-e1e06d35b4e9/AppIcon-0-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-6.png/246x0w.jpg";
+        var text = "Hey, listen! \n5 Minute Hold";
+        new Notification("Jive Notes", {
+          body: text,
+          icon: img
+        });
+
+        // notification.onclick = function() {};
+      }
+    },
     start() {
       if (this.timerState !== "running") {
         this.tick();
         this.timerState = "running";
       }
-      if (this.timerState === "running") {
-        console.log(typeof this.timerState);
-
-        // setInterval(() => {
-        //   this.$snotify.error("5 Minutes!");
-        // }, 30000);
-      }
+      // if (this.ticker <= 5) {
+      //   console.log(typeof this.timerState);
+      //   return this.notifyMe();
+      // }
     },
     lap() {
       this.laps.push({
@@ -87,9 +101,9 @@ export default {
       this.ticker = setInterval(() => {
         this.currentTimer++;
         this.formattedTime = this.formatTime(this.currentTimer);
-        // setInterval(() => {
-        //   this.$snotify.error("5 Minutes!");
-        // }, 300000);
+        if (this.currentTimer === 300) {
+          return this.notifyMe();
+        }
       }, 1000);
     },
     formatTime(seconds) {
