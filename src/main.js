@@ -7,6 +7,8 @@ import VTooltip from "v-tooltip";
 import "vue-snotify/styles/material.css";
 import VueTextareaAutosize from "vue-textarea-autosize";
 
+import "@/assets/css/global.css";
+
 Vue.use(require("vue-shortkey"));
 Vue.use(require("vue-moment"));
 Vue.use(VTooltip);
@@ -23,6 +25,15 @@ const options = {
   }
 };
 Vue.use(Snotify, options);
+
+Notification.requestPermission().then(function(result) {
+  if (result === "denied") {
+    return;
+  }
+  if (result === "default") {
+    return;
+  }
+});
 
 new Vue({
   el: "#app",

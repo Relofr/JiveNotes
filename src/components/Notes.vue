@@ -2,11 +2,10 @@
   <div>
     <div class="title notes">Important Notes</div>
     <div class="line">------------------------------------------------------</div>
-    <Tooltip tooltip="true" moreInfo="This field will not clear"/>
+    <Tooltip tooltip="true" tooltipIcon="help_outline" moreInfo="Agent name not clear"/>
 
-    <label>Agent Name/Date of Contact: {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
-    <textarea-autosize rows="1" v-model="agentName"></textarea-autosize>
-    <!-- <input v-debounce:400ms="agentName"/> -->
+    <label>Agent Name | {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
+    <textarea-autosize @keydown="checkNumber()" rows="1" v-model="agentName"></textarea-autosize>
     <br>
 
     <label>Contact Name / (Admin/User/Partner):</label>
@@ -32,7 +31,7 @@
     <label>Resolution/Escalation(Was issue resolved or escalated?):</label>
     <textarea-autosize rows="1" v-model="resolution"></textarea-autosize>
     <div class="line">------------------------------------------------------</div>
-    <Tooltip tooltip="true" moreInfo="This field will not clear or copy"/>
+    <Tooltip tooltip="true" tooltipIcon="help_outline" moreInfo="Notes will not clear or copy"/>
 
     <label class="no-select">Notes:</label>
     <div class="no-select">
@@ -78,6 +77,11 @@ export default {
     Modal
   },
   methods: {
+    checkNumber() {
+      console.log("checkNumber function");
+      var adminInput = this.agentName;
+      adminInput.replace(1, "Admin");
+    },
     copyNotes() {
       document.execCommand("unselect");
       document.execCommand("selectAll");

@@ -1,21 +1,23 @@
 <template>
   <div>
     <div class="title email">Email</div>
-    <label>Agent Name/Date of Contact: {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
-    <textarea-autosize id="cases" autofocus rows="1" v-model="emailAgentName"></textarea-autosize>
+    <div class="line">------------------------------------------------------</div>
+    <label>Agent Name | {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
+    <textarea-autosize rows="1" v-model="emailAgentName"></textarea-autosize>
     <br>
 
     <label>Contact Name / (Admin/User/Partner):</label>
-    <textarea-autosize rows="1" v-model="emailContact"></textarea-autosize>
+    <textarea-autosize id="contact" rows="1" v-model="emailContact"></textarea-autosize>
     <br>
 
     <label>Email Received:</label>
     <textarea-autosize v-model="emailReceived" rows="1"></textarea-autosize>
     <br>
 
-    <label>Reply:</label>
-    <textarea-autosize placeholder v-model="emailReply" rows="1"></textarea-autosize>
-
+    <Tooltip @copyReply="copyReply" tooltip="true" tooltipIcon="file_copy" moreInfo="Copy Reply"/>
+    <label>My Reply:</label>
+    <textarea-autosize id="replyText" placeholder v-model="emailReply" rows="1"></textarea-autosize>
+    <div class="line">------------------------------------------------------</div>
     <div class="buttons">
       <Button class="button" buttonTitle="clear" @click="showModal = true"/>
       <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
@@ -32,6 +34,7 @@
 import LabelInputs from "./LabelInputs";
 import Button from "./Button";
 import Modal from "./Modal";
+import Tooltip from "./Tooltip";
 
 export default {
   data: () => ({
@@ -45,9 +48,18 @@ export default {
   components: {
     LabelInputs,
     Button,
-    Modal
+    Modal,
+    Tooltip
   },
   methods: {
+    copyReply() {
+      console.log("Copied Reply");
+      var copyText = document.getElementById("replyText");
+      copyText.select();
+      document.execCommand("copy");
+      document.execCommand("unselect");
+      this.displayNotificationSuccess();
+    },
     copyNotes() {
       document.execCommand("unselect");
       document.execCommand("selectAll");
@@ -57,11 +69,10 @@ export default {
       this.displayNotificationSuccess();
     },
     clearNotes() {
-      this.emailAgentName = "";
       this.emailContact = "";
       this.emailReceived = "";
       this.emailReply = "";
-      document.getElementById("cases").focus();
+      document.getElementById("contact").focus();
 
       this.showModal = false;
       this.displayNotificationWarning();
@@ -149,5 +160,9 @@ textarea {
 
 .email {
   color: #ad3232;
+}
+
+.line {
+  color: transparent;
 }
 </style>

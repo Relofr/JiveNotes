@@ -8,11 +8,8 @@
       </button>-->
       <div class="stopwatch-icons-container">
         <i id="stopwatch-icons" @click="$emit('start')" class="material-icons">play_arrow</i>
-        <!-- <button @click="$emit('pause')">Pause</button> -->
         <i id="stopwatch-icons" @click="$emit('pause')" class="material-icons">stop</i>
-        <!-- <button @click="$emit('lap')">Lap</button> -->
         <i id="stopwatch-icons" @click="$emit('lap')" class="material-icons">flag</i>
-        <!-- <button @click="$emit('stop')">Reset</button> -->
         <i id="stopwatch-icons" @click="$emit('stop')" class="material-icons">replay</i>
         <i
           v-if="!showTable"
@@ -60,7 +57,6 @@ export default {
   methods: {
     clearLaps(index) {
       this.laps.splice(index, 1);
-      // this.laps.pop();
     }
   },
   watch: {
@@ -142,22 +138,21 @@ tr:nth-child(even) {
 @media only screen and (max-width: 640px) {
   #stopwatch-icons {
     font-size: 22px;
-    padding-right: 4px;
   }
 }
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 640px) {
   #timer {
-    font-size: 22px;
-    line-height: 34px;
-    width: 90px;
+    font-size: 26px;
+    margin-right: 10px;
+    line-height: 40px;
   }
 }
 
-@media only screen and (max-width: 575px) {
-  .stopwatch-icons-container {
-    float: left;
-    margin-left: -5px;
+@media only screen and (max-width: 625px) {
+  #stopwatch-icons {
+    // float: left;
+    // margin-left: -5px;
   }
 }
 </style>

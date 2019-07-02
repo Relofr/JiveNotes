@@ -33,16 +33,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import Dropdown from "./components/Dropdown";
-Notification.requestPermission().then(function(result) {
-  if (result === "denied") {
-    console.log("Permission wasn't granted. Allow a retry.");
-    return;
-  }
-  if (result === "default") {
-    console.log("The permission request was dismissed.");
-    return;
-  }
-});
 export default {
   name: "App",
   data() {
@@ -78,20 +68,6 @@ export default {
     }
   },
   watch: {},
-  beforeCreate() {
-    console.log("beforeCreate");
-    Notification.requestPermission().then(function(result) {
-      if (result === "denied") {
-        console.log("Permission wasn't granted. Allow a retry.");
-        return;
-      }
-      if (result === "default") {
-        console.log("The permission request was dismissed.");
-        return;
-      }
-      // Do something with the granted permission.
-    });
-  },
   created() {
     window.addEventListener("scroll", this.toTop);
     console.log("created");

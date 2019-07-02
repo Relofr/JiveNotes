@@ -10,7 +10,9 @@
         :state="timerState"
         @start="start"
         @pause="pause"
-        @notifyMe="notifyMe"
+        @notifyMe5="notifyMe5"
+        @notifyMe10="notifyMe10"
+        @notifyMe30="notifyMe30"
         @stop="stop"
         @lap="lap"
         :laps="laps"
@@ -47,19 +49,57 @@ export default {
     Modal
   },
   methods: {
-    notifyMe() {
+    notifyMe5() {
       console.log("Notifcation test");
       if (Notification.permission !== "granted")
         Notification.requestPermission();
       else {
+        var img3 = "../assets/navi.png";
+        var img2 =
+          "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Navi_%28The_Legend_of_Zelda%29.png/220px-Navi_%28The_Legend_of_Zelda%29.png";
         var img =
           "https://is2-ssl.mzstatic.com/image/thumb/Purple113/v4/b6/b8/28/b6b82810-9c47-ec19-1ee7-e1e06d35b4e9/AppIcon-0-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-6.png/246x0w.jpg";
-        var text = "Hey, listen! \n5 Minute Hold";
+        var text = "Hey, listen! \n5 Minutes";
         new Notification("Jive Notes", {
           body: text,
-          icon: img
+          icon: img2
         });
-
+        // notification.onclick = function() {};
+      }
+    },
+    notifyMe10() {
+      console.log("Notifcation test");
+      if (Notification.permission !== "granted")
+        Notification.requestPermission();
+      else {
+        var img3 = "../assets/navi.png";
+        var img2 =
+          "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Navi_%28The_Legend_of_Zelda%29.png/220px-Navi_%28The_Legend_of_Zelda%29.png";
+        var img =
+          "https://is2-ssl.mzstatic.com/image/thumb/Purple113/v4/b6/b8/28/b6b82810-9c47-ec19-1ee7-e1e06d35b4e9/AppIcon-0-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-6.png/246x0w.jpg";
+        var text = "Hey, listen! \n10 Minutes";
+        new Notification("Jive Notes", {
+          body: text,
+          icon: img2
+        });
+        // notification.onclick = function() {};
+      }
+    },
+    notifyMe30() {
+      console.log("Notifcation test");
+      if (Notification.permission !== "granted")
+        Notification.requestPermission();
+      else {
+        var img3 = "../assets/navi.png";
+        var img2 =
+          "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Navi_%28The_Legend_of_Zelda%29.png/220px-Navi_%28The_Legend_of_Zelda%29.png";
+        var img =
+          "https://is2-ssl.mzstatic.com/image/thumb/Purple113/v4/b6/b8/28/b6b82810-9c47-ec19-1ee7-e1e06d35b4e9/AppIcon-0-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-6.png/246x0w.jpg";
+        var text = "Hey, listen! \n30 Minutes";
+        new Notification("Jive Notes", {
+          body: text,
+          icon: img2
+        });
         // notification.onclick = function() {};
       }
     },
@@ -68,10 +108,6 @@ export default {
         this.tick();
         this.timerState = "running";
       }
-      // if (this.ticker <= 5) {
-      //   console.log(typeof this.timerState);
-      //   return this.notifyMe();
-      // }
     },
     lap() {
       this.laps.push({
@@ -79,11 +115,9 @@ export default {
         formattedTime: this.formatTime(this.currentTimer)
       });
       this.latestLap = this.formatTime(this.currentTimer);
-      // this.currentTimer = 0;
     },
     clearLaps(index) {
       this.laps.splice(index, 1);
-      // this.laps.pop();
     },
     pause() {
       window.clearInterval(this.ticker);
@@ -102,7 +136,13 @@ export default {
         this.currentTimer++;
         this.formattedTime = this.formatTime(this.currentTimer);
         if (this.currentTimer === 300) {
-          return this.notifyMe();
+          return this.notifyMe5();
+        }
+        if (this.currentTimer === 600) {
+          return this.notifyMe10();
+        }
+        if (this.currentTimer === 1800) {
+          return this.notifyMe30();
         }
       }, 1000);
     },
@@ -130,7 +170,6 @@ export default {
 <style lang='less'>
 .left-container {
   display: flex;
-  // position: absolute;
 }
 
 .buttons,

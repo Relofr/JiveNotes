@@ -1,10 +1,12 @@
 <template>
   <div class="dropdown">
-    <i @click="myFunction()" id="app-switcher" class="material-icons dropdown-button">apps</i>
+    <i @click="openMenu()" id="app-switcher" class="material-icons dropdown-button">apps</i>
     <div id="dropdown-options" class="dropdown-content z-depth-2">
       <router-link to="/notes">
         Notes
-        <i id="notes-icon" class="material-icons">assignment</i>
+        <span class="icon-container">
+          <i id="notes-icon" class="material-icons">assignment</i>
+        </span>
       </router-link>
       <router-link to="/css">
         CSS
@@ -15,11 +17,11 @@
         <i id="email-icon" class="material-icons">email</i>
       </router-link>
       <router-link to="/callexample">
-        Call
+        Call Example
         <i id="callexample-icon" class="material-icons">poll</i>
       </router-link>
       <router-link to="/t2escalation">
-        T2
+        Escalate
         <i id="escalation-icon" class="material-icons">priority_high</i>
       </router-link>
       <router-link disabled to="/rma">
@@ -56,7 +58,7 @@ export default {
     return {};
   },
   methods: {
-    myFunction() {
+    openMenu() {
       document.getElementById("dropdown-options").classList.toggle("show");
     }
   }

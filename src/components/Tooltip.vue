@@ -1,17 +1,18 @@
 <template>
   <div>
     <i
+      @click="$emit('copyReply')"
       id="help-icon"
       v-show="tooltip"
       v-tooltip.top-center="moreInfo"
       class="material-icons"
-    >help_outline</i>
+    >{{ tooltipIcon }}</i>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["moreInfo", "tooltip"],
+  props: ["moreInfo", "tooltip", "tooltipIcon"],
   data() {
     return {};
   }
