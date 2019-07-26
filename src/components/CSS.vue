@@ -160,4 +160,8 @@ textarea {
 .css {
   color: #0091ea;
 }
+
+.star {
+  color: transparent;
+}
 </style>

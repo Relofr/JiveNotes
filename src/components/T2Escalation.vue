@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="title t2">Escalation</div>
+    <div>- T2 Escalation -</div>
     <label>Approved By:</label>
     <textarea-autosize id="approved" autofocus rows="1" v-model="T2approved"></textarea-autosize>
     <br>

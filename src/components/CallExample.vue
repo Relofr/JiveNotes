@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="title call">Call Example</div>
+    <div>- Call Example -</div>
     <label>PBX Domain:</label>
     <textarea-autosize id="pbx" autofocus rows="1" v-model="pbx"></textarea-autosize>
     <br>

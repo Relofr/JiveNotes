@@ -2,14 +2,25 @@
   <div>
     <div class="title notes">Important Notes</div>
     <div class="line">------------------------------------------------------</div>
-    <Tooltip tooltip="true" tooltipIcon="help_outline" moreInfo="Agent name not clear"/>
+    <Tooltip tooltip="true" tooltipIcon="help_outline" moreInfo="Agent Name will not clear"/>
 
     <label>Agent Name | {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
     <textarea-autosize @keydown="checkNumber()" rows="1" v-model="agentName"></textarea-autosize>
     <br>
 
-    <label>Contact Name / (Admin/User/Partner):</label>
+    <label>Contact Name:</label>
     <textarea-autosize id="contact" rows="1" autofocus v-model="contact"></textarea-autosize>
+    <br>
+
+    <label>Permissions:</label>
+    <input v-model="permissions" list="permissions" name="permissions">
+    <datalist id="permissions">
+      <option value="Super Admin"></option>
+      <option value="Admin"></option>
+      <option value="User"></option>
+      <option value="Non User"></option>
+      <option value="Partner"></option>
+    </datalist>
     <br>
 
     <label>Summary of Issue/Request:</label>
@@ -25,7 +36,13 @@
     <br>
 
     <label>Troubleshooting/Replication Steps (Dial Plan Changes, PBX Changes, Network Changes, Device Interface Changes, include call examples/sip logs if applicable):</label>
-    <textarea-autosize id="troubleshooting" placeholder v-model="troubleshooting" rows="1"></textarea-autosize>
+    <textarea-autosize
+      v-on:keyup="addDash()"
+      id="troubleshooting"
+      placeholder
+      v-model="troubleshooting"
+      rows="1"
+    ></textarea-autosize>
     <br>
 
     <label>Resolution/Escalation(Was issue resolved or escalated?):</label>
@@ -39,8 +56,13 @@
     </div>
 
     <div class="buttons">
-      <Button class="button" buttonTitle="clear" @click="showModal = true"/>
-      <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
+      <Button id="button" class="button" buttonTitle="clear" @click="showModal = true"/>
+      <Button
+        class="button2"
+        buttonTitle="copy"
+        @click="copyNotes()"
+        :disabled="!permissions || !contact || !agentName"
+      />
     </div>
 
     <Modal v-if="showModal" @close="showModal = false">
@@ -61,6 +83,7 @@ export default {
   data: () => ({
     agentName: "",
     contact: "",
+    permissions: "",
     summary: "",
     devices: "",
     network: "",
@@ -77,6 +100,12 @@ export default {
     Modal
   },
   methods: {
+    addDash(e) {
+      if (e.keyCode === 13) {
+        console.log("Enter");
+        document.getElementById("troubleshooting").innerHTML += "-";
+      }
+    },
     checkNumber() {
       console.log("checkNumber function");
       var adminInput = this.agentName;
@@ -92,6 +121,7 @@ export default {
     },
     clearNotes() {
       this.contact = "";
+      this.permissions = "";
       this.summary = "";
       this.devices = "";
       this.network = "";
@@ -121,6 +151,13 @@ export default {
       handler() {
         console.log("Updated contact to: " + this.contact);
         localStorage.setItem("contact", JSON.stringify(this.contact));
+      },
+      deep: true
+    },
+    permissions: {
+      handler() {
+        console.log("Updated permissions to: " + this.permissions);
+        localStorage.setItem("permissions", JSON.stringify(this.permissions));
       },
       deep: true
     },
@@ -175,6 +212,8 @@ export default {
       this.agentName = JSON.parse(localStorage.getItem("agentName"));
     if (localStorage.getItem("contact"))
       this.contact = JSON.parse(localStorage.getItem("contact"));
+    if (localStorage.getItem("permissions"))
+      this.permissions = JSON.parse(localStorage.getItem("permissions"));
     if (localStorage.getItem("summary"))
       this.summary = JSON.parse(localStorage.getItem("summary"));
     if (localStorage.getItem("devices"))
@@ -209,6 +248,7 @@ span {
 input,
 textarea {
   width: 100%;
+  height: 21px;
   border: none;
   outline: none;
   border-bottom: 1px solid #666;
@@ -232,5 +272,11 @@ textarea {
 
 .notes {
   color: #76bf79;
+}
+
+:disabled {
+  background-color: lightgray;
+  color: #696969;
+  cursor: not-allowed;
 }
 </style>

@@ -28,6 +28,10 @@
         RMA
         <i id="rma-icon" class="material-icons">local_shipping</i>
       </router-link>
+      <router-link disabled to="/fraud">
+        Fraud/Sherlock
+        <i id="fraud-icon" class="material-icons">security</i>
+      </router-link>
       <router-link to="/sip">
         SIP Codes
         <i id="sip-icon" class="material-icons">dialer_sip</i>
@@ -121,6 +125,7 @@ export default {
 #callexample-icon,
 #escalation-icon,
 #rma-icon,
+#fraud-icon,
 #sip-icon,
 #star-icon {
   float: right;
@@ -148,6 +153,9 @@ export default {
 }
 #sip-icon {
   color: #d24dff;
+}
+#fraud-icon {
+  color: red;
 }
 #star-icon {
   color: #ffd700;

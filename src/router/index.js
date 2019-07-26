@@ -9,6 +9,7 @@ import StarCodeSearch from "@/components/StarCodeSearch";
 import RMA from "@/components/RMA";
 import Email from "@/components/Email";
 import Test from "@/components/Test";
+import FraudSherlock from "@/components/FraudSherlock";
 
 Vue.use(Router);
 
@@ -63,6 +64,11 @@ const router = new Router({
       path: "/test",
       name: "test",
       component: Test
+    },
+    {
+      path: "/fraud",
+      name: "fraud",
+      component: FraudSherlock
     }
   ]
 });
