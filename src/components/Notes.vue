@@ -9,11 +9,11 @@
     <br>
 
     <label>Contact Name:</label>
-    <textarea-autosize id="contact" rows="1" autofocus v-model="contact"></textarea-autosize>
+    <textarea-autosize id="contact" rows="1" autofocus v-model="contact" required></textarea-autosize>
     <br>
 
     <label>Permissions:</label>
-    <input v-model="permissions" list="permissions" name="permissions">
+    <input v-model="permissions" list="permissions" name="permissions" required>
     <datalist id="permissions">
       <option value="Super Admin"></option>
       <option value="Admin"></option>
@@ -57,12 +57,7 @@
 
     <div class="buttons">
       <Button id="button" class="button" buttonTitle="clear" @click="showModal = true"/>
-      <Button
-        class="button2"
-        buttonTitle="copy"
-        @click="copyNotes()"
-        :disabled="!permissions || !contact || !agentName"
-      />
+      <Button class="button2" buttonTitle="copy" @click="copyNotes()" :disabled="!permissions"/>
     </div>
 
     <Modal v-if="showModal" @close="showModal = false">
@@ -137,6 +132,9 @@ export default {
     },
     displayNotificationWarning() {
       this.$snotify.warning("Cleared!");
+    },
+    displayNotificationError() {
+      this.$snotify.error("Error!");
     }
   },
   watch: {
@@ -261,6 +259,10 @@ textarea {
   }
 }
 
+input:not([type]):focus:not([readonly]) {
+  border-bottom: 1px solid #4fc3f7;
+}
+
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -278,5 +280,9 @@ textarea {
   background-color: lightgray;
   color: #696969;
   cursor: not-allowed;
+}
+
+input:invalid {
+  border-bottom: 1px solid #e53935;
 }
 </style>

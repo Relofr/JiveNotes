@@ -156,10 +156,14 @@ section {
 }
 
 .snotify-warning {
-  background: #b15dc1;
+  background: #e53935;
 }
 .snotify-success {
   background-color: #0091ea;
+}
+
+.snotify-error {
+  background-color: #ffa726;
 }
 .component-fade-enter-active,
 .component-fade-leave-active {

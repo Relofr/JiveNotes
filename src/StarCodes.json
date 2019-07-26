@@ -41,7 +41,7 @@
       "starDesc": "Places a call on hold in a virtual parking spot on the system. There are an unlimited number of parking spots available. To park in a user-assigned spot, blind transfer to *37 + parking spot number (any number of digits, but it cannot start with 0). To park in a system-assigned spot, warm transfer to *37 (the system will notify you where the call is parked). To answer a parked call, dial *37 + parking spot number."
     },
     {
-      "starCode": "*43 + ext",
+      "starCode": "*43",
       "starDesc": "Initiates hot desking allowing you to load your extension settings to a shared phone and use it as your own. Dial the same star code to log out of a shared phone. This feature is supported on Cisco MPP, Polycom, and Yealink only and must be enabled by a system admin on your user profile and each shared device"
     },
     {
