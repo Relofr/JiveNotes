@@ -10,6 +10,7 @@ import RMA from "@/components/RMA";
 import Email from "@/components/Email";
 import Test from "@/components/Test";
 import FraudSherlock from "@/components/FraudSherlock";
+import jiveViewResults from "@/components/jiveViewResults";
 
 Vue.use(Router);
 
@@ -69,6 +70,11 @@ const router = new Router({
       path: "/fraud",
       name: "fraud",
       component: FraudSherlock
+    },
+    {
+      path: "/jiveview",
+      name: "jiveview",
+      component: jiveViewResults
     }
   ]
 });

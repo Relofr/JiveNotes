@@ -10,7 +10,7 @@
     <br>
 
     <label>Suite, Building, Floor, Etc:</label>
-    <textarea-autosize v-model="suiteBuildingFloor" rows="1"></textarea-autosize>
+    <textarea-autosize placeholder="N/A" v-model="suiteBuildingFloor" rows="1"></textarea-autosize>
     <br>
 
     <label>City, State, Zip:</label>

@@ -16,6 +16,10 @@
         Email
         <i id="email-icon" class="material-icons">email</i>
       </router-link>
+      <router-link to="/jiveview">
+        Jive View
+        <i id="jive-view-icon" class="material-icons">network_check</i>
+      </router-link>
       <router-link to="/callexample">
         Call Example
         <i id="callexample-icon" class="material-icons">poll</i>
@@ -121,6 +125,7 @@ export default {
 
 #notes-icon,
 #email-icon,
+#jive-view-icon,
 #css-icon,
 #callexample-icon,
 #escalation-icon,
@@ -138,6 +143,10 @@ export default {
 }
 #email-icon {
   color: #ad3232;
+}
+
+#jive-view-icon {
+  color: #00cdcd;
 }
 #css-icon {
   color: #0091ea;

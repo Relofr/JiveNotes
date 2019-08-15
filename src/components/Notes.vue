@@ -103,7 +103,7 @@ export default {
     },
     checkNumber() {
       console.log("checkNumber function");
-      var adminInput = this.agentName;
+      var adminInput = this.contact;
       adminInput.replace(1, "Admin");
     },
     copyNotes() {
@@ -283,6 +283,6 @@ input:not([type]):focus:not([readonly]) {
 }
 
 input:invalid {
-  border-bottom: 1px solid #e53935;
+  border-bottom: 1.5px solid #e53935;
 }
 </style>
