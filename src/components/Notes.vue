@@ -108,10 +108,15 @@ export default {
     },
     copyNotes() {
       document.execCommand("unselect");
-      document.execCommand("selectAll");
-      document.execCommand("copy");
-      document.execCommand("unselect");
-      console.log("copy");
+      if (document.execCommand("selectAll")) {
+        console.log("Select All");
+      }
+      if (document.execCommand("copy")) {
+        console.log("Copy");
+      }
+      if (document.execCommand("unselect")) {
+        console.log("Unselect");
+      }
       this.displayNotificationSuccess();
     },
     clearNotes() {

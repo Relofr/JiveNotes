@@ -80,6 +80,13 @@ export default {
     setTimeout(() => {
       this.isLoading = false;
     }, 2800);
+
+    if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      console.log("Firefox");
+    }
+    if (navigator.userAgent.indexOf("Chrome") !== -1) {
+      console.log("Firefox");
+    }
   }
 };
 </script>
