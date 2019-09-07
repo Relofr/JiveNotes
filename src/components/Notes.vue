@@ -43,8 +43,47 @@
       v-model="troubleshooting"
       rows="1"
     ></textarea-autosize>
-    <br>
 
+    <!-- <input id="toggle" type="checkbox">
+    <label class="no-select" for="toggle">RMA?</label>
+    <div id="expand">
+      <div class="title rma">RMA</div>
+      <label>Ship To Name (Customer/Business/Partner):</label>
+      <textarea-autosize id="cases" autofocus rows="1" v-model="shipToName"></textarea-autosize>
+      <br>
+
+      <label>Street Address:</label>
+      <textarea-autosize rows="1" v-model="streetAddress"></textarea-autosize>
+      <br>
+
+      <label>Suite, Building, Floor, Etc:</label>
+      <textarea-autosize placeholder="N/A" v-model="suiteBuildingFloor" rows="1"></textarea-autosize>
+      <br>
+
+      <label>City, State, Zip:</label>
+      <textarea-autosize v-model="cityStateZip" rows="1"></textarea-autosize>
+      <br>
+
+      <label>Country:</label>
+      <textarea-autosize v-model="country" rows="1"></textarea-autosize>
+      <br>
+
+      <label>Contact First/Last Name:</label>
+      <textarea-autosize v-model="contactFirstNameLastName" rows="1"></textarea-autosize>
+      <br>
+
+      <label>Contact Phone Number:</label>
+      <textarea-autosize v-model="contactPhoneNumber" rows="1"></textarea-autosize>
+      <br>
+
+      <label>Contact Email Address:</label>
+      <textarea-autosize v-model="contactEmailAddress" rows="1"></textarea-autosize>
+    </div>-->
+    <!-- <span @click="collapse()" class="accordion">Section 1</span>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>-->
+    <br>
     <label>Resolution/Escalation(Was issue resolved or escalated?):</label>
     <textarea-autosize rows="1" v-model="resolution"></textarea-autosize>
     <div class="line">------------------------------------------------------</div>
@@ -95,6 +134,22 @@ export default {
     Modal
   },
   methods: {
+    collapse() {
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      }
+    },
     addDash(e) {
       if (e.keyCode === 13) {
         console.log("Enter");
@@ -289,5 +344,42 @@ input:not([type]):focus:not([readonly]) {
 
 input:invalid {
   border-bottom: 1.5px solid #e53935;
+}
+
+// #expand {
+//   height: 0px;
+//   // display: none;
+//   visibility: hidden;
+//   transition: height 0.5s;
+//   border-radius: 4px;
+// }
+// #toggle:checked ~ #expand {
+//   height: auto;
+//   // display: block;
+//   visibility: visible;
+// }
+
+.accordion {
+  // background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  // width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+// .active, .accordion:hover {
+//   background-color: #ccc;
+// }
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  // background-color: white;
+  overflow: hidden;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h2>Jive Notes</h2>
+    <h2 class="loading-title">Jive Notes</h2>
     <br>
     <br>
     <div class="dots">
@@ -65,5 +65,9 @@ export default {};
 
 .dot.three {
   animation-delay: 0.6s;
+}
+
+.loading-title {
+  /* color: #2a3a4a; */
 }
 </style>

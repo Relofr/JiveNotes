@@ -44,6 +44,10 @@
         Star Codes
         <i id="star-icon" class="material-icons">star</i>
       </router-link>
+      <router-link to="/feedback">
+        Feedback
+        <i id="feedback-icon" class="material-icons">feedback</i>
+      </router-link>
     </div>
   </div>
 </template>
@@ -132,7 +136,8 @@ export default {
 #rma-icon,
 #fraud-icon,
 #sip-icon,
-#star-icon {
+#star-icon,
+#feedback-icon {
   float: right;
   line-height: 18px;
   font-size: 28px;
@@ -168,6 +173,9 @@ export default {
 }
 #star-icon {
   color: #ffd700;
+}
+#feedback-icon {
+  color: #007AFF;
 }
 
 #app-switcher {

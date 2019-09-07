@@ -8,9 +8,10 @@ import sipSearch from "@/components/sipSearch";
 import StarCodeSearch from "@/components/StarCodeSearch";
 import RMA from "@/components/RMA";
 import Email from "@/components/Email";
-import Test from "@/components/Test";
+import Feedback from "@/components/Feedback";
 import FraudSherlock from "@/components/FraudSherlock";
 import jiveViewResults from "@/components/jiveViewResults";
+import Test from "@/components/Test";
 
 Vue.use(Router);
 
@@ -62,9 +63,9 @@ const router = new Router({
       component: Email
     },
     {
-      path: "/test",
-      name: "test",
-      component: Test
+      path: "/feedback",
+      name: "feedback",
+      component: Feedback
     },
     {
       path: "/fraud",
@@ -75,6 +76,11 @@ const router = new Router({
       path: "/jiveview",
       name: "jiveview",
       component: jiveViewResults
+    },
+    {
+      path: "/test",
+      name: "test",
+      component: Test
     }
   ]
 });

@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     notifyMe5() {
-      console.log("Notifcation test");
+      console.log("Notifcation 5");
       if (Notification.permission !== "granted")
         Notification.requestPermission();
       else {
@@ -68,7 +68,7 @@ export default {
       }
     },
     notifyMe10() {
-      console.log("Notifcation test");
+      console.log("Notifcation 10");
       if (Notification.permission !== "granted")
         Notification.requestPermission();
       else {
@@ -86,7 +86,7 @@ export default {
       }
     },
     notifyMe30() {
-      console.log("Notifcation test");
+      console.log("Notifcation 30");
       if (Notification.permission !== "granted")
         Notification.requestPermission();
       else {

@@ -17,9 +17,12 @@
     <textarea-autosize placeholder v-model="question" rows="1"></textarea-autosize>
     <br>
 
+    <label>PBX:</label>
+    <textarea-autosize placeholder v-model="cssPBX" rows="1"></textarea-autosize>
+    <br>
+
     <label>Applicable Information:</label>
     <textarea-autosize placeholder="N/A" v-model="applicable" rows="1"></textarea-autosize>
-    <br>
 
     <div class="buttons">
       <Button class="button" buttonTitle="clear" @click="showModal = true"/>
@@ -45,6 +48,7 @@ export default {
     description: "",
     question: "",
     applicable: "",
+    cssPBX: "",
     showModal: false,
     showStopwatch: false
   }),
@@ -68,6 +72,7 @@ export default {
       this.description = "";
       this.question = "";
       this.applicable = "";
+      this.cssPBX = "";
       document.getElementById("cases").focus();
 
       this.showModal = false;
@@ -115,6 +120,13 @@ export default {
         localStorage.setItem("applicable", JSON.stringify(this.applicable));
       },
       deep: true
+    },
+    cssPBX: {
+      handler() {
+        console.log("Updated cssPBX info to: " + this.cssPBX);
+        localStorage.setItem("cssPBX", JSON.stringify(this.cssPBX));
+      },
+      deep: true
     }
   },
   mounted() {
@@ -129,6 +141,8 @@ export default {
       this.question = JSON.parse(localStorage.getItem("question"));
     if (localStorage.getItem("applicable"))
       this.applicable = JSON.parse(localStorage.getItem("applicable"));
+    if (localStorage.getItem("cssPBX"))
+      this.cssPBX = JSON.parse(localStorage.getItem("cssPBX"));
   }
 };
 </script>

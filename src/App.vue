@@ -1,17 +1,34 @@
 <template>
   <div>
-    <section>
+    <section class="background-color-selection" v-bind:style="{ backgroundColor: colorBG}">
       <div v-if="isLoading">
         <span>
           <Loading/>
         </span>
       </div>
-      <div id="app" class="z-depth-2" v-else>
+      <div id="app" class="z-depth-2" v-else v-bind:style="{ backgroundColor: color}">
         <a id="gotopbtn" v-on:scroll="toTopButton = !toTopButton;" class="gotopbtn" href="#">
           <i class="material-icons no-select">arrow_upward</i>
         </a>
         <div class="app-container">
           <div class="main-title">JiveNotes</div>
+          <div class="box-container">
+            <div class="box">
+              <div class="color-selection no-select">
+                <!-- <label for="color-selection">Front</label> -->
+                <input class="color-selection" type="color" v-model="color" value="Color Select">
+              </div>
+              <div class="background-color-selection no-select">
+                <!-- <label for="color-selection">Back</label> -->
+                <input
+                  class="background-color-selection"
+                  type="color"
+                  v-model="colorBG"
+                  value="Color Select"
+                >
+              </div>
+            </div>
+          </div>
           <Dropdown class="no-select"/>
           <!-- <Navbar class="no-select"/> -->
           <transition name="component-fade" mode="out-in">
@@ -39,7 +56,9 @@ export default {
     return {
       showStopwatch: false,
       isLoading: true,
-      toTopButton: true
+      toTopButton: true,
+      color: "",
+      colorBG: ""
     };
   },
   components: {
@@ -67,7 +86,22 @@ export default {
       };
     }
   },
-  watch: {},
+  watch: {
+    color: {
+      handler() {
+        console.log("Updated color to: " + this.color);
+        localStorage.setItem("color", JSON.stringify(this.color));
+      },
+      deep: true
+    },
+    colorBG: {
+      handler() {
+        console.log("Updated colorBG to: " + this.colorBG);
+        localStorage.setItem("colorBG", JSON.stringify(this.colorBG));
+      },
+      deep: true
+    }
+  },
   created() {
     window.addEventListener("scroll", this.toTop);
     console.log("created");
@@ -87,6 +121,10 @@ export default {
     if (navigator.userAgent.indexOf("Chrome") !== -1) {
       console.log("Firefox");
     }
+    if (localStorage.getItem("color"))
+      this.color = JSON.parse(localStorage.getItem("color"));
+    if (localStorage.getItem("colorBG"))
+      this.colorBG = JSON.parse(localStorage.getItem("colorBG"));
   }
 };
 </script>
@@ -97,18 +135,23 @@ html {
 }
 body {
   background-color: #212121;
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   color: #f5f5f5;
+}
+.background-color-selection {
+  /* margin: 0;
+  padding: 0; */
 }
 section {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 100vh;
   height: auto;
   box-sizing: border-box;
-  padding: 20px;
+  /* padding: 20px; */
 }
 #app {
   font-family: "Montserrat", sans-serif;
@@ -120,7 +163,7 @@ section {
   width: 90%;
   max-width: 900px;
   height: 100%;
-  margin: 0 auto;
+  margin: 35px auto;
   overflow-y: auto;
   overflow-x: hidden;
   /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -231,5 +274,44 @@ label {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+input[type="color"] {
+  /* opacity: 0; */
+  /* display: flex; */
+  /* flex-direction: row; */
+  border: none;
+  /* float: right; */
+  /* position: relative; */
+  /* top: 0; */
+  /* right: 0; */
+  /* margin-right: 15px; */
+  width: 20px;
+  height: 20px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0px;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.box-container {
+  /* background-color: red;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99; */
 }
 </style>

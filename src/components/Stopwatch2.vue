@@ -9,7 +9,6 @@
       <div class="stopwatch-icons-container">
         <i id="stopwatch-icons" @click="$emit('start')" class="material-icons">play_arrow</i>
         <i id="stopwatch-icons" @click="$emit('pause')" class="material-icons">stop</i>
-        <i id="stopwatch-icons" @click="$emit('lap')" class="material-icons">flag</i>
         <i id="stopwatch-icons" @click="$emit('stop')" class="material-icons">replay</i>
         <i
           v-if="!showTable"
@@ -23,6 +22,7 @@
           @click="showTable = !showTable"
           class="material-icons"
         >timer_off</i>
+        <i v-if="showTable" id="stopwatch-icons" @click="$emit('lap')" class="material-icons">flag</i>
       </div>
     </div>
     <div v-if="showTable">
@@ -135,9 +135,9 @@ tr:nth-child(even) {
   margin-right: 10px;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 588px) {
   #stopwatch-icons {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 

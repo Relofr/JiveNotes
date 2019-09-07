@@ -125,7 +125,7 @@
       </Modal>
       <span id="jiveViewText">
         Hello
-        <b>{{ customerName }}</b>,
+        {{ customerName }},
         <br>
         <br>Thank you for your patience while I ran these tests, here are my findings:
         <br>
