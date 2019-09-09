@@ -134,7 +134,6 @@ tr:nth-child(even) {
   font-size: 26px;
   margin-right: 10px;
 }
-
 @media only screen and (max-width: 588px) {
   #stopwatch-icons {
     font-size: 20px;
@@ -149,10 +148,16 @@ tr:nth-child(even) {
   }
 }
 
-@media only screen and (max-width: 625px) {
+@media only screen and (max-width: 542px) {
+  #timer {
+    font-size: 22px;
+    margin-right: -15px;
+  }
+}
+
+@media only screen and (max-width: 542px) {
   #stopwatch-icons {
-    // float: left;
-    // margin-left: -5px;
+    font-size: 17px;
   }
 }
 </style>

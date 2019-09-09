@@ -277,7 +277,7 @@ input:focus {
 .main-title {
   float: right;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.3);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
