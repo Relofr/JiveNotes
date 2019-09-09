@@ -328,7 +328,7 @@ input[type="color"]::-webkit-color-swatch {
   font-size: 22px;
   font-weight: 600;
   /* color: rgba(0, 0, 0, 0.5); */
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 label {

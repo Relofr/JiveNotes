@@ -120,7 +120,8 @@ export default {
 }
 
 .dropdown a:hover {
-  background-color: #686868;
+  // background-color: #686868;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .show {
@@ -184,7 +185,7 @@ export default {
 }
 .router-link-exact-active,
 .router-link-active {
-  background-color: #686868;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #000;
 }
 </style>
