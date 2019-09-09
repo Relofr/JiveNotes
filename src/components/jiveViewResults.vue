@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title jive-view">Jive View</div>
+    <div class="title">Jive View</div>
     <span>
       <div class="grid-container1 no-select">
         <div class="grid-item1">
@@ -406,9 +406,5 @@ input[type="number"]:not(.browser-default):focus:not([readonly]) {
   background-color: lightgray;
   color: #696969;
   cursor: not-allowed;
-}
-
-.jive-view {
-  color: #00cdcd;
 }
 </style>

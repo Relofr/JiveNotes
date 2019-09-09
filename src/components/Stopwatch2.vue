@@ -78,13 +78,13 @@ export default {
 <style lang='less' scoped>
 #timer {
   font-family: montserrat;
-  color: #4fc3f7;
+  color: rgba(0, 0, 0, 0.8);
   width: 115px;
 }
 #stopwatch-icons {
   cursor: pointer;
   &:hover {
-    color: #0091ea;
+    color: rgba(0, 0, 0, 0.8);
   }
 }
 
@@ -119,7 +119,7 @@ td:nth-child(3) {
   border-radius: 0px 8px 8px 0px;
 }
 tr:nth-child(even) {
-  background-color: #424242;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #stopwatch-icons {

@@ -129,7 +129,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang='less'>
 html {
   scroll-behavior: smooth;
 }
@@ -163,6 +163,7 @@ section {
   width: 90%;
   max-width: 900px;
   height: 100%;
+  min-height: 495px;
   margin: 35px auto;
   overflow-y: auto;
   overflow-x: hidden;
@@ -239,6 +240,14 @@ label {
   font-family: Montserrat;
 }
 
+input,
+textarea {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7) !important;
+  &:focus {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.7) !important;
+  }
+}
+
 .gotopbtn {
   visibility: hidden;
   position: fixed;
@@ -267,7 +276,7 @@ label {
 .main-title {
   float: right;
   font-size: 12px;
-  color: #c4c4c4;
+  color: rgba(0, 0, 0, 0.7);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -297,11 +306,14 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .box {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
+  // display: flex;
+  // flex-direction: row;
+  // position: absolute;
+  // bottom: 0;
+  // left: 0;
+  position: fixed;
   bottom: 0;
-  right: 0;
+  left: 0;
 }
 
 .box-container {
@@ -313,5 +325,17 @@ input[type="color"]::-webkit-color-swatch {
   top: 0;
   right: 0;
   z-index: 99; */
+}
+
+.title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  /* color: rgba(0, 0, 0, 0.5); */
+  color: rgba(255, 255, 255, 0.8);
+}
+
+label {
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 </style>

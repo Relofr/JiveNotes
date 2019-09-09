@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title email">Fraud | Sherlock</div>
+    <div class="title">Fraud | Sherlock</div>
     <div class="line">------------------------------------------------------</div>
     <label>Agent Name | {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
     <textarea-autosize rows="1" v-model="fraudAgentName"></textarea-autosize>
@@ -335,10 +335,6 @@ textarea {
   &:focus {
     border-bottom: 2px solid #4fc3f7;
   }
-}
-
-.email {
-  color: #ad3232;
 }
 
 .line {

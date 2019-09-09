@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title sip">SIP Response Codes</div>
+    <div class="title">SIP Response Codes</div>
     <div class="search">
       <input
         autocomplete="off"
@@ -121,13 +121,6 @@ export default {
   color: #f5f5f5;
   padding-bottom: 30px;
 }
-
-.title {
-  text-align: center;
-  font-size: 22px;
-  color: #f5f5f5;
-}
-
 .face {
   font-size: 3em;
 }
@@ -145,21 +138,22 @@ export default {
   padding: 8px;
 }
 
-#table-wrapper tr:nth-child(even) {
-  // background-color: rgba(242, 242, 242, 0.5);
+#table-wrapper tr:nth-child(odd) {
+  // background-color: rgba(0, 0, 0, 0.2);
 }
 
 #table-wrapper tr:hover {
-  background-color: #5b5b5b;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #table-wrapper th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #212121;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #f5f5f5;
-  border: 1px solid #212121;
+  // border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 #gif {
@@ -169,13 +163,9 @@ export default {
 }
 
 td:nth-child(1) {
-  border-radius: 4px 0px 0px 4px;
+  // border-radius: 4px 0px 0px 4px;
 }
 td:nth-child(4) {
-  border-radius: 0px 4px 4px 0px;
-}
-
-.sip {
-  color: #d24dff;
+  // border-radius: 0px 4px 4px 0px;
 }
 </style>

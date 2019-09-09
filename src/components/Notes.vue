@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title notes">Important Notes</div>
+    <div class="title">Important Notes</div>
     <div class="line">------------------------------------------------------</div>
     <Tooltip tooltip="true" tooltipIcon="help_outline" moreInfo="Agent Name will not clear"/>
 
@@ -309,7 +309,6 @@ textarea {
   height: 21px;
   border: none;
   outline: none;
-  border-bottom: 1px solid #666;
   margin-bottom: 25px;
   font-size: 14px;
   background-color: transparent;
@@ -330,10 +329,6 @@ input:not([type]):focus:not([readonly]) {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.notes {
-  color: #76bf79;
 }
 
 :disabled {

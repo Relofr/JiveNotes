@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title star">Star Codes</div>
+    <div class="title">Star Codes</div>
     <div class="search">
       <input
         autocomplete="off"
@@ -115,12 +115,6 @@ export default {
   padding-bottom: 30px;
 }
 
-.title {
-  text-align: center;
-  font-size: 22px;
-  color: #f5f5f5;
-}
-
 .face {
   font-size: 3em;
 }
@@ -143,16 +137,16 @@ export default {
 }
 
 #customers tr:hover {
-  background-color: #5b5b5b;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #212121;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #f5f5f5;
-  border: 1px solid #212121;
+  // border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 #gif {
@@ -162,17 +156,13 @@ export default {
 }
 
 td:nth-child(1) {
-  border-radius: 4px 0px 0px 4px;
+  // border-radius: 4px 0px 0px 4px;
 }
 td:nth-child(4) {
-  border-radius: 0px 4px 4px 0px;
+  // border-radius: 0px 4px 4px 0px;
 }
 
 #starCode {
   min-width: 100px;
-}
-
-.star {
-  color: #ffd700;
 }
 </style>
