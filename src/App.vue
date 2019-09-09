@@ -129,7 +129,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style>
 html {
   scroll-behavior: smooth;
 }
@@ -177,11 +177,11 @@ section {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #787c80;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 ::-webkit-scrollbar-track {
@@ -243,9 +243,10 @@ label {
 input,
 textarea {
   border-bottom: 1px solid rgba(255, 255, 255, 0.7) !important;
-  &:focus {
-    border-bottom: 3px solid rgba(255, 255, 255, 0.7) !important;
-  }
+}
+
+input:focus {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.7) !important;
 }
 
 .gotopbtn {
@@ -306,11 +307,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .box {
-  // display: flex;
-  // flex-direction: row;
-  // position: absolute;
-  // bottom: 0;
-  // left: 0;
   position: fixed;
   bottom: 0;
   left: 0;

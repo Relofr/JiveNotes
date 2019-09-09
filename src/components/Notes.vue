@@ -313,13 +313,10 @@ textarea {
   font-size: 14px;
   background-color: transparent;
   color: #f5f5f5;
-  &:focus {
-    border-bottom: 2px solid #4fc3f7;
-  }
 }
 
 input:not([type]):focus:not([readonly]) {
-  border-bottom: 1px solid #4fc3f7;
+  // border-bottom: 1px solid #4fc3f7;
 }
 
 .no-select {
@@ -338,7 +335,7 @@ input:not([type]):focus:not([readonly]) {
 }
 
 input:invalid {
-  border-bottom: 1.5px solid #e53935;
+  border-bottom: 1.5px solid #e53935 !important;
 }
 
 // #expand {

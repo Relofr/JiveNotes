@@ -78,7 +78,7 @@ export default {
 <style lang='less' scoped>
 #timer {
   font-family: montserrat;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.6);
   width: 115px;
 }
 #stopwatch-icons {
