@@ -56,6 +56,12 @@
               <input id="hex" v-model="colorBG">
             </div>
           </div>
+          <Button
+            id="default-button"
+            class="button"
+            buttonTitle="reset"
+            @click="defaultColorScheme()"
+          />
         </div>
       </div>
       <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
@@ -69,6 +75,7 @@ import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import Dropdown from "./components/Dropdown";
 import Modal from "./components/Modal";
+import Button from "./components/Button";
 
 export default {
   name: "App",
@@ -87,9 +94,13 @@ export default {
     Loading,
     Footer,
     Dropdown,
-    Modal
+    Modal,
+    Button
   },
   methods: {
+    defaultColorScheme() {
+      (this.color = "#353535"), (this.colorBG = "#212121");
+    },
     toTop() {
       if (
         document.body.scrollTop > 500 ||
@@ -311,7 +322,7 @@ input:not([type]):focus:not([readonly]) {
 
 #settings {
   float: right;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 input[type="color"] {
@@ -362,5 +373,9 @@ label {
 }
 .grid-item {
   text-align: left;
+}
+
+#default-button {
+  background-color: #0091ea;
 }
 </style>
