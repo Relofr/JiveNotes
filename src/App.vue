@@ -27,7 +27,7 @@
       </div>
     </section>
     <Modal v-if="showModal" @close="showModal = false">
-      <div slot="header">Color Scheme</div>
+      <div slot="header">Settings</div>
       <div slot="body">
         <div>
           <div class="grid-container">
@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     defaultColorScheme() {
-      (this.color = "#353535"), (this.colorBG = "#212121");
+      (this.color = "#353535")((this.colorBG = "#212121"));
     },
     toTop() {
       if (
@@ -275,8 +275,11 @@ textarea {
 }
 
 input:focus {
-  /* border-bottom: 2px solid rgba(255, 255, 255, 0.5) !important; */
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+textarea:focus {
+  box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 input:not([type]):focus:not([readonly]) {
@@ -326,10 +329,9 @@ input:not([type]):focus:not([readonly]) {
 }
 
 input[type="color"] {
-  /* opacity: 0; */
   border: none;
   width: 70px;
-  height: 25px;
+  height: 30px;
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
   padding: 0px;

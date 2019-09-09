@@ -5,7 +5,11 @@
     <textarea-autosize id="cases" autofocus rows="1" v-model="caseNumber"></textarea-autosize>
     <br>
 
-    <label>Wiki:</label>
+    <label>Domain:</label>
+    <textarea-autosize placeholder v-model="cssPBX" rows="1"></textarea-autosize>
+    <br>
+
+    <label>Wiki: (If yes, post applicable article here, if no, post search term used)</label>
     <textarea-autosize rows="1" v-model="wiki"></textarea-autosize>
     <br>
 
@@ -15,10 +19,6 @@
 
     <label>Question:</label>
     <textarea-autosize placeholder v-model="question" rows="1"></textarea-autosize>
-    <br>
-
-    <label>PBX:</label>
-    <textarea-autosize placeholder v-model="cssPBX" rows="1"></textarea-autosize>
     <br>
 
     <label>Applicable Information:</label>
