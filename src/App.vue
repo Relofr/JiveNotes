@@ -11,24 +11,8 @@
           <i class="material-icons no-select">arrow_upward</i>
         </a>
         <div class="app-container">
-          <div class="main-title">JiveNotes</div>
-          <div class="box-container">
-            <div class="box">
-              <div class="color-selection no-select">
-                <!-- <label for="color-selection">Front</label> -->
-                <input class="color-selection" type="color" v-model="color" value="Color Select">
-              </div>
-              <div class="background-color-selection no-select">
-                <!-- <label for="color-selection">Back</label> -->
-                <input
-                  class="background-color-selection"
-                  type="color"
-                  v-model="colorBG"
-                  value="Color Select"
-                >
-              </div>
-            </div>
-          </div>
+          <i @click="showModal = true" class="material-icons no-select" id="settings">settings</i>
+          <!-- <div class="main-title">JiveNotes</div> -->
           <Dropdown class="no-select"/>
           <!-- <Navbar class="no-select"/> -->
           <transition name="component-fade" mode="out-in">
@@ -42,6 +26,40 @@
         </div>
       </div>
     </section>
+    <Modal v-if="showModal" @close="showModal = false">
+      <div slot="header">Color Scheme</div>
+      <div slot="body">
+        <div>
+          <div class="grid-container">
+            <div class="grid-item">
+              <label id="color-selection-labels" for="foreground">Foreground:</label>
+            </div>
+            <div class="grid-item">
+              <input class="color-selection" type="color" v-model="color" value="Color Select">
+            </div>
+            <div class="grid-item">
+              <label id="color-selection-labels" for="foreground">Foreground Hex:</label>
+            </div>
+            <div class="grid-item">
+              <input id="hex" v-model="color">
+            </div>
+            <div class="grid-item">
+              <label id="color-selection-labels" for="foreground">Background:</label>
+            </div>
+            <div class="grid-item">
+              <input class="color-selection" type="color" v-model="colorBG" value="Color Select">
+            </div>
+            <div class="grid-item">
+              <label id="color-selection-labels" for="foreground">Background Hex:</label>
+            </div>
+            <div class="grid-item">
+              <input id="hex" v-model="colorBG">
+            </div>
+          </div>
+        </div>
+      </div>
+      <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
+    </Modal>
   </div>
 </template>
 
@@ -50,6 +68,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import Dropdown from "./components/Dropdown";
+import Modal from "./components/Modal";
+
 export default {
   name: "App",
   data() {
@@ -58,14 +78,16 @@ export default {
       isLoading: true,
       toTopButton: true,
       color: "",
-      colorBG: ""
+      colorBG: "",
+      showModal: false
     };
   },
   components: {
     Navbar,
     Loading,
     Footer,
-    Dropdown
+    Dropdown,
+    Modal
   },
   methods: {
     toTop() {
@@ -138,10 +160,6 @@ body {
   /* margin: 0;
   padding: 0; */
   color: #f5f5f5;
-}
-.background-color-selection {
-  /* margin: 0;
-  padding: 0; */
 }
 section {
   position: absolute;
@@ -242,11 +260,16 @@ label {
 
 input,
 textarea {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
 }
 
 input:focus {
-  border-bottom: 3px solid rgba(255, 255, 255, 0.7) !important;
+  /* border-bottom: 2px solid rgba(255, 255, 255, 0.5) !important; */
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+input:not([type]):focus:not([readonly]) {
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 .gotopbtn {
@@ -286,18 +309,16 @@ input:focus {
   user-select: none;
 }
 
+#settings {
+  float: right;
+  font-size: 18px;
+}
+
 input[type="color"] {
   /* opacity: 0; */
-  /* display: flex; */
-  /* flex-direction: row; */
   border: none;
-  /* float: right; */
-  /* position: relative; */
-  /* top: 0; */
-  /* right: 0; */
-  /* margin-right: 15px; */
-  width: 20px;
-  height: 20px;
+  width: 70px;
+  height: 25px;
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
   padding: 0px;
@@ -312,26 +333,34 @@ input[type="color"]::-webkit-color-swatch {
   left: 0;
 }
 
-.box-container {
-  /* background-color: red;
-  width: 50px;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 99; */
-}
-
 .title {
   text-align: center;
   font-size: 22px;
   font-weight: 600;
-  /* color: rgba(0, 0, 0, 0.5); */
   color: rgba(255, 255, 255, 0.6);
 }
 
 label {
   color: rgba(255, 255, 255, 0.6) !important;
+}
+#color-selection-labels {
+  font-size: 12px;
+  color: #000 !important;
+}
+#hex {
+  text-align: right;
+  height: 25px;
+}
+
+.color-selection {
+  float: right;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.grid-item {
+  text-align: left;
 }
 </style>
