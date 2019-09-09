@@ -211,11 +211,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
-label {
-  color: #c4c4c4;
-}
-
+<style lang='less' scoped>
 label,
 span {
   font-size: 12px;
@@ -228,6 +224,6 @@ textarea {
   margin-bottom: 25px;
   font-size: 14px;
   background-color: transparent;
-  color: #f5f5f5;
+  // color: #f5f5f5;
 }
 </style>

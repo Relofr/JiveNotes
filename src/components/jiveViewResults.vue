@@ -294,18 +294,18 @@ textarea {
   height: 21px;
   border: none;
   outline: none;
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
   margin-bottom: 25px;
   font-size: 14px;
   background-color: transparent;
   color: #f5f5f5;
   &:focus {
-    border-bottom: 2px solid #4fc3f7;
+    box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.5);
   }
 }
 
 input:not([type]):focus:not([readonly]) {
-  border-bottom: 1px solid #4fc3f7;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 input[type="number"]:not(.browser-default)[readonly="readonly"] {
@@ -326,7 +326,7 @@ input[type="number"]:not(.browser-default)[readonly="readonly"] {
   padding: 10px;
   font-size: 12px;
   text-align: left;
-  background: #424242;
+  // background: #424242;
   border-radius: 4px;
   margin: 6px;
 }
@@ -339,7 +339,7 @@ input[type="number"]:not(.browser-default)[readonly="readonly"] {
   padding: 10px;
   font-size: 12px;
   text-align: left;
-  background: #424242;
+  // background: #424242;
   border-radius: 4px;
   margin: 6px;
 }
@@ -352,14 +352,13 @@ input[type="number"]:not(.browser-default)[readonly="readonly"] {
   padding: 10px;
   font-size: 12px;
   text-align: left;
-  background: #424242;
+  // background: #424242;
   border-radius: 4px;
   margin: 6px;
 }
 
 b {
-  font-size: 14px;
-  color: rgb(0, 145, 234);
+  font-size: 18px;
 }
 
 #customerNameJiveView {
@@ -396,10 +395,14 @@ b {
   border: 2px solid #C4D600;
 }
 
+[type="radio"]:not(:checked) + span:before,
+[type="radio"]:not(:checked) + span:after {
+  border: 2px solid #fff;
+}
+
 input[type="number"]:not(.browser-default):focus:not([readonly]) {
-  border-bottom: 1px solid #4fc3f7;
-  -webkit-box-shadow: 0 1px 0 0 #4fc3f7;
-  box-shadow: 0 1px 0 0 #4fc3f7;
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 :disabled {

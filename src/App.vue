@@ -343,6 +343,7 @@ input[type="color"] {
   border: none;
   width: 70px;
   height: 30px;
+  cursor: pointer;
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
   padding: 0px;
