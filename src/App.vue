@@ -324,8 +324,19 @@ input:not([type]):focus:not([readonly]) {
 }
 
 #settings {
+  color: rgba(255, 255, 255, 0.9);
   float: right;
-  font-size: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 1.5s ease-in-out;
+  -ms-transition: -ms-transform 2s ease-in-out;
+  transition: transform 1.5s ease-in-out;
+}
+
+#settings:hover {
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
 }
 
 input[type="color"] {
@@ -350,11 +361,11 @@ input[type="color"]::-webkit-color-swatch {
   text-align: center;
   font-size: 22px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 label {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 #color-selection-labels {
   font-size: 12px;
