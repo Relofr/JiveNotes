@@ -96,7 +96,7 @@ export default {
   data() {
     return {
       showStopwatch: false,
-      isLoading: false,
+      isLoading: true,
       toTopButton: true,
       color: "",
       colorBG: "",

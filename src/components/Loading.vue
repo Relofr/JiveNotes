@@ -19,7 +19,7 @@ export default {};
 .wrapper {
   font-family: "Montserrat", sans-serif;
   font-size: 1.8em;
-  background: #212121;
+  background: transparent;
   height: 100vh;
   width: 100%;
   margin: 0 auto;
