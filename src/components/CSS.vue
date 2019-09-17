@@ -1,27 +1,39 @@
 <template>
   <div>
     <div class="title">CSS</div>
+    <span id="slack-bold">*</span>
     <label>Case#:</label>
+    <span id="slack-bold">*</span>
     <textarea-autosize id="cases" autofocus rows="1" v-model="caseNumber"></textarea-autosize>
     <br>
 
+    <span id="slack-bold">*</span>
     <label>Domain:</label>
+    <span id="slack-bold">*</span>
     <textarea-autosize placeholder v-model="cssPBX" rows="1"></textarea-autosize>
     <br>
 
+    <span id="slack-bold">*</span>
     <label>Wiki: (If yes, post applicable article here, if no, post search term used)</label>
+    <span id="slack-bold">*</span>
     <textarea-autosize rows="1" v-model="wiki"></textarea-autosize>
     <br>
 
+    <span id="slack-bold">*</span>
     <label>Description of Issue:</label>
+    <span id="slack-bold">*</span>
     <textarea-autosize v-model="description" rows="1"></textarea-autosize>
     <br>
 
+    <span id="slack-bold">*</span>
     <label>Question:</label>
+    <span id="slack-bold">*</span>
     <textarea-autosize placeholder v-model="question" rows="1"></textarea-autosize>
     <br>
 
+    <span id="slack-bold">*</span>
     <label>Applicable Information:</label>
+    <span id="slack-bold">*</span>
     <textarea-autosize placeholder="N/A" v-model="applicable" rows="1"></textarea-autosize>
 
     <div class="buttons">
@@ -147,11 +159,7 @@ export default {
 };
 </script>
 
-<style lang='less' scoped>
-label {
-  color: #c4c4c4;
-}
-
+<style lang='less'>
 label,
 span {
   font-size: 12px;
@@ -164,10 +172,14 @@ textarea {
   margin-bottom: 25px;
   font-size: 14px;
   background-color: transparent;
-  color: #f5f5f5;
 }
 
 .star {
   color: transparent;
+}
+
+#slack-bold {
+  color: transparent;
+  margin-left: -4px;
 }
 </style>

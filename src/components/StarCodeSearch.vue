@@ -26,6 +26,14 @@
         <td>{{ starCode.starDesc }}</td>
       </tr>
     </table>
+    <div>
+      <span>Below are some extra functions that can be used on the Jive system.</span>
+      <ul class="star-code-extra">
+        <li>Dial 0 in front of an extension, such as 0111, to be directed straight to that extension’s voicemail.</li>
+        <li>Press the asterisk (*) while listening to a voicemail greeting to gain access to that extension’s voicemail box. This is useful when a user wants to listen to their messages but doesn't have access to a Jive phone.</li>
+        <li>Dial 611 from a Jive phone to dial Jive Support.</li>
+      </ul>
+    </div>
     <!-- <div id="error_four" v-if="filterredStarCodes.length === 0">
       <div class="error-title">404: SIP Code Not Found</div>
       <img id="gif" src="../assets/stormtrooper.gif">
@@ -164,5 +172,10 @@ td:nth-child(4) {
 
 #starCode {
   min-width: 100px;
+}
+
+li {
+  // list-style-type: circle !important;
+  padding-left: 20px;
 }
 </style>

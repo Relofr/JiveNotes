@@ -11,6 +11,7 @@ import Email from "@/components/Email";
 import Feedback from "@/components/Feedback";
 import FraudSherlock from "@/components/FraudSherlock";
 import jiveViewResults from "@/components/jiveViewResults";
+import sipRequest from "@/components/sipRequest";
 import Test from "@/components/Test";
 
 Vue.use(Router);
@@ -76,6 +77,11 @@ const router = new Router({
       path: "/jiveview",
       name: "jiveview",
       component: jiveViewResults
+    },
+    {
+      path: "/siprequest",
+      name: "siprequest",
+      component: sipRequest
     },
     {
       path: "/test",

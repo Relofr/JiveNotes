@@ -16,13 +16,13 @@
         Email
         <i id="email-icon" class="material-icons">email</i>
       </router-link>
-      <router-link to="/jiveview">
-        Jive View
-        <i id="jive-view-icon" class="material-icons">network_check</i>
-      </router-link>
       <router-link to="/callexample">
         Call Example
         <i id="callexample-icon" class="material-icons">poll</i>
+      </router-link>
+      <router-link to="/jiveview">
+        Jive View
+        <i id="jive-view-icon" class="material-icons">network_check</i>
       </router-link>
       <router-link to="/t2escalation">
         Escalate
@@ -35,6 +35,10 @@
       <router-link disabled to="/fraud">
         Fraud/Sherlock
         <i id="fraud-icon" class="material-icons">security</i>
+      </router-link>
+      <router-link disabled to="/siprequest">
+        SIP Request
+        <i id="sipreq-icon" class="material-icons">vpn_key</i>
       </router-link>
       <router-link to="/sip">
         SIP Codes
@@ -79,7 +83,7 @@ export default {
 
 <style scoped lang='less'>
 .dropdown-button {
-  color: white;
+  color: #f5f5f5;
   border: none;
   cursor: pointer;
 }
@@ -100,20 +104,16 @@ export default {
   background-color: #424242;
   min-width: 160px;
   overflow: auto;
-  // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-  //   0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   font-size: 14px;
   z-index: 99;
   border-radius: 4px;
   opacity: 1 !important;
-  // top: 32px;
-  // left: 4px;
 }
 
 .dropdown-content a {
   // border-bottom: 1px solid #5b5b5b;
-  color: #fff;
-  padding: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 10px 5px;
   text-decoration: none;
   display: block;
   text-align: left;
@@ -125,7 +125,13 @@ export default {
 }
 
 .show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+}
+
+#app-switcher {
+  z-index: -1;
+  font-size: 28px;
 }
 
 #notes-icon,
@@ -136,56 +142,65 @@ export default {
 #escalation-icon,
 #rma-icon,
 #fraud-icon,
+#sipreq-icon,
 #sip-icon,
 #star-icon,
 #feedback-icon {
-  float: right;
+  float: left;
   line-height: 18px;
-  font-size: 28px;
-  // margin-right: 18px;
-}
-#notes-icon {
-  color: #76bf79;
-}
-#email-icon {
-  color: #ad3232;
+  font-size: 24px;
+  margin-right: 10px;
 }
 
-#jive-view-icon {
-  color: #00cdcd;
-}
-#css-icon {
-  color: #0091ea;
-}
-#callexample-icon {
-  color: #fff;
-}
-#escalation-icon {
-  color: #ec407a;
-}
-#rma-icon {
-  color: #ff8d1a;
-}
-#sip-icon {
-  color: #d24dff;
-}
-#fraud-icon {
-  color: red;
-}
-#star-icon {
-  color: #ffd700;
-}
-#feedback-icon {
-  color: #007AFF;
+// #notes-icon {
+//   color: #76bf79;
+// }
+// #email-icon {
+//   color: #ad3232;
+// }
+
+// #jive-view-icon {
+//   color: #00cdcd;
+// }
+// #css-icon {
+//   color: #0091ea;
+// }
+// #callexample-icon {
+//   color: #fff;
+// }
+// #escalation-icon {
+//   color: #ec407a;
+// }
+// #rma-icon {
+//   color: #ff8d1a;
+// }
+// #sip-icon {
+//   color: #d24dff;
+// }
+// #fraud-icon {
+//   color: red;
+// }
+// #sipreq-icon {
+//   color: #fff;
+// }
+// #star-icon {
+//   color: #ffd700;
+// }
+// #feedback-icon:hover {
+//   color: #007AFF;
+// }
+
+i:hover {
+  opacity: 0.9;
 }
 
-#app-switcher {
-  z-index: -1;
-  font-size: 28px;
+.dropdown a:hover {
+  color: #0091ea !important;
 }
+
 .router-link-exact-active,
 .router-link-active {
   background-color: rgba(0, 0, 0, 0.2);
-  color: #000;
+  color: #0091ea !important;
 }
 </style>

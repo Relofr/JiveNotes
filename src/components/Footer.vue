@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-container">
+  <div>
     <div class="left-container">
       <!-- <QuickTime/> -->
       <!-- <Settings/> -->

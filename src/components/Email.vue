@@ -148,10 +148,6 @@ export default {
 </script>
 
 <style lang='less' scoped>
-label {
-  color: #c4c4c4;
-}
-
 label,
 span {
   font-size: 12px;
@@ -161,14 +157,9 @@ textarea {
   width: 100%;
   border: none;
   outline: none;
-  border-bottom: 1px solid #666;
   margin-bottom: 25px;
   font-size: 14px;
   background-color: transparent;
-  color: #f5f5f5;
-  &:focus {
-    border-bottom: 2px solid #4fc3f7;
-  }
 }
 
 .line {

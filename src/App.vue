@@ -18,7 +18,7 @@
           <transition name="component-fade" mode="out-in">
             <router-view/>
           </transition>
-          <Footer class="no-select"/>
+          <Footer class="no-select footer-container"/>
           <div v-if="showStopwatch" class="stopwatch-container">
             <Stopwatch/>
           </div>
@@ -43,6 +43,7 @@
             <div class="grid-item">
               <input id="hex" v-model="color">
             </div>
+
             <div class="grid-item">
               <label id="color-selection-labels" for="foreground">Background:</label>
             </div>
@@ -55,6 +56,19 @@
             <div class="grid-item">
               <input id="hex" v-model="colorBG">
             </div>
+
+            <!-- <div class="grid-item">
+              <label id="color-selection-labels" for="foreground">Text:</label>
+            </div>
+            <div class="grid-item">
+              <input class="color-selection" type="color" v-model="colorText" value="Color Select">
+            </div>
+            <div class="grid-item">
+              <label id="color-selection-labels" for="foreground">Text Color Hex:</label>
+            </div>
+            <div class="grid-item">
+              <input id="hex" v-model="colorText">
+            </div>-->
           </div>
           <Button
             id="default-button"
@@ -82,10 +96,11 @@ export default {
   data() {
     return {
       showStopwatch: false,
-      isLoading: true,
+      isLoading: false,
       toTopButton: true,
       color: "",
       colorBG: "",
+      colorText: "",
       showModal: false
     };
   },
@@ -133,6 +148,13 @@ export default {
         localStorage.setItem("colorBG", JSON.stringify(this.colorBG));
       },
       deep: true
+    },
+    colorText: {
+      handler() {
+        console.log("Updated colorText to: " + this.colorText);
+        localStorage.setItem("colorText", JSON.stringify(this.colorText));
+      },
+      deep: true
     }
   },
   created() {
@@ -158,6 +180,8 @@ export default {
       this.color = JSON.parse(localStorage.getItem("color"));
     if (localStorage.getItem("colorBG"))
       this.colorBG = JSON.parse(localStorage.getItem("colorBG"));
+    if (localStorage.getItem("colorText"))
+      this.colorText = JSON.parse(localStorage.getItem("colorText"));
   }
 };
 </script>
@@ -188,12 +212,12 @@ section {
   -moz-osx-font-smoothing: grayscale;
   background-color: #353535;
   border-radius: 4px;
-  padding: 20px;
-  width: 90%;
+  padding: 12px;
+  width: 92%;
   max-width: 900px;
   height: 100%;
-  min-height: 495px;
-  margin: 35px auto;
+  min-height: 518px;
+  margin: 25px auto;
   overflow-y: auto;
   overflow-x: hidden;
   /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -245,6 +269,7 @@ section {
 .snotify-error {
   background-color: #ffa726;
 }
+
 .component-fade-enter-active,
 .component-fade-leave-active {
   transition: opacity 0.3s ease;
@@ -267,6 +292,7 @@ input,
 textarea,
 label {
   font-family: Montserrat;
+  color: #f5f5f5;
 }
 
 input,
@@ -309,6 +335,7 @@ input:not([type]):focus:not([readonly]) {
   -ms-user-select: none;
   user-select: none;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .main-title {
@@ -368,13 +395,11 @@ input[type="color"]::-webkit-color-swatch {
 label {
   color: rgba(255, 255, 255, 0.7) !important;
 }
-#color-selection-labels {
-  font-size: 12px;
-  color: #000 !important;
-}
+
 #hex {
   text-align: right;
   height: 25px;
+  color: #000 !important;
 }
 
 .color-selection {
@@ -391,5 +416,10 @@ label {
 
 #default-button {
   background-color: #0091ea;
+}
+
+#color-selection-labels {
+  font-size: 12px;
+  color: #000 !important;
 }
 </style>

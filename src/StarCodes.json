@@ -61,6 +61,10 @@
       "starDesc": "Overrides the Block Caller ID setting for a single call"
     },
     {
+      "starCode": "*96",
+      "starDesc": "Multicast Paging (Cisco Only) To send a page, dial *96 followed by the zone number. The zone number must always be two digits, so 1 is actually 01."
+    },
+    {
       "starCode": "*97 + ext",
       "starDesc": "Picks up a call ringing on another user’s phone (directed call pickup)"
     },
@@ -79,6 +83,10 @@
     {
       "starCode": "* + extension",
       "starDesc": "Pages an individual phone, or even an entire ring group, by automatically activating their speakerphone (feature must be enabled on the recipient’s line)"
+    },
+    {
+      "starCode": "* + an extension",
+      "starDesc": "This is for using intercom to page a device or ring group. NOTE: This is not for Multicast Paging"
     }
   ]
 }
