@@ -10,7 +10,7 @@
         <a id="gotopbtn" v-on:scroll="toTopButton = !toTopButton;" class="gotopbtn" href="#">
           <i class="material-icons no-select">arrow_upward</i>
         </a>
-        <div class="app-container">
+        <div class="app-container" v-bind:style="{ color: colorText}">
           <i @click="showModal = true" class="material-icons no-select" id="settings">settings</i>
           <!-- <div class="main-title">JiveNotes</div> -->
           <Dropdown class="no-select"/>
@@ -90,6 +90,8 @@ import Loading from "./components/Loading";
 import Dropdown from "./components/Dropdown";
 import Modal from "./components/Modal";
 import Button from "./components/Button";
+import CSS from "./components/CSS";
+import Stopwatch2 from "./components/Stopwatch2";
 
 export default {
   name: "App",
@@ -110,11 +112,15 @@ export default {
     Footer,
     Dropdown,
     Modal,
-    Button
+    Button,
+    CSS,
+    Stopwatch2
   },
   methods: {
     defaultColorScheme() {
-      (this.color = "#353535")((this.colorBG = "#212121"));
+      this.color = "#353535";
+      this.colorBG = "#212121";
+      this.colorText = "#f5f5f5";
     },
     toTop() {
       if (
@@ -341,7 +347,7 @@ input:not([type]):focus:not([readonly]) {
 .main-title {
   float: right;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
+  /* color: rgba(255, 255, 255, 0.3); */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -389,7 +395,8 @@ input[type="color"]::-webkit-color-swatch {
   text-align: center;
   font-size: 22px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+
+  /* color: rgba(255, 255, 255, 0.9); */
 }
 
 label {

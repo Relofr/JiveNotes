@@ -149,7 +149,7 @@
         <b>{{numberofPhonesCalc}} phones</b> simultaneously until you're maxing out your bandwidth. Please keep in mind these calculations are on the assumption that the phones are on their own network; if they're being used on the same network as computers that are used for social media, audio or video streaming then the number of allowed devices is significantly decreased. If you're exceeding your bandwidth then I would recommend contacting your ISP (Internet Service Provider).
         <br>
         <br>Ping: VOIP phones transmit packets in real time because these conversations are taking place in real time. For a clear communication these packets need to be received consistently and in order, if that doesn't happen that's when you experience audio issues. To test this, we ran a ping test; a constant connection has a ping difference of no more than 5ms per ping and that is what we recommend for optimal performance. The maximum we would recommend is a difference of 10ms per ping but beyond that is when we would expect to see audio issues, even at that level audio won't be great. In the ping tests we ran we saw it jump from
-        <b>{{ pingMAX }}ms to {{ pingMIN }}ms</b>
+        <b>{{ pingMIN }}ms to {{ pingMAX }}ms</b>
         which is a difference of
         <b>{{ pingDiff }}ms</b> that's significantly higher than the 10ms maximum we recommend. We also saw a
         <b>{{ packetLoss }}%</b> of packet loss, meaning of the data sent
@@ -237,7 +237,6 @@ export default {
     clearNotes() {
       this.customerName = "";
       this.tracert = "";
-      // this.pingTest = "";
       this.sipALG = "";
       this.packetLoss = "";
       this.jitter = "";
@@ -257,24 +256,81 @@ export default {
     },
     displayNotificationSuccess() {
       this.$snotify.success("Copied!");
+    },
+    displayNotificationWarning() {
+      this.$snotify.warning("Cleared!");
     }
   },
   watch: {
+    customerName() {
+      console.log("Updated customerName to: " + this.customerName);
+      localStorage.setItem("customerName", JSON.stringify(this.customerName));
+    },
     bandwidthUP(newVal) {
       this.kbps = newVal * 1000;
+      console.log("Updated bandwidthUP to: " + this.bandwidthUP);
+      localStorage.setItem("bandwidthUP", JSON.stringify(this.bandwidthUP));
+    },
+    bandwidthDOWN() {
+      console.log("Updated bandwidthDOWN to: " + this.bandwidthDOWN);
+      localStorage.setItem("bandwidthDOWN", JSON.stringify(this.bandwidthDOWN));
     },
     kbps(newVal) {
       this.numberofPhonesCalc = newVal / 82.5;
+      console.log("Updated kbps to: " + this.kbps);
+      localStorage.setItem("kbps", JSON.stringify(this.kbps));
     },
     numberofPhonesCalc(newVal) {
-      this.numberofPhonesCalc = newVal.toFixed(0);
+      this.numberofPhonesCalc = parseFloat(newVal).toFixed(0);
     },
     pingMIN() {
       this.pingDiff = this.pingMAX - this.pingMIN;
+      console.log("Updated pingMIN to: " + this.pingMIN);
+      localStorage.setItem("pingMIN", JSON.stringify(this.pingMIN));
     },
     pingMAX() {
       this.pingDiff = this.pingMAX - this.pingMIN;
+      console.log("Updated pingMAX to: " + this.pingMAX);
+      localStorage.setItem("pingMAX", JSON.stringify(this.pingMAX));
+    },
+    packetLoss() {
+      console.log("Updated packetLoss to: " + this.packetLoss);
+      localStorage.setItem("packetLoss", JSON.stringify(this.packetLoss));
+    },
+    jitter() {
+      console.log("Updated jitter to: " + this.jitter);
+      localStorage.setItem("jitter", JSON.stringify(this.jitter));
+    },
+    sipALG() {
+      console.log("Updated sipALG to: " + this.sipALG);
+      localStorage.setItem("sipALG", JSON.stringify(this.sipALG));
+    },
+    tracert() {
+      console.log("Updated tracert to: " + this.tracert);
+      localStorage.setItem("tracert", JSON.stringify(this.tracert));
     }
+  },
+  mounted() {
+    if (localStorage.getItem("customerName"))
+      this.customerName = JSON.parse(localStorage.getItem("customerName"));
+    if (localStorage.getItem("bandwidthUP"))
+      this.bandwidthUP = JSON.parse(localStorage.getItem("bandwidthUP"));
+    if (localStorage.getItem("bandwidthDOWN"))
+      this.bandwidthDOWN = JSON.parse(localStorage.getItem("bandwidthDOWN"));
+    if (localStorage.getItem("kbps"))
+      this.kbps = JSON.parse(localStorage.getItem("kbps"));
+    if (localStorage.getItem("pingMIN"))
+      this.pingMIN = JSON.parse(localStorage.getItem("pingMIN"));
+    if (localStorage.getItem("pingMAX"))
+      this.pingMAX = JSON.parse(localStorage.getItem("pingMAX"));
+    if (localStorage.getItem("packetLoss"))
+      this.packetLoss = JSON.parse(localStorage.getItem("packetLoss"));
+    if (localStorage.getItem("jitter"))
+      this.jitter = JSON.parse(localStorage.getItem("jitter"));
+    if (localStorage.getItem("sipALG"))
+      this.sipALG = JSON.parse(localStorage.getItem("sipALG"));
+    if (localStorage.getItem("tracert"))
+      this.tracert = JSON.parse(localStorage.getItem("tracert"));
   }
 };
 </script>

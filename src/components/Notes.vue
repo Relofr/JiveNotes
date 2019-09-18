@@ -5,7 +5,7 @@
     <Tooltip tooltip="true" tooltipIcon="help_outline" moreInfo="Agent Name will not clear"/>
 
     <label>Agent Name | {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
-    <textarea-autosize @keydown="checkNumber()" rows="1" v-model="agentName"></textarea-autosize>
+    <textarea-autosize @keydown="checkNumber()" rows="1" v-model="agentName" required></textarea-autosize>
     <br>
 
     <label>Contact Name:</label>
@@ -57,7 +57,12 @@
 
     <div class="buttons">
       <Button id="button" class="button" buttonTitle="clear" @click="showModal = true"/>
-      <Button class="button2" buttonTitle="copy" @click="copyNotes()" :disabled="!permissions"/>
+      <Button
+        class="button2"
+        buttonTitle="copy"
+        @click="copyNotes()"
+        :disabled="!permissions || !agentName || !contact"
+      />
     </div>
 
     <Modal v-if="showModal" @close="showModal = false">
@@ -257,7 +262,7 @@ export default {
 }
 
 label {
-  color: #c4c4c4;
+  // color: #c4c4c4;
 }
 
 label,
@@ -273,7 +278,7 @@ textarea {
   margin-bottom: 25px;
   font-size: 14px;
   background-color: transparent;
-  color: #f5f5f5;
+  // color: #f5f5f5;
 }
 
 input:not([type]):focus:not([readonly]) {
@@ -297,6 +302,11 @@ input:not([type]):focus:not([readonly]) {
 
 input:invalid {
   border-bottom: 1.5px solid #e53935 !important;
+  box-shadow: none !important;
+}
+textarea:invalid {
+  border-bottom: 1.5px solid #e53935 !important;
+  box-shadow: none !important;
 }
 
 // #expand {

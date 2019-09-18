@@ -112,7 +112,7 @@ export default {
 
 .dropdown-content a {
   // border-bottom: 1px solid #5b5b5b;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
   padding: 10px 5px;
   text-decoration: none;
   display: block;
@@ -195,12 +195,12 @@ i:hover {
 }
 
 .dropdown a:hover {
-  color: #0091ea !important;
+  // color: #0091ea !important;
 }
 
 .router-link-exact-active,
 .router-link-active {
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #0091ea !important;
+  color: rgba(0, 0, 0, 0.2);
+  background-color: #0091ea !important;
 }
 </style>
