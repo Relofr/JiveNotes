@@ -224,6 +224,5 @@ textarea {
   margin-bottom: 25px;
   font-size: 14px;
   background-color: transparent;
-  // color: #f5f5f5;
 }
 </style>

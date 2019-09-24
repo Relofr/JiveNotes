@@ -104,7 +104,7 @@
                   @click="removeImage()"
                 >delete</i>
               </div>
-              <p id="file-types">Supported Files: .jpeg, .jpg, .png, .gif</p>
+              <p id="file-types">Supported Files: .jpeg, .jpg, .png, .gif, .svg</p>
             </div>
           </div>
           <Button

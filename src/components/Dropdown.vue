@@ -111,7 +111,6 @@ export default {
 }
 
 .dropdown-content a {
-  // border-bottom: 1px solid #5b5b5b;
   color: rgba(255, 255, 255, 0.9);
   padding: 10px 5px;
   text-decoration: none;
@@ -120,7 +119,6 @@ export default {
 }
 
 .dropdown a:hover {
-  // background-color: #686868;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -151,44 +149,6 @@ export default {
   font-size: 24px;
   margin-right: 10px;
 }
-
-// #notes-icon {
-//   color: #76bf79;
-// }
-// #email-icon {
-//   color: #ad3232;
-// }
-
-// #jive-view-icon {
-//   color: #00cdcd;
-// }
-// #css-icon {
-//   color: #0091ea;
-// }
-// #callexample-icon {
-//   color: #fff;
-// }
-// #escalation-icon {
-//   color: #ec407a;
-// }
-// #rma-icon {
-//   color: #ff8d1a;
-// }
-// #sip-icon {
-//   color: #d24dff;
-// }
-// #fraud-icon {
-//   color: red;
-// }
-// #sipreq-icon {
-//   color: #fff;
-// }
-// #star-icon {
-//   color: #ffd700;
-// }
-// #feedback-icon:hover {
-//   color: #007AFF;
-// }
 
 i:hover {
   opacity: 0.9;

@@ -34,9 +34,7 @@
       <Button class="button" buttonTitle="clear" @click="showModal = true"/>
       <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
     </div>
-    <!-- <div v-if="showStopwatch" class="stopwatch-container">
-      <Stopwatch/>
-    </div>-->
+
     <Modal v-if="showModal" @close="showModal = false">
       <span slot="header">Confirm Clear</span>
       <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>

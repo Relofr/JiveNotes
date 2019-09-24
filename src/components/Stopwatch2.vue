@@ -2,10 +2,6 @@
   <div>
     <div>
       <div id="timer">{{ timer }}</div>
-      <!-- <button @click="$emit('start')">
-        Start
-        <i class="material-icons">play_arrow</i>
-      </button>-->
       <div class="stopwatch-icons-container">
         <i id="stopwatch-icons" @click="$emit('start')" class="material-icons">play_arrow</i>
         <i id="stopwatch-icons" @click="$emit('pause')" class="material-icons">stop</i>

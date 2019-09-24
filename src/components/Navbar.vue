@@ -49,11 +49,6 @@ export default {};
   font-weight: 600;
 }
 
-// .navbar2 a:hover {
-//   background-color: #C4D600;
-//   color: #000;
-// }
-
 .router-link-exact-active,
 .router-link-active a {
   background-color: #fff;

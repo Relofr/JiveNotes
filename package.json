@@ -13,7 +13,6 @@
     "vue": "^2.5.22",
     "vue-moment": "4.0.0",
     "vue-router": "3.0.6",
-    "vue-shortkey": "3.1.7",
     "vue-snotify": "3.2.1",
     "vue-textarea-autosize": "1.0.4",
     "vuex": "3.1.1"

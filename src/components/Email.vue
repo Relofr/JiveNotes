@@ -15,12 +15,7 @@
     <br>
 
     <Tooltip @copyReply="copyReply" tooltip="true" tooltipIcon="file_copy" moreInfo="Copy Reply"/>
-    <!-- <Tooltip
-      @insertTemplate="insertTemplate"
-      tooltip="true"
-      tooltipIcon="insert_comment"
-      moreInfo="Insert Custom Template"
-    />-->
+
     <label>My Reply:</label>
     <textarea-autosize id="replyText" placeholder v-model="emailReply" rows="1"></textarea-autosize>
     <div class="line">------------------------------------------------------</div>

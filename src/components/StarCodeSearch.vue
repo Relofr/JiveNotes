@@ -34,10 +34,10 @@
         <li>Dial 611 from a Jive phone to dial Jive Support.</li>
       </ul>
     </div>
-    <!-- <div id="error_four" v-if="filterredStarCodes.length === 0">
-      <div class="error-title">404: SIP Code Not Found</div>
+    <div id="error_four" v-if="filterredStarCodes.length === 0">
+      <div class="error-title">404: Star Code Not Found</div>
       <img id="gif" src="../assets/stormtrooper.gif">
-    </div>-->
+    </div>
   </div>
 </template>
 
@@ -136,7 +136,6 @@ export default {
 
 #customers td,
 #customers th {
-  // border-bottom: 0.5px solid #5b5b5b;
   padding: 8px;
 }
 
@@ -154,7 +153,6 @@ export default {
   text-align: left;
   background-color: rgba(0, 0, 0, 0.5);
   color: #f5f5f5;
-  // border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 #gif {
@@ -175,7 +173,6 @@ td:nth-child(4) {
 }
 
 li {
-  // list-style-type: circle !important;
   padding-left: 20px;
 }
 </style>

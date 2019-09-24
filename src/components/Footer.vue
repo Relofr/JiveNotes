@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div class="left-container">
-      <!-- <QuickTime/> -->
-      <!-- <Settings/> -->
-    </div>
+    <div class="left-container"></div>
     <div class="stopwatch-container">
       <Stopwatch2
         :timer="formattedTime"

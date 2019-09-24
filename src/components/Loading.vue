@@ -34,7 +34,6 @@ export default {};
   display: inline-block;
   width: 30px;
   height: 30px;
-  /* background-color: #C4D600; */
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
   border-radius: 50%;
@@ -71,6 +70,6 @@ export default {};
 }
 
 .loading-title {
-  /* color: #2a3a4a; */
+  color: #fff !important;
 }
 </style>

@@ -36,7 +36,6 @@ export default {
 }
 
 #clear-icon {
-  // margin: 15px;
   cursor: pointer;
   &:hover {
     color: #e53935;
