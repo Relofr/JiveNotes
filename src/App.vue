@@ -582,7 +582,7 @@ label {
   outline: 2px dashed grey;
   border-radius: 4px;
   width: 100%;
-  height: 75px;
+  height: 100px;
   outline-offset: 2px;
 }
 
@@ -608,7 +608,7 @@ label {
 .image-preview img {
   position: absolute;
   width: 100%;
-  height: 75px;
+  height: 100px;
   object-fit: cover;
   border-radius: 4px;
 }
