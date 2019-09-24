@@ -1,6 +1,9 @@
 <template>
   <div>
-    <section class="background-color-selection" v-bind:style="{ backgroundColor: colorBG}">
+    <section
+      class="background-color-selection"
+      v-bind:style="{ backgroundColor: colorBG,  'background-image': 'url(' + imageData + ')'  }"
+    >
       <div v-if="isLoading">
         <span>
           <Loading/>
@@ -70,6 +73,39 @@
               <input id="hex" v-model="colorText">
             </div>-->
           </div>
+          <div class="grid-container2">
+            <div class="grid-item">
+              <label id="color-selection-labels">Background Image:</label>
+              <div class="image-selection-container">
+                <input
+                  type="file"
+                  name
+                  accept="image/*"
+                  @change="previewImage"
+                  class="inputfile"
+                  id="file"
+                >
+                <!-- <i id="image-icon" @change="previewImage" class="material-icons">image</i> -->
+                <div v-show="this.imageData != ''" class="image-preview">
+                  <img :src="imageData">
+                </div>
+                <label class="color-selection-labels" for="file">
+                  <i
+                    v-show="this.imageData === ''"
+                    id="image-icon"
+                    @change="previewImage"
+                    class="material-icons"
+                  >image</i>
+                </label>
+                <i
+                  v-show="this.imageData != ''"
+                  id="remove-image-icon"
+                  class="material-icons"
+                  @click="removeImage()"
+                >delete</i>
+              </div>
+            </div>
+          </div>
           <Button
             id="default-button"
             class="button"
@@ -103,6 +139,7 @@ export default {
       color: "",
       colorBG: "",
       colorText: "",
+      imageData: "",
       showModal: false
     };
   },
@@ -117,10 +154,24 @@ export default {
     Stopwatch2
   },
   methods: {
+    previewImage: function(event) {
+      var input = event.target;
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = e => {
+          this.imageData = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    },
+    removeImage() {
+      this.imageData = "";
+    },
     defaultColorScheme() {
       this.color = "#353535";
       this.colorBG = "#212121";
       this.colorText = "#f5f5f5";
+      this.imageData = "";
     },
     toTop() {
       if (
@@ -141,6 +192,13 @@ export default {
     }
   },
   watch: {
+    imageData: {
+      handler() {
+        console.log("Updated imageData to: " + this.imageData);
+        localStorage.setItem("imageData", JSON.stringify(this.imageData));
+      },
+      deep: true
+    },
     color: {
       handler() {
         console.log("Updated color to: " + this.color);
@@ -188,6 +246,8 @@ export default {
       this.colorBG = JSON.parse(localStorage.getItem("colorBG"));
     if (localStorage.getItem("colorText"))
       this.colorText = JSON.parse(localStorage.getItem("colorText"));
+    if (localStorage.getItem("imageData"))
+      this.imageData = JSON.parse(localStorage.getItem("imageData"));
   }
 };
 </script>
@@ -200,7 +260,8 @@ body {
   background-color: #212121;
   /* margin: 0;
   padding: 0; */
-  color: #f5f5f5;
+  color: #9e9e9e;
+  /* font-weight: 700; */
 }
 section {
   position: absolute;
@@ -266,7 +327,7 @@ section {
 }
 
 .snotify-warning {
-  background: #e53935;
+  background: #ffa726;
 }
 .snotify-success {
   background-color: #0091ea;
@@ -400,7 +461,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 label {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #hex {
@@ -417,6 +478,11 @@ label {
   display: grid;
   grid-template-columns: auto auto;
 }
+.grid-container2 {
+  display: grid;
+  grid-template-columns: auto;
+  margin-bottom: 15px;
+}
 .grid-item {
   text-align: left;
 }
@@ -428,5 +494,75 @@ label {
 #color-selection-labels {
   font-size: 12px;
   color: #000 !important;
+}
+
+.background-color-selection {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-position: 50% 50%; */
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  color: #000;
+}
+
+.inputfile > label {
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.image-selection-container {
+  display: flex;
+  position: relative;
+  margin-top: 15px;
+}
+
+.image-selection-container > label {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: #000;
+  line-height: 35px;
+  cursor: pointer;
+  outline: 2px dashed grey;
+  border-radius: 4px;
+  width: 100%;
+  height: 75px;
+  outline-offset: 2px;
+}
+
+#image-icon,
+#remove-image-icon {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+#remove-image-icon {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 24px;
+  z-index: 99;
+}
+
+.image-preview img {
+  position: absolute;
+  width: 100%;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 </style>

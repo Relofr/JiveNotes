@@ -15,13 +15,8 @@
           id="stopwatch-icons"
           @click="showTable = !showTable"
           class="material-icons"
-        >timer</i>
-        <i
-          v-else
-          id="stopwatch-icons"
-          @click="showTable = !showTable"
-          class="material-icons"
         >timer_off</i>
+        <i v-else id="stopwatch-icons" @click="showTable = !showTable" class="material-icons">timer</i>
         <i v-if="showTable" id="stopwatch-icons" @click="$emit('lap')" class="material-icons">flag</i>
       </div>
     </div>
@@ -79,12 +74,13 @@ export default {
 #timer {
   font-family: montserrat;
   // color: rgba(255, 255, 255, 0.6);
+  color: #4fc3f7;
   width: 115px;
 }
 #stopwatch-icons {
   cursor: pointer;
   &:hover {
-    color: rgba(0, 0, 0, 0.8);
+    // color: rgba(0, 0, 0, 0.8);
   }
 }
 

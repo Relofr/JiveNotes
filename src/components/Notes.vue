@@ -301,11 +301,11 @@ input:not([type]):focus:not([readonly]) {
 }
 
 input:invalid {
-  border-bottom: 1.5px solid #e53935 !important;
+  border-bottom: 1.5px solid #ec407a !important;
   box-shadow: none !important;
 }
 textarea:invalid {
-  border-bottom: 1.5px solid #e53935 !important;
+  border-bottom: 1.5px solid #ec407a !important;
   box-shadow: none !important;
 }
 
