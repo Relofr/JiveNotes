@@ -81,11 +81,11 @@
                   type="file"
                   name
                   accept="image/*"
-                  @change="previewImage"
+                  @change="uploadImage"
                   class="inputfile"
                   id="file"
                 >
-                <!-- <i id="image-icon" @change="previewImage" class="material-icons">image</i> -->
+                <!-- <i id="image-icon" @change="uploadImage" class="material-icons">image</i> -->
                 <div v-show="this.imageData != ''" class="image-preview">
                   <img :src="imageData">
                 </div>
@@ -93,7 +93,7 @@
                   <i
                     v-show="this.imageData === ''"
                     id="image-icon"
-                    @change="previewImage"
+                    @change="uploadImage"
                     class="material-icons"
                   >image</i>
                 </label>
@@ -104,6 +104,7 @@
                   @click="removeImage()"
                 >delete</i>
               </div>
+              <p id="file-types">Supported Files: .jpeg/.jpg/.png/.gif</p>
             </div>
           </div>
           <Button
@@ -154,18 +155,38 @@ export default {
     Stopwatch2
   },
   methods: {
-    previewImage: function(event) {
-      var input = event.target;
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = e => {
-          this.imageData = e.target.result;
-        };
-        reader.readAsDataURL(input.files[0]);
+    uploadImage(event) {
+      var input = document.getElementById("file");
+      var filePath = input.value;
+      var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      if (!allowedExtensions.exec(filePath)) {
+        this.displayNotificationWarning();
+        input.value = "";
+        return false;
+      } else {
+        //Image preview
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = e => {
+            this.imageData = e.target.result;
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
       }
+      // var input = event.target;
+      // if (input.files && input.files[0]) {
+      //   var reader = new FileReader();
+      //   reader.onload = e => {
+      //     this.imageData = e.target.result;
+      //   };
+      //   reader.readAsDataURL(input.files[0]);
+      // }
     },
     removeImage() {
       this.imageData = "";
+    },
+    displayNotificationWarning() {
+      this.$snotify.warning("Unsupported File");
     },
     defaultColorScheme() {
       this.color = "#353535";
@@ -192,6 +213,24 @@ export default {
     }
   },
   watch: {
+    idleWatcher: {
+      //       idleTimer() {
+      //     var t;
+      //     //window.onload = resetTimer;
+      //     window.onmousemove = resetTimer; // catches mouse movements
+      //     window.onmousedown = resetTimer; // catches mouse movements
+      //     window.onclick = resetTimer;     // catches mouse clicks
+      //     window.onscroll = resetTimer;    // catches scrolling
+      //     window.onkeypress = resetTimer;  //catches keyboard actions
+      //    reload() {
+      //           window.location = self.location.href;  //Reloads the current page
+      //    }
+      //    resetTimer() {
+      //         clearTimeout(t);
+      //         t= setTimeout(reload, 300000);  // time is in milliseconds (1000 is 1 second)
+      //     }
+      // }
+    },
     imageData: {
       handler() {
         // console.log("Updated imageData to: " + this.imageData);
@@ -223,7 +262,10 @@ export default {
   },
   created() {
     window.addEventListener("scroll", this.toTop);
-    console.log("created");
+    // var self = this;
+    // setTimeout(function() {
+    //   self.location.forceUpdate(true);
+    // }, 5);
   },
   destroyed() {
     window.removeEventListener("scroll", this.toTop);
@@ -569,5 +611,10 @@ label {
   height: 75px;
   object-fit: cover;
   border-radius: 4px;
+}
+
+#file-types {
+  font-size: 12px;
+  color: grey;
 }
 </style>
