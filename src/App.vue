@@ -194,7 +194,7 @@ export default {
   watch: {
     imageData: {
       handler() {
-        console.log("Updated imageData to: " + this.imageData);
+        // console.log("Updated imageData to: " + this.imageData);
         localStorage.setItem("imageData", JSON.stringify(this.imageData));
       },
       deep: true
@@ -556,6 +556,11 @@ label {
   right: 0px;
   font-size: 24px;
   z-index: 99;
+  color: #fff;
+}
+
+#remove-image-icon:hover {
+  color: #e53935;
 }
 
 .image-preview img {
