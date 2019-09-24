@@ -104,7 +104,7 @@
                   @click="removeImage()"
                 >delete</i>
               </div>
-              <p id="file-types">Supported Files: .jpeg/.jpg/.png/.gif</p>
+              <p id="file-types">Supported Files: .jpeg, .jpg, .png, .gif</p>
             </div>
           </div>
           <Button
@@ -186,7 +186,7 @@ export default {
       this.imageData = "";
     },
     displayNotificationWarning() {
-      this.$snotify.warning("Unsupported File");
+      this.$snotify.error("Unsupported File");
     },
     defaultColorScheme() {
       this.color = "#353535";
@@ -376,7 +376,7 @@ section {
 }
 
 .snotify-error {
-  background-color: #ffa726;
+  background-color: #e53935;
 }
 
 .component-fade-enter-active,
@@ -616,5 +616,6 @@ label {
 #file-types {
   font-size: 12px;
   color: grey;
+  text-transform: initial;
 }
 </style>
