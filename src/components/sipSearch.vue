@@ -15,7 +15,7 @@
       <i id="search-icon" class="material-icons">search</i>
     </div>
 
-    <table id="table-wrapper">
+    <table id="table-wrapper" class="text">
       <tr>
         <th>Code</th>
         <th>Name</th>

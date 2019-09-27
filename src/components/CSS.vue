@@ -160,20 +160,6 @@ export default {
 </script>
 
 <style lang='less'>
-label,
-span {
-  font-size: 12px;
-}
-input,
-textarea {
-  width: 100%;
-  border: none;
-  outline: none;
-  margin-bottom: 25px;
-  font-size: 14px;
-  background-color: transparent;
-}
-
 .star {
   color: transparent;
 }

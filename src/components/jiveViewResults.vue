@@ -336,29 +336,29 @@ export default {
 </script>
 
 <style lang='less' scoped>
-label {
-  color: #c4c4c4;
-}
+// label {
+//   color: #c4c4c4;
+// }
 
-label,
-span {
-  font-size: 12px;
-}
-input,
-textarea {
-  width: 100%;
-  height: 21px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
-  margin-bottom: 25px;
-  font-size: 14px;
-  background-color: transparent;
-  color: #f5f5f5;
-  &:focus {
-    box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.5);
-  }
-}
+// label,
+// span {
+//   font-size: 12px;
+// }
+// input,
+// textarea {
+//   width: 100%;
+//   height: 21px;
+//   border: none;
+//   outline: none;
+//   border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+//   margin-bottom: 25px;
+//   font-size: 14px;
+//   background-color: transparent;
+//   color: #f5f5f5;
+//   &:focus {
+//     box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.5);
+//   }
+// }
 
 input:not([type]):focus:not([readonly]) {
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);

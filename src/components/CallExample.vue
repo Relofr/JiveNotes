@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title">Call Example</div>
-    <div>- Call Example -</div>
+    <div class="sub-title">- Call Example -</div>
     <label>PBX Domain:</label>
     <textarea-autosize id="pbx" autofocus rows="1" v-model="pbx"></textarea-autosize>
     <br>
@@ -167,23 +167,6 @@ export default {
 };
 </script>
 
-<style lang='less' scoped>
-.line {
-  color: transparent;
-}
-
-label,
-span {
-  font-size: 12px;
-}
-input,
-textarea {
-  width: 100%;
-  border: none;
-  outline: none;
-  margin-bottom: 25px;
-  font-size: 14px;
-  background-color: transparent;
-}
+<style lang='less'>
 </style>
 

@@ -142,22 +142,5 @@ export default {
 };
 </script>
 
-<style lang='less' scoped>
-label,
-span {
-  font-size: 12px;
-}
-input,
-textarea {
-  width: 100%;
-  border: none;
-  outline: none;
-  margin-bottom: 25px;
-  font-size: 14px;
-  background-color: transparent;
-}
-
-.line {
-  color: transparent;
-}
+<style lang='less'>
 </style>

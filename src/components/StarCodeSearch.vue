@@ -15,7 +15,7 @@
       <i id="search-icon" class="material-icons">search</i>
     </div>
 
-    <table id="customers">
+    <table id="customers" class="text">
       <tr>
         <th>Code</th>
         <th>Description</th>

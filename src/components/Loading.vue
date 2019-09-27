@@ -34,7 +34,7 @@ export default {};
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #c2d500;
   border: none;
   border-radius: 50%;
   margin: 0 8px;
@@ -61,12 +61,12 @@ export default {};
 
 .dot.two {
   animation-delay: 0.3s;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #c2d500;
 }
 
 .dot.three {
   animation-delay: 0.6s;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #c2d500;
 }
 
 .loading-title {

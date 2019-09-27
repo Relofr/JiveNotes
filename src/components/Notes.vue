@@ -261,10 +261,6 @@ export default {
   color: transparent;
 }
 
-label {
-  // color: #c4c4c4;
-}
-
 label,
 span {
   font-size: 12px;
@@ -278,7 +274,6 @@ textarea {
   margin-bottom: 25px;
   font-size: 14px;
   background-color: transparent;
-  // color: #f5f5f5;
 }
 
 input:not([type]):focus:not([readonly]) {
@@ -301,11 +296,11 @@ input:not([type]):focus:not([readonly]) {
 }
 
 input:invalid {
-  border-bottom: 1.5px solid #ec407a !important;
+  border-bottom: 1.5px solid #e53935 !important;
   box-shadow: none !important;
 }
 textarea:invalid {
-  border-bottom: 1.5px solid #ec407a !important;
+  border-bottom: 1.5px solid #e53935 !important;
   box-shadow: none !important;
 }
 

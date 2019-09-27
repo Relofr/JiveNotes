@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title">RMA</div>
-    <div>- RMA -</div>
+    <div class="sub-title">- RMA -</div>
     <label>Ship To Name (Customer/Business/Partner):</label>
     <textarea-autosize id="cases" autofocus rows="1" v-model="shipToName"></textarea-autosize>
     <br>
@@ -211,18 +211,5 @@ export default {
 };
 </script>
 
-<style lang='less' scoped>
-label,
-span {
-  font-size: 12px;
-}
-input,
-textarea {
-  width: 100%;
-  border: none;
-  outline: none;
-  margin-bottom: 25px;
-  font-size: 14px;
-  background-color: transparent;
-}
+<style lang='less'>
 </style>

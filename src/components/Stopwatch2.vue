@@ -120,6 +120,7 @@ tr:nth-child(even) {
   font-size: 24px;
   padding-right: 8px;
   padding-left: 4px;
+  color: #fff !important;
 }
 #timer {
   float: left;

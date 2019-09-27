@@ -2,7 +2,7 @@
   <div>
     <section
       class="background-color-selection"
-      v-bind:style="{ backgroundColor: colorBG,  'background-image': 'url(' + imageData + ')'  }"
+      v-bind:style="{ backgroundColor: colorBG,  'background-image': 'url(' + imageData + ')', color: labelColor  }"
     >
       <div v-if="isLoading">
         <span>
@@ -13,7 +13,7 @@
         <a id="gotopbtn" v-on:scroll="toTopButton = !toTopButton;" class="gotopbtn" href="#">
           <i class="material-icons no-select">arrow_upward</i>
         </a>
-        <div class="app-container" v-bind:style="{ color: colorText}">
+        <div class="app-container">
           <i @click="showModal = true" class="material-icons no-select" id="settings">settings</i>
           <!-- <div class="main-title">JiveNotes</div> -->
           <Dropdown class="no-select"/>
@@ -61,16 +61,17 @@
             </div>
 
             <!-- <div class="grid-item">
-              <label id="color-selection-labels" for="foreground">Text:</label>
+              <label id="color-selection-labels" for="foreground">Label Color:</label>
             </div>
             <div class="grid-item">
-              <input class="color-selection" type="color" v-model="colorText" value="Color Select">
+              <input class="color-selection" type="color" v-model="labelColor" value="Color Select">
+            </div>
+
+            <div class="grid-item">
+              <label id="color-selection-labels" for="foreground">Text Color:</label>
             </div>
             <div class="grid-item">
-              <label id="color-selection-labels" for="foreground">Text Color Hex:</label>
-            </div>
-            <div class="grid-item">
-              <input id="hex" v-model="colorText">
+              <input class="color-selection" type="color" v-model="textColor" value="Color Select">
             </div>-->
           </div>
           <div class="grid-container2">
@@ -139,7 +140,7 @@ export default {
       toTopButton: true,
       color: "",
       colorBG: "",
-      colorText: "",
+      labelColor: "",
       imageData: "",
       showModal: false
     };
@@ -191,7 +192,7 @@ export default {
     defaultColorScheme() {
       this.color = "#353535";
       this.colorBG = "#212121";
-      this.colorText = "#f5f5f5";
+      this.labelColor = "#f5f5f5";
       this.imageData = "";
     },
     toTop() {
@@ -252,10 +253,10 @@ export default {
       },
       deep: true
     },
-    colorText: {
+    labelColor: {
       handler() {
-        console.log("Updated colorText to: " + this.colorText);
-        localStorage.setItem("colorText", JSON.stringify(this.colorText));
+        console.log("Updated labelColor to: " + this.labelColor);
+        localStorage.setItem("labelColor", JSON.stringify(this.labelColor));
       },
       deep: true
     }
@@ -286,8 +287,8 @@ export default {
       this.color = JSON.parse(localStorage.getItem("color"));
     if (localStorage.getItem("colorBG"))
       this.colorBG = JSON.parse(localStorage.getItem("colorBG"));
-    if (localStorage.getItem("colorText"))
-      this.colorText = JSON.parse(localStorage.getItem("colorText"));
+    if (localStorage.getItem("labelColor"))
+      this.labelColor = JSON.parse(localStorage.getItem("labelColor"));
     if (localStorage.getItem("imageData"))
       this.imageData = JSON.parse(localStorage.getItem("imageData"));
   }
@@ -302,7 +303,7 @@ body {
   background-color: #212121;
   /* margin: 0;
   padding: 0; */
-  color: #9e9e9e;
+  /* color: #ccc; */
   /* font-weight: 700; */
 }
 section {
@@ -331,6 +332,15 @@ section {
   overflow-x: hidden;
   /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2); */
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .app-container {
@@ -388,18 +398,7 @@ section {
   opacity: 0;
 }
 
-.no-select {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-input,
-textarea,
-label {
+input {
   font-family: Montserrat;
   color: #f5f5f5;
 }
@@ -421,6 +420,26 @@ input:not([type]):focus:not([readonly]) {
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
+label,
+span {
+  font-size: 12px;
+}
+input,
+textarea {
+  font-family: Montserrat;
+  color: #f5f5f5;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-bottom: 25px;
+  font-size: 14px;
+  background-color: transparent;
+}
+
+.line {
+  color: transparent;
+}
+
 .gotopbtn {
   visibility: hidden;
   position: fixed;
@@ -434,6 +453,18 @@ input:not([type]):focus:not([readonly]) {
   border-radius: 50px;
 }
 
+.main-title {
+  float: right;
+  font-size: 12px;
+  /* color: rgba(255, 255, 255, 0.3); */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .title {
   text-align: center;
   font-size: 24px;
@@ -445,18 +476,15 @@ input:not([type]):focus:not([readonly]) {
   user-select: none;
   text-transform: uppercase;
   margin-bottom: 10px;
+  color: #fff !important;
 }
 
-.main-title {
-  float: right;
-  font-size: 12px;
-  /* color: rgba(255, 255, 255, 0.3); */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.sub-title {
+  color: #fff;
+}
+
+.text {
+  color: #fff;
 }
 
 #settings {
@@ -617,5 +645,14 @@ label {
   font-size: 12px;
   color: grey;
   text-transform: initial;
+}
+
+::selection {
+  background: #c2d500;
+  color: #fff;
+}
+::-moz-selection {
+  background: #c2d500;
+  color: #fff;
 }
 </style>
