@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div>- RMA -</div>
     <label v-bind:style="{ color: labelColor}">Ship To Name (Customer/Business/Partner):</label>
     <textarea-autosize
       v-bind:style="{ color: textColor}"
@@ -10,9 +9,7 @@
       v-model="shipToName"
     ></textarea-autosize>
     <br>
-    <!-- <input class="color-selection" type="color" v-model="labelColor" value="Color Select">
-    <input class="color-selection" type="color" v-model="textColor" value="Color Select">-->
-    <div class="grid-item">
+    <!-- <div class="grid-item">
       <label id="color-selection-labels" for="foreground">Label Color:</label>
     </div>
     <div class="grid-item">
@@ -24,15 +21,7 @@
     </div>
     <div class="grid-item">
       <input class="color-selection" type="color" v-model="textColor" value="Color Select">
-    </div>
-
-    <a class="nes-btn">Normal</a>
-    
-    <button type="button" class="nes-btn is-primary">Primary</button>
-    <button type="button" class="nes-btn is-success">Success</button>
-    <button type="button" class="nes-btn is-warning">Warning</button>
-    <button type="button" class="nes-btn is-error">Error</button>
-    <button type="button" class="nes-btn is-disabled">Disabled</button>
+    </div>-->
   </div>
 </template>
 

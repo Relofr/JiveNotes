@@ -103,6 +103,7 @@ table {
 th,
 td {
   padding: 10px 0px 10px 0px;
+  color: #f5f5f5;
 }
 td:nth-child(1) {
   border-radius: 8px 0px 0px 8px;

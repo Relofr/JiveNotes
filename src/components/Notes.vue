@@ -290,8 +290,8 @@ input:not([type]):focus:not([readonly]) {
 }
 
 :disabled {
-  background-color: lightgray;
-  color: #696969;
+  background-color: grey;
+  color: #fff;
   cursor: not-allowed;
 }
 

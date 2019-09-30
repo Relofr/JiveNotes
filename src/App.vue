@@ -30,53 +30,100 @@
       </div>
     </section>
     <Modal v-if="showModal" @close="showModal = false">
-      <div slot="header">Settings</div>
+      <div slot="header">Themes</div>
+
       <div slot="body">
+        <div id="modal-labels" @click="showThemes = !showThemes">
+          Video Game Themes
+          <i id="theme-arrow" v-if="showThemes" class="material-icons">expand_more</i>
+          <i id="theme-arrow" v-if="!showThemes" class="material-icons">expand_less</i>
+        </div>
         <div>
+          <div class="grid-container3" v-if="!showThemes">
+            <div class="grid-item3">
+              <label>
+                <input
+                  @click="greenTunicTheme()"
+                  name="greenTunic"
+                  type="radio"
+                  value="greenTunic"
+                  v-model="greenTunic"
+                >
+                <span id="modal-labels">Kokiri Tunic</span>
+              </label>
+            </div>
+            <div class="grid-item3">
+              <label>
+                <input
+                  @click="blueTunicTheme()"
+                  name="blueTunic"
+                  type="radio"
+                  value="blueTunic"
+                  v-model="blueTunic"
+                >
+                <span id="modal-labels">Zora Tunic</span>
+              </label>
+            </div>
+
+            <div class="grid-item3">
+              <label>
+                <input
+                  @click="redTunicTheme()"
+                  name="redTunic"
+                  type="radio"
+                  value="redTunic"
+                  v-model="redTunic"
+                >
+                <span id="modal-labels">Goron Tunic</span>
+              </label>
+            </div>
+          </div>
+          <hr>
           <div class="grid-container">
             <div class="grid-item">
-              <label id="color-selection-labels" for="foreground">Foreground:</label>
+              <label id="modal-labels" for="foreground">Foreground:</label>
             </div>
             <div class="grid-item">
               <input class="color-selection" type="color" v-model="color" value="Color Select">
             </div>
             <div class="grid-item">
-              <label id="color-selection-labels" for="foreground">Foreground Hex:</label>
+              <label id="modal-labels" for="foreground">Foreground Hex:</label>
             </div>
             <div class="grid-item">
               <input id="hex" v-model="color">
             </div>
 
             <div class="grid-item">
-              <label id="color-selection-labels" for="foreground">Background:</label>
+              <label id="modal-labels" for="foreground">Background:</label>
             </div>
             <div class="grid-item">
               <input class="color-selection" type="color" v-model="colorBG" value="Color Select">
             </div>
             <div class="grid-item">
-              <label id="color-selection-labels" for="foreground">Background Hex:</label>
+              <label id="modal-labels" for="foreground">Background Hex:</label>
             </div>
             <div class="grid-item">
               <input id="hex" v-model="colorBG">
             </div>
 
             <!-- <div class="grid-item">
-              <label id="color-selection-labels" for="foreground">Label Color:</label>
+              <label id="modal-labels" for="foreground">Label Color:</label>
             </div>
             <div class="grid-item">
               <input class="color-selection" type="color" v-model="labelColor" value="Color Select">
             </div>
 
             <div class="grid-item">
-              <label id="color-selection-labels" for="foreground">Text Color:</label>
+              <label id="modal-labels" for="foreground">Text Color:</label>
             </div>
             <div class="grid-item">
               <input class="color-selection" type="color" v-model="textColor" value="Color Select">
             </div>-->
           </div>
+
           <div class="grid-container2">
             <div class="grid-item2">
-              <label id="color-selection-labels">Background Image:</label>
+              <label id="modal-labels">Background Image:</label>
               <div class="image-selection-container">
                 <input
                   type="file"
@@ -90,7 +137,7 @@
                 <div v-show="this.imageData != ''" class="image-preview">
                   <img :src="imageData">
                 </div>
-                <label class="color-selection-labels" for="file">
+                <label class="modal-labels" for="file">
                   <i
                     v-show="this.imageData === ''"
                     id="image-icon"
@@ -137,7 +184,11 @@ export default {
       colorBG: "",
       labelColor: "",
       imageData: "",
-      showModal: false
+      greenTunic: false,
+      blueTunic: false,
+      redTunic: false,
+      showModal: false,
+      showThemes: false
     };
   },
   components: {
@@ -169,17 +220,12 @@ export default {
           reader.readAsDataURL(input.files[0]);
         }
       }
-      // var input = event.target;
-      // if (input.files && input.files[0]) {
-      //   var reader = new FileReader();
-      //   reader.onload = e => {
-      //     this.imageData = e.target.result;
-      //   };
-      //   reader.readAsDataURL(input.files[0]);
-      // }
     },
     removeImage() {
       this.imageData = "";
+    },
+    displayNotificationSuccess() {
+      this.$snotify.success("Reset!");
     },
     displayNotificationWarning() {
       this.$snotify.error("Unsupported File");
@@ -188,6 +234,34 @@ export default {
       this.color = "#353535";
       this.colorBG = "#212121";
       this.labelColor = "#f5f5f5";
+      this.imageData = "";
+      this.greenTunic = false;
+      this.blueTunic = false;
+      this.redTunic = false;
+      this.displayNotificationSuccess();
+    },
+    greenTunicTheme() {
+      this.colorBG = "#1b3614";
+      this.color = "#306424";
+      this.greenTunic = true;
+      this.blueTunic = false;
+      this.redTunic = false;
+      this.imageData = "";
+    },
+    blueTunicTheme() {
+      this.colorBG = "#0D2240";
+      this.color = "#205399";
+      this.greenTunic = false;
+      this.blueTunic = true;
+      this.redTunic = false;
+      this.imageData = "";
+    },
+    redTunicTheme() {
+      this.colorBG = "#401816";
+      this.color = "#7d1313";
+      this.greenTunic = false;
+      this.redTunic = true;
+      this.blueTunic = false;
       this.imageData = "";
     },
     toTop() {
@@ -254,6 +328,18 @@ export default {
         localStorage.setItem("labelColor", JSON.stringify(this.labelColor));
       },
       deep: true
+    },
+    greenTunic() {
+      console.log("Updated greenTunic to: " + this.greenTunic);
+      localStorage.setItem("greenTunic", JSON.stringify(this.greenTunic));
+    },
+    blueTunic() {
+      console.log("Updated blueTunic to: " + this.blueTunic);
+      localStorage.setItem("blueTunic", JSON.stringify(this.blueTunic));
+    },
+    redTunic() {
+      console.log("Updated redTunic to: " + this.redTunic);
+      localStorage.setItem("redTunic", JSON.stringify(this.redTunic));
     }
   },
   created() {
@@ -274,9 +360,10 @@ export default {
 
     if (navigator.userAgent.indexOf("Firefox") !== -1) {
       console.log("Firefox");
+      alert("JiveNotes will not work in Firefox, please use Chrome")
     }
     if (navigator.userAgent.indexOf("Chrome") !== -1) {
-      console.log("Firefox");
+      console.log("Chrome");
     }
     if (localStorage.getItem("color"))
       this.color = JSON.parse(localStorage.getItem("color"));
@@ -286,6 +373,12 @@ export default {
       this.labelColor = JSON.parse(localStorage.getItem("labelColor"));
     if (localStorage.getItem("imageData"))
       this.imageData = JSON.parse(localStorage.getItem("imageData"));
+    if (localStorage.getItem("greenTunic"))
+      this.greenTunic = JSON.parse(localStorage.getItem("greenTunic"));
+    if (localStorage.getItem("blueTunic"))
+      this.blueTunic = JSON.parse(localStorage.getItem("blueTunic"));
+    if (localStorage.getItem("redTunic"))
+      this.redTunic = JSON.parse(localStorage.getItem("redTunic"));
   }
 };
 </script>
@@ -296,10 +389,6 @@ html {
 }
 body {
   background-color: #212121;
-  /* margin: 0;
-  padding: 0; */
-  /* color: #ccc; */
-  /* font-weight: 700; */
 }
 section {
   position: absolute;
@@ -421,7 +510,7 @@ span {
 }
 input,
 textarea {
-  /* font-family: Montserrat; */
+  font-family: Montserrat;
   color: #f5f5f5;
   width: 100%;
   border: none;
@@ -555,10 +644,19 @@ label {
   text-align: left;
 }
 
-#color-selection-labels {
+.grid-container3 {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.grid-item3 {
+  text-align: left;
+}
+
+#modal-labels {
   font-size: 12px;
   color: #000 !important;
   font-family: Montserrat;
+  text-align: left;
 }
 
 .background-color-selection {
@@ -649,5 +747,10 @@ label {
 ::-moz-selection {
   background: #c2d500;
   color: #fff;
+}
+
+#theme-arrow {
+  font-size: 24px;
+  vertical-align: bottom;
 }
 </style>
