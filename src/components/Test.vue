@@ -25,6 +25,14 @@
     <div class="grid-item">
       <input class="color-selection" type="color" v-model="textColor" value="Color Select">
     </div>
+
+    <a class="nes-btn">Normal</a>
+    
+    <button type="button" class="nes-btn is-primary">Primary</button>
+    <button type="button" class="nes-btn is-success">Success</button>
+    <button type="button" class="nes-btn is-warning">Warning</button>
+    <button type="button" class="nes-btn is-error">Error</button>
+    <button type="button" class="nes-btn is-disabled">Disabled</button>
   </div>
 </template>
 

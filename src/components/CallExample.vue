@@ -31,8 +31,8 @@
     <br>
 
     <div class="buttons">
-      <Button class="button" buttonTitle="clear" @click="showModal = true"/>
-      <Button class="button2" buttonTitle="copy" @click="copyNotes()"/>
+      <Button class="btn btn-error" buttonTitle="clear" @click="showModal = true"/>
+      <Button class="btn btn-primary" buttonTitle="copy" @click="copyNotes()"/>
     </div>
 
     <Modal v-if="showModal" @close="showModal = false">

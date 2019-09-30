@@ -75,7 +75,7 @@
             </div>-->
           </div>
           <div class="grid-container2">
-            <div class="grid-item">
+            <div class="grid-item2">
               <label id="color-selection-labels">Background Image:</label>
               <div class="image-selection-container">
                 <input
@@ -108,12 +108,7 @@
               <p id="file-types">Supported Files: .jpeg, .jpg, .png, .gif, .svg</p>
             </div>
           </div>
-          <Button
-            id="default-button"
-            class="button"
-            buttonTitle="reset"
-            @click="defaultColorScheme()"
-          />
+          <Button class="btn-primary" buttonTitle="reset" @click="defaultColorScheme()"/>
         </div>
       </div>
       <i slot="footer" id="clearIconModal" class="material-icons" @click="showModal = false">close</i>
@@ -317,7 +312,7 @@ section {
   /* padding: 20px; */
 }
 #app {
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #353535;
@@ -326,7 +321,7 @@ section {
   width: 92%;
   max-width: 900px;
   height: 100%;
-  min-height: 518px;
+  /* min-height: 518px; */
   margin: 25px auto;
   overflow-y: auto;
   overflow-x: hidden;
@@ -399,7 +394,7 @@ section {
 }
 
 input {
-  font-family: Montserrat;
+  /* font-family: Montserrat; */
   color: #f5f5f5;
 }
 
@@ -426,7 +421,7 @@ span {
 }
 input,
 textarea {
-  font-family: Montserrat;
+  /* font-family: Montserrat; */
   color: #f5f5f5;
   width: 100%;
   border: none;
@@ -548,22 +543,22 @@ label {
   display: grid;
   grid-template-columns: auto auto;
 }
+.grid-item {
+  text-align: left;
+  height: 35px;
+}
 .grid-container2 {
   display: grid;
   grid-template-columns: auto;
-  margin-bottom: 15px;
 }
-.grid-item {
+.grid-item2 {
   text-align: left;
-}
-
-#default-button {
-  background-color: #0091ea;
 }
 
 #color-selection-labels {
   font-size: 12px;
   color: #000 !important;
+  font-family: Montserrat;
 }
 
 .background-color-selection {

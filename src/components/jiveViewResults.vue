@@ -110,9 +110,9 @@
         </div>
       </div>
       <div id="jiveViewButtons" class="buttons">
-        <Button class="button" buttonTitle="clear" @click="showModal = true"/>
+        <Button class="btn btn-error" buttonTitle="clear" @click="showModal = true"/>
         <Button
-          class="button2"
+          class="btn btn-primary"
           buttonTitle="copy"
           @click="copyNotes()"
           :disabled="!customerName || !tracert || !sipALG || !packetLoss || !jitter || !bandwidthDOWN || !bandwidthUP || !pingMAX || !pingMIN"

@@ -169,8 +169,7 @@ export default {
   display: flex;
 }
 
-.buttons,
-.button2 {
+.buttons {
   float: right;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -178,23 +177,6 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.button {
-  background-color: rgb(229, 57, 53);
-  color: #fff;
-  &:focus {
-    background-color: rgb(229, 57, 53);
-  }
-}
-
-.button2 {
-  background-color: rgb(0, 145, 234);
-  color: #fff;
-  margin-left: 8px;
-  &:focus {
-    background-color: rgb(0, 145, 234);
-  }
 }
 
 #clearIconModal {
