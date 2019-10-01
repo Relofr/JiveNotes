@@ -1,12 +1,12 @@
 <template>
   <div>
-    <label v-bind:style="{ color: labelColor}">Ship To Name (Customer/Business/Partner):</label>
+    <label v-bind:style="{ color: labelColor}">Agent Name:</label>
     <textarea-autosize
       v-bind:style="{ color: textColor}"
       id="cases"
       autofocus
       rows="1"
-      v-model="shipToName"
+      v-model="storeState.agentName"
     ></textarea-autosize>
     <br>
     <!-- <div class="grid-item">
@@ -26,13 +26,15 @@
 </template>
 
 <script>
+import { store } from "../store/store.js";
 export default {
   name: "NumberSubmit",
   data() {
     return {
-      shipToName: "",
-      labelColor: "",
-      textColor: ""
+      storeState: store.state
+      // shipToName: "",
+      // labelColor: "",
+      // textColor: ""
     };
   },
   methods: {}

@@ -5,11 +5,11 @@
     <Tooltip tooltip="true" tooltipIcon="help_outline" moreInfo="Agent Name will not clear"/>
 
     <label>Agent Name | {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
-    <textarea-autosize @keydown="checkNumber()" rows="1" v-model="agentName" required></textarea-autosize>
+    <textarea-autosize @keydown="checkNumber()" rows="1" v-model="storeState.agentName" required></textarea-autosize>
     <br>
 
     <label>Contact Name:</label>
-    <textarea-autosize id="contact" rows="1" autofocus v-model="contact" required></textarea-autosize>
+    <textarea-autosize id="contact" rows="1" autofocus v-model="storeState.contact" required></textarea-autosize>
     <br>
 
     <label>Permissions:</label>
@@ -61,7 +61,7 @@
         class="btn btn-primary"
         buttonTitle="copy"
         @click="copyNotes()"
-        :disabled="!permissions || !agentName || !contact"
+        :disabled="!permissions || !storeState.agentName || !storeState.contact"
       />
     </div>
 
@@ -74,6 +74,7 @@
 </template>
 
 <script>
+import { store } from "../store/store.js";
 import LabelInputs from "./LabelInputs";
 import Button from "./Button";
 import Tooltip from "./Tooltip";
@@ -81,8 +82,8 @@ import Modal from "./Modal";
 
 export default {
   data: () => ({
-    agentName: "",
-    contact: "",
+    storeState: store.state.notes,
+    // contact: "",
     permissions: "",
     summary: "",
     devices: "",
@@ -141,7 +142,7 @@ export default {
       this.displayNotificationSuccess();
     },
     clearNotes() {
-      this.contact = "";
+      this.storeState.contact = "";
       this.permissions = "";
       this.summary = "";
       this.devices = "";
@@ -164,20 +165,27 @@ export default {
     }
   },
   watch: {
-    agentName: {
+    storeState: {
       handler() {
-        console.log("Updated agentName to: " + this.agentName);
-        localStorage.setItem("agentName", JSON.stringify(this.agentName));
+        // console.log("Updated storeState to: " + this.storeState.agentName);
+        localStorage.setItem(
+          "storeState.agentName",
+          JSON.stringify(this.storeState.agentName)
+        );
+        localStorage.setItem(
+          "storeState.contact",
+          JSON.stringify(this.storeState.contact)
+        );
       },
       deep: true
     },
-    contact: {
-      handler() {
-        console.log("Updated contact to: " + this.contact);
-        localStorage.setItem("contact", JSON.stringify(this.contact));
-      },
-      deep: true
-    },
+    // contact: {
+    //   handler() {
+    //     console.log("Updated contact to: " + this.contact);
+    //     localStorage.setItem("contact", JSON.stringify(this.contact));
+    //   },
+    //   deep: true
+    // },
     permissions: {
       handler() {
         console.log("Updated permissions to: " + this.permissions);
@@ -232,10 +240,16 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.getItem("agentName"))
-      this.agentName = JSON.parse(localStorage.getItem("agentName"));
-    if (localStorage.getItem("contact"))
-      this.contact = JSON.parse(localStorage.getItem("contact"));
+    if (localStorage.getItem("storeState.agentName"))
+      this.storeState.agentName = JSON.parse(
+        localStorage.getItem("storeState.agentName")
+      );
+
+    if (localStorage.getItem("storeState.contact"))
+      this.storeState.contact = JSON.parse(
+        localStorage.getItem("storeState.contact")
+      );
+
     if (localStorage.getItem("permissions"))
       this.permissions = JSON.parse(localStorage.getItem("permissions"));
     if (localStorage.getItem("summary"))

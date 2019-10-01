@@ -3,7 +3,7 @@
     <div class="title">Fraud | Sherlock</div>
     <div class="line">------------------------------------------------------</div>
     <label>Agent Name | {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
-    <textarea-autosize rows="1" v-model="fraudAgentName"></textarea-autosize>
+    <textarea-autosize rows="1" v-model="storeState.agentName"></textarea-autosize>
     <br>
 
     <label>Account Name:</label>
@@ -70,13 +70,14 @@
 </template>
 
 <script>
+import { store } from "../store/store.js";
 import LabelInputs from "./LabelInputs";
 import Button from "./Button";
 import Modal from "./Modal";
 
 export default {
   data: () => ({
-    fraudAgentName: "",
+    storeState: store.state.notes,
     fraudAccountName: "",
     fraudCaseNumber: "",
     fraudDomain: "",
@@ -142,12 +143,16 @@ export default {
     }
   },
   watch: {
-    fraudAgentName: {
+    storeState: {
       handler() {
-        console.log("Updated fraudAgentName to: " + this.fraudAgentName);
+        // console.log("Updated storeState to: " + this.storeState.agentName);
         localStorage.setItem(
-          "fraudAgentName",
-          JSON.stringify(this.fraudAgentName)
+          "storeState.agentName",
+          JSON.stringify(this.storeState.agentName)
+        );
+        localStorage.setItem(
+          "storeState.contact",
+          JSON.stringify(this.storeState.contact)
         );
       },
       deep: true
@@ -271,8 +276,10 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.getItem("fraudAgentName"))
-      this.fraudAgentName = JSON.parse(localStorage.getItem("fraudAgentName"));
+    if (localStorage.getItem("storeState.agentName"))
+      this.storeState.agentName = JSON.parse(
+        localStorage.getItem("storeState.agentName")
+      );
     if (localStorage.getItem("fraudAccountName"))
       this.fraudAccountName = JSON.parse(
         localStorage.getItem("fraudAccountName")

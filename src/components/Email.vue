@@ -3,7 +3,7 @@
     <div class="title">Email</div>
     <div class="line">------------------------------------------------------</div>
     <label>Agent Name | {{ new Date() | moment("dddd, MMMM Do YYYY") }}</label>
-    <textarea-autosize rows="1" v-model="emailAgentName"></textarea-autosize>
+    <textarea-autosize rows="1" v-model="storeState.agentName"></textarea-autosize>
     <br>
 
     <label>Contact Name / (Admin/User/Partner):</label>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { store } from "../store/store.js";
 import LabelInputs from "./LabelInputs";
 import Button from "./Button";
 import Modal from "./Modal";
@@ -39,7 +40,7 @@ import Tooltip from "./Tooltip";
 
 export default {
   data: () => ({
-    emailAgentName: "",
+    storeState: store.state.notes,
     emailContact: "",
     emailReceived: "",
     emailReply: "",
@@ -77,7 +78,7 @@ export default {
       this.displayNotificationSuccess();
     },
     clearNotes() {
-      this.emailContact = "";
+      this.contact = "";
       this.emailReceived = "";
       this.emailReply = "";
       document.getElementById("contact").focus();
@@ -93,12 +94,16 @@ export default {
     }
   },
   watch: {
-    emailAgentName: {
+    storeState: {
       handler() {
-        console.log("Updated emailAgentName to: " + this.emailAgentName);
+        // console.log("Updated storeState to: " + this.storeState.agentName);
         localStorage.setItem(
-          "emailAgentName",
-          JSON.stringify(this.emailAgentName)
+          "storeState.agentName",
+          JSON.stringify(this.storeState.agentName)
+        );
+        localStorage.setItem(
+          "storeState.contact",
+          JSON.stringify(this.storeState.contact)
         );
       },
       deep: true
@@ -130,8 +135,10 @@ export default {
   },
   mounted() {
     // console.log("App mounted");
-    if (localStorage.getItem("emailAgentName"))
-      this.emailAgentName = JSON.parse(localStorage.getItem("emailAgentName"));
+    if (localStorage.getItem("storeState.agentName"))
+      this.storeState.agentName = JSON.parse(
+        localStorage.getItem("storeState.agentName")
+      );
     if (localStorage.getItem("emailContact"))
       this.emailContact = JSON.parse(localStorage.getItem("emailContact"));
     if (localStorage.getItem("emailReceived"))

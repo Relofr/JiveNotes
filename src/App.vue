@@ -188,7 +188,7 @@ export default {
       blueTunic: false,
       redTunic: false,
       showModal: false,
-      showThemes: false
+      showThemes: true
     };
   },
   components: {
@@ -344,10 +344,13 @@ export default {
   },
   created() {
     window.addEventListener("scroll", this.toTop);
-    // var self = this;
-    // setTimeout(function() {
-    //   self.location.forceUpdate(true);
-    // }, 5);
+    if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      console.log("Firefox");
+      alert("JiveNotes will not work in Firefox, please use Chrome");
+    }
+    if (navigator.userAgent.indexOf("Chrome") !== -1) {
+      console.log("Chrome");
+    }
   },
   destroyed() {
     window.removeEventListener("scroll", this.toTop);
@@ -358,13 +361,14 @@ export default {
       this.isLoading = false;
     }, 2800);
 
-    if (navigator.userAgent.indexOf("Firefox") !== -1) {
-      console.log("Firefox");
-      alert("JiveNotes will not work in Firefox, please use Chrome")
+    var i;
+    console.log("local storage");
+    for (i = 0; i < localStorage.length; i++) {
+      console.log(
+        localStorage.key(i) + " = " + localStorage.getItem(localStorage.key(i))
+      );
     }
-    if (navigator.userAgent.indexOf("Chrome") !== -1) {
-      console.log("Chrome");
-    }
+
     if (localStorage.getItem("color"))
       this.color = JSON.parse(localStorage.getItem("color"));
     if (localStorage.getItem("colorBG"))
@@ -752,5 +756,6 @@ label {
 #theme-arrow {
   font-size: 24px;
   vertical-align: bottom;
+  cursor: pointer;
 }
 </style>
