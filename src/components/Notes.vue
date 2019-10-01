@@ -83,7 +83,6 @@ import Modal from "./Modal";
 export default {
   data: () => ({
     storeState: store.state.notes,
-    // contact: "",
     permissions: "",
     summary: "",
     devices: "",
