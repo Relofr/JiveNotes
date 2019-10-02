@@ -510,7 +510,8 @@ input:not([type]):focus:not([readonly]) {
 
 label,
 span {
-  font-size: 12px;
+  font-size: 14px;
+  color: #f5f5f5;
 }
 input,
 textarea {
@@ -757,5 +758,9 @@ label {
   font-size: 24px;
   vertical-align: bottom;
   cursor: pointer;
+}
+
+.extra-notes > li {
+  padding-left: 15px;
 }
 </style>

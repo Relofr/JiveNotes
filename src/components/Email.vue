@@ -10,13 +10,13 @@
     <textarea-autosize id="contact" rows="1" v-model="emailContact"></textarea-autosize>
     <br>
 
-    <label>Email Received:</label>
+    <label>Summary of Email Received:</label>
     <textarea-autosize v-model="emailReceived" rows="1"></textarea-autosize>
     <br>
 
     <Tooltip @copyReply="copyReply" tooltip="true" tooltipIcon="file_copy" moreInfo="Copy Reply"/>
 
-    <label>My Reply:</label>
+    <label>Summary of My Reply:</label>
     <textarea-autosize id="replyText" placeholder v-model="emailReply" rows="1"></textarea-autosize>
     <div class="line">------------------------------------------------------</div>
     <div class="buttons">

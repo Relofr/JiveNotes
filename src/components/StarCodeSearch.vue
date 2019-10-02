@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="title">Star Codes</div>
+
     <div class="search">
       <input
         autocomplete="off"
@@ -15,6 +16,13 @@
       <i id="search-icon" class="material-icons">search</i>
     </div>
 
+    <span class="no-select">Below are some extra functions that can be used on the Jive system.</span>
+    <ul class="extra-notes">
+      <li>Dial 0 in front of an extension, such as 0111, to be directed straight to that extension’s voicemail.</li>
+      <li>Press the asterisk (*) while listening to a voicemail greeting to gain access to that extension’s voicemail box. This is useful when a user wants to listen to their messages but doesn't have access to a Jive phone.</li>
+      <li>Dial 611 from a Jive phone to dial Jive Support.</li>
+    </ul>
+
     <table id="customers" class="text">
       <tr>
         <th>Code</th>
@@ -26,14 +34,7 @@
         <td>{{ starCode.starDesc }}</td>
       </tr>
     </table>
-    <div>
-      <span>Below are some extra functions that can be used on the Jive system.</span>
-      <ul class="star-code-extra">
-        <li>Dial 0 in front of an extension, such as 0111, to be directed straight to that extension’s voicemail.</li>
-        <li>Press the asterisk (*) while listening to a voicemail greeting to gain access to that extension’s voicemail box. This is useful when a user wants to listen to their messages but doesn't have access to a Jive phone.</li>
-        <li>Dial 611 from a Jive phone to dial Jive Support.</li>
-      </ul>
-    </div>
+
     <div id="error_four" v-if="filterredStarCodes.length === 0">
       <div class="error-title">404: Star Code Not Found</div>
       <img id="gif" src="../assets/stormtrooper.gif">
@@ -70,7 +71,7 @@ export default {
 };
 </script>
 
-<style lang='less' scoped>
+<style lang='less'>
 .search {
   text-align: center;
   margin: 20px 0px 60px 0px;
@@ -172,7 +173,8 @@ td:nth-child(4) {
   min-width: 100px;
 }
 
+ul,
 li {
-  padding-left: 20px;
+  color: #f5f5f5;
 }
 </style>
